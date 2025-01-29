@@ -1,2 +1,2 @@
 # Study materials and source code for **Droidcon Academy** course 
-> # Add Course Name 
+> # Master Screenshot Testing on Android: Comparing Paparazzi, Roborazzi, and Compose Preview Tools
