@@ -1,3 +1,5 @@
+package com.droidcon.flavorshub.ui
+
 import android.content.res.Configuration
 import android.icu.text.NumberFormat
 import androidx.compose.foundation.BorderStroke
@@ -5,6 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,8 +24,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.outlined.AccountBox
 import androidx.compose.material.icons.outlined.Check
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
@@ -35,6 +38,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -52,36 +56,9 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.droidcon.flavorshub.R
-import com.droidcon.flavorshub.ui.theme.FlavorshubTheme
-import com.droidcon.flavorshub.ui.viewmodels.HomeViewModel
-
-enum class Type(
-    val icon: Int,
-    val text: String,
-) {
-    MEAT(
-        icon = R.drawable.ic_meat_50,
-        text = "Meat"
-    ),
-    FISH(
-        icon = R.drawable.ic_fish_50,
-        text = "Fish"
-    ),
-    VEGAN(
-        icon = R.drawable.ic_vegan_50,
-        text = "Vegan"
-    )
-}
-
-data class Recipe(
-    val name: String,
-    val cookingTimeInMin: Int,
-    val shortDescription: String,
-    val type: Type,
-    val imageUrl: String,
-    // these 2 down are user related
-    val isFavourite: Boolean
-)
+import com.droidcon.flavorshub.viewmodels.HomeViewModel
+import com.droidcon.flavorshub.viewmodels.HomeViewModel.UiState.Success
+import com.droidcon.flavorshub.viewmodels.model.Recipe
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -89,83 +66,88 @@ fun HomeScreenViewModel(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     //val recipe = viewModel.recipes[0]
-    FlavorshubTheme {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = {
-                        Text("Flavorshub")
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(),
-                    modifier = Modifier,
-                )
-            },
-            bottomBar = {
-                val items = listOf("Home", "Favourites")
-                val icons = listOf(Icons.Default.Home, Icons.Default.Favorite)
-                NavigationBar {
-                    items.forEachIndexed { index, item ->
-                        NavigationBarItem(
-                            icon = { Icon(icons[index], contentDescription = item) },
-                            label = { Text(item) },
-                            selected = 0 == index,
-                            onClick = {}
-                        )
+
+    when (viewModel.uiState) {
+        is Success -> {
+            val recipes = (viewModel.uiState as Success).recipes
+            Scaffold(
+                topBar = {
+                    TopAppBar(
+                        title = {
+                            Text("Flavorshub")
+                        },
+                        colors = TopAppBarDefaults.topAppBarColors(),
+                        modifier = Modifier,
+                    )
+                },
+                bottomBar = {
+                    val items = listOf("Home", "Favourites")
+                    val icons = listOf(Icons.Default.Home, Icons.Default.Favorite)
+                    NavigationBar {
+                        items.forEachIndexed { index, item ->
+                            NavigationBarItem(
+                                icon = { Icon(icons[index], contentDescription = item) },
+                                label = { Text(item) },
+                                selected = 0 == index,
+                                onClick = {}
+                            )
+                        }
                     }
-                }
-            },
-            content = { padding ->
-                Column(
-                    modifier = Modifier.padding(padding)
-                ) {
-                    // TODO -> convert this to LazyRow
-                    Row(
-                        modifier = Modifier
-                            .horizontalScroll(state = rememberScrollState())
-                            .padding(horizontal = 16.dp),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                },
+                content = { padding ->
+                    Column(
+                        modifier = Modifier.padding(padding)
                     ) {
-
-                        // These will be dynamically created
-                        FoodFilterChip(
-                            text = "Vegan",
-                            isSelected = true,
-                            onClick = {}
-                        )
-
-                        // These will be dynamically created
-                        FoodFilterChip(
-                            text = "Fish",
-                            isSelected = false,
-                            onClick = {}
-                        )
-                        FoodFilterChip(
-                            text = "Meat",
-                            isSelected = true,
-                            onClick = {}
-                        )
-                    }
-
-                    LazyColumn(
-                        modifier = Modifier
-                            .padding(horizontal = 16.dp)
-                            .padding(top = 16.dp),
-                        verticalArrangement = Arrangement.spacedBy(16.dp)
-                    ) {
-                        items(viewModel.recipes.size) { index ->
-                            RecipeCard(
-                                modifier = Modifier,
-                                recipe = viewModel.recipes[index]
-                            ) {
-                                // TODO -> Handle click on recipe
-                            }
+                        // TODO -> convert this to LazyRow
+                        Row(
+                            modifier = Modifier
+                                .horizontalScroll(state = rememberScrollState())
+                                .padding(horizontal = 16.dp),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            // These will be dynamically created
+                            FoodFilterChip(
+                                text = "Vegan",
+                                isSelected = true,
+                                onClick = {}
+                            )
+                            // These will be dynamically created
+                            FoodFilterChip(
+                                text = "Fish",
+                                isSelected = false,
+                                onClick = {}
+                            )
+                            FoodFilterChip(
+                                text = "Meat",
+                                isSelected = true,
+                                onClick = {}
+                            )
                         }
 
-                        item { Spacer(modifier = Modifier.height(8.dp)) }
+                        LazyColumn(
+                            modifier = Modifier
+                                .padding(horizontal = 16.dp)
+                                .padding(top = 16.dp),
+                            verticalArrangement = Arrangement.spacedBy(16.dp)
+                        ) {
+                            items(recipes.size) { index ->
+                                val recipeUi = recipes[index]
+                                RecipeCard(
+                                    modifier = Modifier,
+                                    recipe = recipeUi.recipe,
+                                    isFavourite = recipeUi.isFavourite,
+                                    onFavouriteClick = { viewModel.toggleFavorite(recipeUi.recipe.id) }
+                                ) {
+                                    // TODO -> Handle click on recipe
+                                }
+                            }
+
+                            item { Spacer(modifier = Modifier.height(8.dp)) }
+                        }
                     }
                 }
-            }
-        )
+            )
+        }
     }
 }
 
@@ -199,6 +181,8 @@ fun FoodFilterChip(
 fun RecipeCard(
     modifier: Modifier = Modifier,
     recipe: Recipe,
+    isFavourite: Boolean,
+    onFavouriteClick: (Int) -> Unit,
     onClick: () -> Unit
 ) {
     OutlinedCard(
@@ -223,8 +207,9 @@ fun RecipeCard(
                     fontSize = 18.sp
                 )
                 FavouriteIcon(
-                    isFavourite = recipe.isFavourite
-                ) { }
+                    isFavourite = isFavourite,
+                    onClick = { onFavouriteClick(recipe.id) }
+                )
             }
 
             RecipeImage(
@@ -318,7 +303,11 @@ fun FavouriteIcon(
         false -> R.drawable.ic_baseline_favorite_border_24
     }
     Icon(
-        modifier = modifier.clickable(onClick = onClick),
+        modifier = modifier.clickable(
+            interactionSource = remember { MutableInteractionSource() },
+            indication = rememberRipple(bounded = false),
+            onClick = onClick
+        ),
         imageVector = ImageVector.vectorResource(id = icon),
         contentDescription = "Favourite",
         tint = MaterialTheme.colorScheme.error
