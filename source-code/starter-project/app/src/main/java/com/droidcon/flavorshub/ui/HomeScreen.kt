@@ -2,7 +2,10 @@ package com.droidcon.flavorshub.ui
 
 import android.content.res.Configuration
 import android.icu.text.NumberFormat
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -19,6 +22,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -46,6 +50,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
@@ -56,99 +61,134 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.droidcon.flavorshub.R
+import com.droidcon.flavorshub.ui.theme.FlavorshubTheme
 import com.droidcon.flavorshub.viewmodels.HomeViewModel
+import com.droidcon.flavorshub.viewmodels.HomeViewModel.NavItem
+import com.droidcon.flavorshub.viewmodels.HomeViewModel.RecipeUi
 import com.droidcon.flavorshub.viewmodels.HomeViewModel.UiState.Success
 import com.droidcon.flavorshub.viewmodels.model.Recipe
+import com.droidcon.flavorshub.viewmodels.model.Type
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreenViewModel(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
-    //val recipe = viewModel.recipes[0]
 
     when (viewModel.uiState) {
         is Success -> {
-            val recipes = (viewModel.uiState as Success).recipes
-            Scaffold(
-                topBar = {
-                    TopAppBar(
-                        title = {
-                            Text("Flavorshub")
-                        },
-                        colors = TopAppBarDefaults.topAppBarColors(),
-                        modifier = Modifier,
-                    )
-                },
-                bottomBar = {
-                    val items = listOf("Home", "Favourites")
-                    val icons = listOf(Icons.Default.Home, Icons.Default.Favorite)
-                    NavigationBar {
-                        items.forEachIndexed { index, item ->
-                            NavigationBarItem(
-                                icon = { Icon(icons[index], contentDescription = item) },
-                                label = { Text(item) },
-                                selected = 0 == index,
-                                onClick = {}
-                            )
-                        }
-                    }
-                },
-                content = { padding ->
-                    Column(
-                        modifier = Modifier.padding(padding)
-                    ) {
-                        // TODO -> convert this to LazyRow
-                        Row(
-                            modifier = Modifier
-                                .horizontalScroll(state = rememberScrollState())
-                                .padding(horizontal = 16.dp),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp)
-                        ) {
-                            // These will be dynamically created
-                            FoodFilterChip(
-                                text = "Vegan",
-                                isSelected = true,
-                                onClick = {}
-                            )
-                            // These will be dynamically created
-                            FoodFilterChip(
-                                text = "Fish",
-                                isSelected = false,
-                                onClick = {}
-                            )
-                            FoodFilterChip(
-                                text = "Meat",
-                                isSelected = true,
-                                onClick = {}
-                            )
-                        }
-
-                        LazyColumn(
-                            modifier = Modifier
-                                .padding(horizontal = 16.dp)
-                                .padding(top = 16.dp),
-                            verticalArrangement = Arrangement.spacedBy(16.dp)
-                        ) {
-                            items(recipes.size) { index ->
-                                val recipeUi = recipes[index]
-                                RecipeCard(
-                                    modifier = Modifier,
-                                    recipe = recipeUi.recipe,
-                                    isFavourite = recipeUi.isFavourite,
-                                    onFavouriteClick = { viewModel.toggleFavorite(recipeUi.recipe.id) }
-                                ) {
-                                    // TODO -> Handle click on recipe
-                                }
-                            }
-
-                            item { Spacer(modifier = Modifier.height(8.dp)) }
-                        }
-                    }
-                }
+            val state = viewModel.uiState as Success
+            SuccessMainScreen(
+                recipes = state.recipes,
+                selectedNavItem = state.selectedNavItem,
+                onHomeNavItemClicked = { viewModel.onHomeScreenNavClicked() },
+                onFavoriteNavItemClicked = { viewModel.onFavouritesNavClicked() },
+                onToggleFavorite = { id -> viewModel.toggleFavorite(id) }
             )
         }
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
+@Composable
+fun SuccessMainScreen(
+    recipes: List<RecipeUi>,
+    selectedNavItem: NavItem,
+    onHomeNavItemClicked: () -> Unit,
+    onFavoriteNavItemClicked: () -> Unit,
+    onToggleFavorite: (Int) -> Unit
+) {
+    val homeScrollState = rememberLazyListState()
+    val favoritesScrollState = rememberLazyListState()
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Flavorshub") },
+                colors = TopAppBarDefaults.topAppBarColors(),
+                modifier = Modifier,
+            )
+        },
+        bottomBar = {
+            NavigationBar {
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
+                    label = { Text("Home") },
+                    selected = selectedNavItem == NavItem.HOME,
+                    onClick = onHomeNavItemClicked
+                )
+
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.Favorite, contentDescription = "Favorites") },
+                    label = { Text("Favorites") },
+                    selected = selectedNavItem == NavItem.FAVOURITES,
+                    onClick = onFavoriteNavItemClicked
+                )
+            }
+        },
+        content = { padding ->
+            Column(
+                modifier = Modifier.padding(padding)
+            ) {
+                // TODO -> convert this to LazyRow
+                Row(
+                    modifier = Modifier
+                        .horizontalScroll(state = rememberScrollState())
+                        .padding(horizontal = 16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    // These will be dynamically created
+                    FoodFilterChip(
+                        text = "Vegan",
+                        isSelected = true,
+                        onClick = {}
+                    )
+                    // These will be dynamically created
+                    FoodFilterChip(
+                        text = "Fish",
+                        isSelected = false,
+                        onClick = {}
+                    )
+                    FoodFilterChip(
+                        text = "Meat",
+                        isSelected = true,
+                        onClick = {}
+                    )
+                }
+
+                LazyColumn(
+                    state = when(selectedNavItem){
+                        NavItem.HOME -> homeScrollState
+                        NavItem.FAVOURITES -> favoritesScrollState
+                    },
+                    modifier = Modifier
+                        .padding(horizontal = 16.dp)
+                        .padding(top = 16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    items(recipes.size) { index ->
+                        val recipeUi = recipes[index]
+                        RecipeCard(
+                            modifier = Modifier
+                                .animateItemPlacement(
+                                    animationSpec = tween(
+                                        durationMillis = 300,
+                                        easing = FastOutSlowInEasing
+                                    )
+                                ),
+                            recipe = recipeUi.recipe,
+                            isFavourite = recipeUi.isFavourite,
+                            onFavouriteClick = { onToggleFavorite(recipeUi.recipe.id) }
+                        ) {
+                            // TODO -> Handle click on recipe
+                        }
+                    }
+
+                    item { Spacer(modifier = Modifier.height(8.dp)) }
+                }
+            }
+        }
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -331,8 +371,12 @@ fun RecipeImage(
                 shape = RoundedCornerShape(12.dp)
             )
     ) {
+
         Image(
-            painter = rememberAsyncImagePainter(imageUrl),
+            painter = when (LocalInspectionMode.current) {
+                true -> painterResource(id = R.drawable.americano_small)
+                false -> rememberAsyncImagePainter(model = imageUrl)
+            },
             contentDescription = "Hello",
             contentScale = ContentScale.FillWidth,
             modifier = Modifier
@@ -349,5 +393,36 @@ fun RecipeImage(
 //@Preview(locale = "ar")
 @Composable
 fun HomeScreenPreview() {
-
+    FlavorshubTheme {
+        SuccessMainScreen(
+            recipes = listOf(
+                RecipeUi(
+                    recipe = Recipe(
+                        id = 1,
+                        name = "Recipe 1",
+                        shortDescription = "Description 1",
+                        cookingTimeInMin = 30,
+                        type = Type.MEAT,
+                        imageUrl = "https://example.com/recipe1.jpg"
+                    ),
+                    isFavourite = false
+                ),
+                RecipeUi(
+                    recipe = Recipe(
+                        id = 2,
+                        name = "Recipe 1",
+                        shortDescription = "Description 1",
+                        cookingTimeInMin = 30,
+                        type = Type.MEAT,
+                        imageUrl = "https://example.com/recipe1.jpg"
+                    ),
+                    isFavourite = true
+                )
+            ),
+            selectedNavItem = NavItem.HOME,
+            onHomeNavItemClicked = {},
+            onFavoriteNavItemClicked = {},
+            onToggleFavorite = {}
+        )
+    }
 }
