@@ -68,13 +68,14 @@ import com.droidcon.flavorshub.viewmodels.HomeViewModel
 import com.droidcon.flavorshub.model.BottomNavItem
 import com.droidcon.flavorshub.model.BottomNavItem.FAVOURITES
 import com.droidcon.flavorshub.model.BottomNavItem.HOME
-import com.droidcon.flavorshub.viewmodels.HomeViewModel.UiState.Success
+import com.droidcon.flavorshub.viewmodels.HomeViewModel.UiState.Content
 import com.droidcon.flavorshub.model.Recipe
 import com.droidcon.flavorshub.model.RecipeCardItem
 import com.droidcon.flavorshub.model.Type
 import com.droidcon.flavorshub.model.Type.FISH
 import com.droidcon.flavorshub.model.Type.MEAT
 import com.droidcon.flavorshub.model.Type.VEGAN
+import com.droidcon.flavorshub.viewmodels.HomeViewModel.UiState.Empty
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -82,8 +83,8 @@ fun HomeScreenViewModel(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     when (viewModel.uiState) {
-        is Success -> {
-            val state = viewModel.uiState as Success
+        is Content -> {
+            val state = viewModel.uiState as Content
             SuccessMainScreen(
                 recipes = state.recipes,
                 selectedBottomNavItem = state.selectedNavItem,
@@ -93,22 +94,27 @@ fun HomeScreenViewModel(
                 onToggleFavorite = { id -> viewModel.toggleFavorite(id) }
             )
         }
+        is Empty -> {
+            val state = viewModel.uiState as Empty
+            EmptyMainScreen(
+                selectedBottomNavItem = state.selectedNavItem,
+                selectedFilters = state.selectedRecipeFilter,
+                onToggleFilter = { filter -> viewModel.toggleFilter(filter) },
+                onBottomNavItemClicked = { navItem -> viewModel.onNavItemClick(navItem) }
+            )
+        }
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
-fun SuccessMainScreen(
-    recipes: List<RecipeCardItem>,
+fun ScaffoldMainScreen(
     selectedBottomNavItem: BottomNavItem,
     selectedFilters: List<Type>,
     onBottomNavItemClicked: (BottomNavItem) -> Unit,
     onToggleFilter: (Type) -> Unit,
-    onToggleFavorite: (Int) -> Unit
+    content: @Composable () -> Unit,
 ) {
-    val homeScrollState = rememberLazyListState()
-    val favoritesScrollState = rememberLazyListState()
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -163,40 +169,92 @@ fun SuccessMainScreen(
                         onClick = { onToggleFilter(VEGAN) }
                     )
                 }
-
-                LazyColumn(
-                    state = when (selectedBottomNavItem) {
-                        HOME -> homeScrollState
-                        FAVOURITES -> favoritesScrollState
-                    },
-                    modifier = Modifier
-                        .padding(horizontal = 16.dp)
-                        .padding(top = 16.dp),
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
-                ) {
-                    items(recipes.size) { index ->
-                        val recipeUi = recipes[index]
-                        RecipeCard(
-                            modifier = Modifier
-                                .animateItemPlacement(
-                                    animationSpec = tween(
-                                        durationMillis = 300,
-                                        easing = FastOutSlowInEasing
-                                    )
-                                ),
-                            recipe = recipeUi.recipe,
-                            isFavourite = recipeUi.isFavourite,
-                            onFavouriteClick = { onToggleFavorite(recipeUi.recipe.id) }
-                        ) {
-                            // TODO -> Handle click on recipe
-                        }
-                    }
-
-                    item { Spacer(modifier = Modifier.height(8.dp)) }
-                }
+                content()
             }
         }
     )
+}
+
+@Composable
+fun EmptyMainScreen(
+    selectedBottomNavItem: BottomNavItem,
+    selectedFilters: List<Type>,
+    onBottomNavItemClicked: (BottomNavItem) -> Unit,
+    onToggleFilter: (Type) -> Unit
+) {
+    ScaffoldMainScreen(
+        selectedBottomNavItem = selectedBottomNavItem,
+        selectedFilters = selectedFilters,
+        onBottomNavItemClicked = { onBottomNavItemClicked(it) },
+        onToggleFilter = { onToggleFilter(it) }
+    ) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.empty_recipes),
+                contentDescription = "Empty recipes illustration",
+                contentScale = ContentScale.FillBounds,
+                modifier = Modifier.size(200.dp)
+            )
+            Spacer(modifier = Modifier.height(24.dp))
+            Text("No recipes found")
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
+@Composable
+fun SuccessMainScreen(
+    recipes: List<RecipeCardItem>,
+    selectedBottomNavItem: BottomNavItem,
+    selectedFilters: List<Type>,
+    onBottomNavItemClicked: (BottomNavItem) -> Unit,
+    onToggleFilter: (Type) -> Unit,
+    onToggleFavorite: (Int) -> Unit
+) {
+    val homeScrollState = rememberLazyListState()
+    val favoritesScrollState = rememberLazyListState()
+
+    ScaffoldMainScreen(
+        selectedBottomNavItem = selectedBottomNavItem,
+        selectedFilters = selectedFilters,
+        onBottomNavItemClicked = { onBottomNavItemClicked(it) },
+        onToggleFilter = { onToggleFilter(it) }
+    ) {
+        LazyColumn(
+            state = when (selectedBottomNavItem) {
+                HOME -> homeScrollState
+                FAVOURITES -> favoritesScrollState
+            },
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .padding(top = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            items(recipes.size) { index ->
+                val recipeUi = recipes[index]
+                RecipeCard(
+                    modifier = Modifier
+                        .animateItemPlacement(
+                            animationSpec = tween(
+                                durationMillis = 300,
+                                easing = FastOutSlowInEasing
+                            )
+                        ),
+                    recipe = recipeUi.recipe,
+                    isFavourite = recipeUi.isFavourite,
+                    onFavouriteClick = { onToggleFavorite(recipeUi.recipe.id) }
+                ) {
+                    // TODO -> Handle click on recipe
+                }
+            }
+
+            item { Spacer(modifier = Modifier.height(8.dp)) }
+        }
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -400,7 +458,7 @@ fun RecipeImage(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 //@Preview(locale = "ar")
 @Composable
-fun HomeScreenPreview() {
+fun ContentScreenPreview() {
     FlavorshubTheme {
         SuccessMainScreen(
             recipes = listOf(
@@ -432,6 +490,21 @@ fun HomeScreenPreview() {
             selectedFilters = listOf(MEAT),
             onBottomNavItemClicked = {},
             onToggleFavorite = {}
+        )
+    }
+}
+
+@Preview
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+//@Preview(locale = "ar")
+@Composable
+fun EmptyScreenPreview() {
+    FlavorshubTheme {
+        EmptyMainScreen(
+            selectedBottomNavItem = HOME,
+            onToggleFilter = {},
+            selectedFilters = listOf(MEAT),
+            onBottomNavItemClicked = {},
         )
     }
 }

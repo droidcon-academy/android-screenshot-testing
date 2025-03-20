@@ -9,19 +9,22 @@ import com.droidcon.flavorshub.model.BottomNavItem.FAVOURITES
 import com.droidcon.flavorshub.model.BottomNavItem.HOME
 import com.droidcon.flavorshub.model.RecipeCardItem
 import com.droidcon.flavorshub.model.Type
-import com.droidcon.flavorshub.viewmodels.HomeViewModel.UiState.Success
+import com.droidcon.flavorshub.viewmodels.HomeViewModel.UiState.*
+import com.droidcon.flavorshub.viewmodels.HomeViewModel.UiState.Content
 
 class HomeViewModel : ViewModel() {
 
     sealed class UiState {
-        data class Success(
+        data class Content(
             val selectedRecipeFilter: List<Type>,
             val recipes: List<RecipeCardItem>,
             val selectedNavItem: BottomNavItem
         ) : UiState()
-        // TODO - check which states are necessary
-        // object Loading : UiState()
-        // data class Error(val message: String) : UiState()
+
+        data class Empty(
+            val selectedRecipeFilter: List<Type>,
+            val selectedNavItem: BottomNavItem
+        ) : UiState()
     }
 
     private val recipesRepo = RecipesRepo()
@@ -30,7 +33,7 @@ class HomeViewModel : ViewModel() {
     private var selectedRecipeFilter: List<Type> = Type.entries.toList()
 
     var uiState by mutableStateOf<UiState>(
-        Success(
+        Content(
             selectedRecipeFilter = selectedRecipeFilter,
             recipes = fetchedRecipes,
             selectedNavItem = HOME
@@ -45,49 +48,35 @@ class HomeViewModel : ViewModel() {
                 else -> recipeUi
             }
         }
-        uiState = Success(
-            selectedRecipeFilter,
-            navItemRecipes(selectedBottomNavItem),
-            selectedBottomNavItem
-        )
+        uiState = computeUiState()
     }
 
     fun toggleFilter(recipeFilter: Type) {
         selectedRecipeFilter =
-            if (selectedRecipeFilter.contains(recipeFilter)) {
-                selectedRecipeFilter.minus(recipeFilter)
-            } else {
-                selectedRecipeFilter.plus(recipeFilter)
+            when (selectedRecipeFilter.contains(recipeFilter)) {
+                true -> selectedRecipeFilter.minus(recipeFilter)
+                false -> selectedRecipeFilter.plus(recipeFilter)
             }
-
-        uiState = Success(
-            selectedRecipeFilter,
-            navItemRecipes(selectedBottomNavItem),
-            selectedBottomNavItem
-        )
+        uiState = computeUiState()
     }
 
-    // TODO - create separate list for favourites -> favourites displayed in "favourite" order
+    private fun computeUiState(): UiState {
+        val content = navItemRecipes(selectedBottomNavItem)
+        return when (content.isEmpty()) {
+            true -> Empty(selectedRecipeFilter, selectedBottomNavItem)
+            false -> Content(selectedRecipeFilter, content, selectedBottomNavItem)
+        }
+    }
+
+    fun onNavItemClick(bottomNavItem: BottomNavItem) {
+        selectedBottomNavItem = bottomNavItem
+        uiState = computeUiState()
+    }
+
     private fun navItemRecipes(bottomNavItem: BottomNavItem): List<RecipeCardItem> =
         when (bottomNavItem) {
             HOME -> fetchedRecipes
             FAVOURITES -> fetchedRecipes.filter { it.isFavourite }
         }
             .filter { selectedRecipeFilter.contains(it.recipe.type) }
-
-    fun onNavItemClick(bottomNavItem: BottomNavItem) {
-        selectedBottomNavItem = bottomNavItem
-        uiState = Success(
-            selectedRecipeFilter,
-            navItemRecipes(selectedBottomNavItem),
-            selectedBottomNavItem
-        )
-    }
-
-    /* TODO
-    val filteredRecipes
-        get() =
-            if (selectedFilters.isEmpty()) recipes
-            else recipes.filter { selectedFilters.contains(it.type) }
-     */
 }
