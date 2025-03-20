@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Flavorshub</string>
+
+    <string name="filter_meat">Meat</string>
+    <string name="filter_fish">Fish</string>
+    <string name="filter_vegan">Vegan</string>
 </resources>

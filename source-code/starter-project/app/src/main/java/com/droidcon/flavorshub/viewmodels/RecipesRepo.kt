@@ -1,15 +1,15 @@
 package com.droidcon.flavorshub.viewmodels
 
-import com.droidcon.flavorshub.viewmodels.HomeViewModel.RecipeUi
-import com.droidcon.flavorshub.viewmodels.model.Recipe
-import com.droidcon.flavorshub.viewmodels.model.Type
+import com.droidcon.flavorshub.model.Recipe
+import com.droidcon.flavorshub.model.RecipeCardItem
+import com.droidcon.flavorshub.model.Type
 
 class RecipesRepo {
 
-    fun fetchRecipes(): List<RecipeUi> =
+    fun fetchRecipes(): List<RecipeCardItem> =
         listOf(
             // VEGAN RECIPES
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 0,
                     name = "Vegan Buddha Bowl",
@@ -20,7 +20,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 1,
                     name = "Mushroom Risotto",
@@ -31,7 +31,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 2,
                     name = "Avocado Toast",
@@ -42,7 +42,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 3,
                     name = "Vegetable Curry",
@@ -53,7 +53,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 4,
                     name = "Stuffed Bell Peppers",
@@ -64,7 +64,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 5,
                     name = "Sweet Potato Tacos",
@@ -75,7 +75,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 6,
                     name = "Chickpea Masala",
@@ -86,7 +86,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 7,
                     name = "Lentil Soup",
@@ -97,7 +97,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 8,
                     name = "Roasted Vegetable Salad",
@@ -108,7 +108,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 9,
                     name = "Quinoa Salad",
@@ -121,7 +121,7 @@ class RecipesRepo {
             ),
 
             // FISH RECIPES
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 10,
                     name = "Grilled Salmon",
@@ -132,7 +132,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 11,
                     name = "Tuna Poke Bowl",
@@ -143,7 +143,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 12,
                     name = "Fish Tacos",
@@ -154,7 +154,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 13,
                     name = "Fish Curry",
@@ -165,7 +165,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 14,
                     name = "Lemon Herb Fish",
@@ -176,7 +176,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 15,
                     name = "Garlic Butter Shrimp",
@@ -187,7 +187,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 16,
                     name = "Seafood Pasta",
@@ -198,7 +198,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 17,
                     name = "Miso Glazed Salmon",
@@ -209,7 +209,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 18,
                     name = "Mediterranean Seafood Stew",
@@ -220,7 +220,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 19,
                     name = "Lemon Garlic Tilapia",
@@ -231,7 +231,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 20,
                     name = "Seared Ahi Tuna",
@@ -245,7 +245,7 @@ class RecipesRepo {
             ),
 
             // MEAT RECIPES
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 21,
                     name = "Beef Steak",
@@ -257,7 +257,7 @@ class RecipesRepo {
                 isFavourite = false
 
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 22,
                     name = "Chicken Parmesan",
@@ -269,7 +269,7 @@ class RecipesRepo {
                 isFavourite = false
 
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 23,
                     name = "Pork Chops",
@@ -280,7 +280,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 24,
                     name = "Beef Stroganoff",
@@ -291,7 +291,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 25,
                     name = "Lamb Curry",
@@ -302,7 +302,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 26,
                     name = "Beef Burritos",
@@ -313,7 +313,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 27,
                     name = "BBQ Ribs",
@@ -324,7 +324,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 28,
                     name = "Beef Burger",
@@ -335,7 +335,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 29,
                     name = "Roast Chicken",
@@ -346,7 +346,7 @@ class RecipesRepo {
                 ),
                 isFavourite = false
             ),
-            RecipeUi(
+            RecipeCardItem(
                 recipe = Recipe(
                     id = 30,
                     name = "Beef Stir Fry",

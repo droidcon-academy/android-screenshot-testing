@@ -4,37 +4,34 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.droidcon.flavorshub.viewmodels.HomeViewModel.NavItem.FAVOURITES
-import com.droidcon.flavorshub.viewmodels.HomeViewModel.NavItem.HOME
-import com.droidcon.flavorshub.viewmodels.model.Recipe
+import com.droidcon.flavorshub.model.BottomNavItem
+import com.droidcon.flavorshub.model.BottomNavItem.FAVOURITES
+import com.droidcon.flavorshub.model.BottomNavItem.HOME
+import com.droidcon.flavorshub.model.RecipeCardItem
+import com.droidcon.flavorshub.model.Type
+import com.droidcon.flavorshub.viewmodels.HomeViewModel.UiState.Success
 
 class HomeViewModel : ViewModel() {
-    // State for the UI
-    data class RecipeUi(
-        val recipe: Recipe,
-        val isFavourite: Boolean
-    )
 
     sealed class UiState {
         data class Success(
-            val recipes: List<RecipeUi>,
-            val selectedNavItem: NavItem
+            val selectedRecipeFilter: List<Type>,
+            val recipes: List<RecipeCardItem>,
+            val selectedNavItem: BottomNavItem
         ) : UiState()
         // TODO - check which states are necessary
         // object Loading : UiState()
         // data class Error(val message: String) : UiState()
     }
 
-    enum class NavItem {
-        HOME, FAVOURITES
-    }
-
     private val recipesRepo = RecipesRepo()
-    private var fetchedRecipes: List<RecipeUi> = recipesRepo.fetchRecipes()
-    private var selectedNavItem: NavItem = HOME
+    private var fetchedRecipes: List<RecipeCardItem> = recipesRepo.fetchRecipes()
+    private var selectedBottomNavItem: BottomNavItem = HOME
+    private var selectedRecipeFilter: List<Type> = Type.entries.toList()
 
     var uiState by mutableStateOf<UiState>(
-        UiState.Success(
+        Success(
+            selectedRecipeFilter = selectedRecipeFilter,
             recipes = fetchedRecipes,
             selectedNavItem = HOME
         )
@@ -48,25 +45,43 @@ class HomeViewModel : ViewModel() {
                 else -> recipeUi
             }
         }
-        uiState = UiState.Success(navItemRecipes(selectedNavItem), selectedNavItem)
+        uiState = Success(
+            selectedRecipeFilter,
+            navItemRecipes(selectedBottomNavItem),
+            selectedBottomNavItem
+        )
+    }
+
+    fun toggleFilter(recipeFilter: Type) {
+        selectedRecipeFilter =
+            if (selectedRecipeFilter.contains(recipeFilter)) {
+                selectedRecipeFilter.minus(recipeFilter)
+            } else {
+                selectedRecipeFilter.plus(recipeFilter)
+            }
+
+        uiState = Success(
+            selectedRecipeFilter,
+            navItemRecipes(selectedBottomNavItem),
+            selectedBottomNavItem
+        )
     }
 
     // TODO - create separate list for favourites -> favourites displayed in "favourite" order
-    private fun navItemRecipes(navItem: NavItem): List<RecipeUi> {
-        return when (navItem) {
+    private fun navItemRecipes(bottomNavItem: BottomNavItem): List<RecipeCardItem> =
+        when (bottomNavItem) {
             HOME -> fetchedRecipes
             FAVOURITES -> fetchedRecipes.filter { it.isFavourite }
         }
-    }
+            .filter { selectedRecipeFilter.contains(it.recipe.type) }
 
-    fun onHomeScreenNavClicked() {
-        selectedNavItem = HOME
-        uiState = UiState.Success(navItemRecipes(selectedNavItem), selectedNavItem)
-    }
-
-    fun onFavouritesNavClicked() {
-        selectedNavItem = FAVOURITES
-        uiState = UiState.Success(navItemRecipes(selectedNavItem), selectedNavItem)
+    fun onNavItemClick(bottomNavItem: BottomNavItem) {
+        selectedBottomNavItem = bottomNavItem
+        uiState = Success(
+            selectedRecipeFilter,
+            navItemRecipes(selectedBottomNavItem),
+            selectedBottomNavItem
+        )
     }
 
     /* TODO

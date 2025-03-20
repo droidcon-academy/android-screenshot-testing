@@ -1,4 +1,4 @@
-package com.droidcon.flavorshub.viewmodels.model
+package com.droidcon.flavorshub.model
 
 data class Recipe(
     val id: Int,

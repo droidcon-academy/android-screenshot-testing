@@ -2,6 +2,7 @@ package com.droidcon.flavorshub.ui
 
 import android.content.res.Configuration
 import android.icu.text.NumberFormat
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
@@ -52,6 +53,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -63,26 +65,31 @@ import coil.compose.rememberAsyncImagePainter
 import com.droidcon.flavorshub.R
 import com.droidcon.flavorshub.ui.theme.FlavorshubTheme
 import com.droidcon.flavorshub.viewmodels.HomeViewModel
-import com.droidcon.flavorshub.viewmodels.HomeViewModel.NavItem
-import com.droidcon.flavorshub.viewmodels.HomeViewModel.RecipeUi
+import com.droidcon.flavorshub.model.BottomNavItem
+import com.droidcon.flavorshub.model.BottomNavItem.FAVOURITES
+import com.droidcon.flavorshub.model.BottomNavItem.HOME
 import com.droidcon.flavorshub.viewmodels.HomeViewModel.UiState.Success
-import com.droidcon.flavorshub.viewmodels.model.Recipe
-import com.droidcon.flavorshub.viewmodels.model.Type
+import com.droidcon.flavorshub.model.Recipe
+import com.droidcon.flavorshub.model.RecipeCardItem
+import com.droidcon.flavorshub.model.Type
+import com.droidcon.flavorshub.model.Type.FISH
+import com.droidcon.flavorshub.model.Type.MEAT
+import com.droidcon.flavorshub.model.Type.VEGAN
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreenViewModel(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
-
     when (viewModel.uiState) {
         is Success -> {
             val state = viewModel.uiState as Success
             SuccessMainScreen(
                 recipes = state.recipes,
-                selectedNavItem = state.selectedNavItem,
-                onHomeNavItemClicked = { viewModel.onHomeScreenNavClicked() },
-                onFavoriteNavItemClicked = { viewModel.onFavouritesNavClicked() },
+                selectedBottomNavItem = state.selectedNavItem,
+                selectedFilters = state.selectedRecipeFilter,
+                onToggleFilter = { filter -> viewModel.toggleFilter(filter) },
+                onBottomNavItemClicked = { navItem -> viewModel.onNavItemClick(navItem) },
                 onToggleFavorite = { id -> viewModel.toggleFavorite(id) }
             )
         }
@@ -92,10 +99,11 @@ fun HomeScreenViewModel(
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun SuccessMainScreen(
-    recipes: List<RecipeUi>,
-    selectedNavItem: NavItem,
-    onHomeNavItemClicked: () -> Unit,
-    onFavoriteNavItemClicked: () -> Unit,
+    recipes: List<RecipeCardItem>,
+    selectedBottomNavItem: BottomNavItem,
+    selectedFilters: List<Type>,
+    onBottomNavItemClicked: (BottomNavItem) -> Unit,
+    onToggleFilter: (Type) -> Unit,
     onToggleFavorite: (Int) -> Unit
 ) {
     val homeScrollState = rememberLazyListState()
@@ -114,15 +122,15 @@ fun SuccessMainScreen(
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
                     label = { Text("Home") },
-                    selected = selectedNavItem == NavItem.HOME,
-                    onClick = onHomeNavItemClicked
+                    selected = selectedBottomNavItem == HOME,
+                    onClick = { onBottomNavItemClicked(HOME) }
                 )
 
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.Favorite, contentDescription = "Favorites") },
                     label = { Text("Favorites") },
-                    selected = selectedNavItem == NavItem.FAVOURITES,
-                    onClick = onFavoriteNavItemClicked
+                    selected = selectedBottomNavItem == FAVOURITES,
+                    onClick = { onBottomNavItemClicked(FAVOURITES) }
                 )
             }
         },
@@ -139,27 +147,27 @@ fun SuccessMainScreen(
                 ) {
                     // These will be dynamically created
                     FoodFilterChip(
-                        text = "Vegan",
-                        isSelected = true,
-                        onClick = {}
+                        text = stringResource(R.string.filter_fish),
+                        isSelected = selectedFilters.contains(FISH),
+                        onClick = { onToggleFilter(FISH) }
                     )
                     // These will be dynamically created
                     FoodFilterChip(
-                        text = "Fish",
-                        isSelected = false,
-                        onClick = {}
+                        text = stringResource(R.string.filter_meat),
+                        isSelected = selectedFilters.contains(MEAT),
+                        onClick = { onToggleFilter(MEAT) }
                     )
                     FoodFilterChip(
-                        text = "Meat",
-                        isSelected = true,
-                        onClick = {}
+                        text = stringResource(R.string.filter_vegan),
+                        isSelected = selectedFilters.contains(VEGAN),
+                        onClick = { onToggleFilter(VEGAN) }
                     )
                 }
 
                 LazyColumn(
-                    state = when(selectedNavItem){
-                        NavItem.HOME -> homeScrollState
-                        NavItem.FAVOURITES -> favoritesScrollState
+                    state = when (selectedBottomNavItem) {
+                        HOME -> homeScrollState
+                        FAVOURITES -> favoritesScrollState
                     },
                     modifier = Modifier
                         .padding(horizontal = 16.dp)
@@ -204,8 +212,8 @@ fun FoodFilterChip(
         selected = isSelected,
         onClick = onClick,
         label = { Text(text) },
-        leadingIcon = if (isSelected) {
-            {
+        leadingIcon = {
+            AnimatedVisibility(visible = isSelected) {
                 Icon(
                     modifier = Modifier.size(18.dp),
                     imageVector = Icons.Outlined.Check,
@@ -213,7 +221,7 @@ fun FoodFilterChip(
                     tint = MaterialTheme.colorScheme.onSurface
                 )
             }
-        } else null
+        }
     )
 }
 
@@ -396,7 +404,7 @@ fun HomeScreenPreview() {
     FlavorshubTheme {
         SuccessMainScreen(
             recipes = listOf(
-                RecipeUi(
+                RecipeCardItem(
                     recipe = Recipe(
                         id = 1,
                         name = "Recipe 1",
@@ -407,21 +415,22 @@ fun HomeScreenPreview() {
                     ),
                     isFavourite = false
                 ),
-                RecipeUi(
+                RecipeCardItem(
                     recipe = Recipe(
                         id = 2,
                         name = "Recipe 1",
                         shortDescription = "Description 1",
                         cookingTimeInMin = 30,
-                        type = Type.MEAT,
+                        type = MEAT,
                         imageUrl = "https://example.com/recipe1.jpg"
                     ),
                     isFavourite = true
                 )
             ),
-            selectedNavItem = NavItem.HOME,
-            onHomeNavItemClicked = {},
-            onFavoriteNavItemClicked = {},
+            selectedBottomNavItem = HOME,
+            onToggleFilter = {},
+            selectedFilters = listOf(MEAT),
+            onBottomNavItemClicked = {},
             onToggleFavorite = {}
         )
     }
