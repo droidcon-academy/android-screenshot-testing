@@ -1,10 +1,11 @@
-package com.droidcon.flavorshub.model
+package com.droidcon.flavorshub.model.screens
 
-data class Recipe(
+import com.droidcon.flavorshub.model.Type
+
+data class RecipeDetailsItem(
     val id: Int,
     val name: String,
     val cookingTimeInMin: Int,
-    val shortDescription: String,
     val type: Type,
     val imageUrl: String,
     val ingredients: List<String>,
