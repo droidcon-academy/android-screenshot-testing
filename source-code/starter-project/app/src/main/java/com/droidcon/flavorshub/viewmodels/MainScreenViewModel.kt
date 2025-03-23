@@ -11,10 +11,15 @@ import com.droidcon.flavorshub.model.screens.MainScreenRecipeItem
 import com.droidcon.flavorshub.model.Type
 import com.droidcon.flavorshub.viewmodels.MainScreenViewModel.ContentState.Content
 import com.droidcon.flavorshub.viewmodels.MainScreenViewModel.ContentState.Empty
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
+import javax.inject.Inject
 
-class MainScreenViewModel : ViewModel() {
+@HiltViewModel
+class MainScreenViewModel @Inject constructor(
+    private val recipesRepo: RecipesRepo
+) : ViewModel() {
 
     data class UiState(
         val selectedRecipeFilter: ImmutableList<Type>,
@@ -27,7 +32,6 @@ class MainScreenViewModel : ViewModel() {
         object Empty : ContentState()
     }
 
-    private val recipesRepo = RecipesRepo()
     private var fetchedRecipes: List<MainScreenRecipeItem> =
         recipesRepo.fetchRecipes().map { recipeItem ->
             val recipe = recipeItem.recipe

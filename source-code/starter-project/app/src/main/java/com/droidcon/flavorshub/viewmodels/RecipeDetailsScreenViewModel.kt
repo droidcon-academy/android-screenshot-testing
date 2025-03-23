@@ -2,10 +2,13 @@ package com.droidcon.flavorshub.viewmodels
 
 import androidx.lifecycle.ViewModel
 import com.droidcon.flavorshub.model.screens.RecipeDetailsItem
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class RecipeDetailsScreenViewModel: ViewModel() {
-
-    private val recipesRepo = RecipesRepo()
+@HiltViewModel
+class RecipeDetailsScreenViewModel @Inject constructor(
+    private val recipesRepo: RecipesRepo
+) : ViewModel() {
 
     fun fetchedRecipeById(recipeId: Int): RecipeDetailsItem {
         val recipe = recipesRepo.fetchRecipeById(recipeId).recipe

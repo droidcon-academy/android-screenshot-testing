@@ -3,8 +3,11 @@ package com.droidcon.flavorshub.viewmodels
 import com.droidcon.flavorshub.model.Recipe
 import com.droidcon.flavorshub.model.RecipeItem
 import com.droidcon.flavorshub.model.Type
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class RecipesRepo {
+@Singleton
+class RecipesRepo @Inject constructor(){
 
     private val recipes: List<RecipeItem> =
         listOf(
