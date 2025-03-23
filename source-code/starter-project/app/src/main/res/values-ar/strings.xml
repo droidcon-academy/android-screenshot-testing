@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">فليفرزهب</string>
+
+    <!-- Filter Options -->
+    <string name="filter_meat">لحوم</string>
+    <string name="filter_fish">أسماك</string>
+    <string name="filter_vegan">نباتي</string>
+
+    <!-- Bottom Navigation -->
+    <string name="bottom_nav_home">الرئيسية</string>
+    <string name="bottom_nav_Favorites">المفضلة</string>
+</resources>

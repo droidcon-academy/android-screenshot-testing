@@ -1,0 +1,229 @@
+<resources>
+    <!-- VEGAN RECIPES -->
+    <!-- Buddha Bowl Recipe -->
+    <string name="vegan_buddha_bowl_name">Vegan Buddha Bowl</string>
+    <string name="vegan_buddha_bowl_description">Colorful bowl with quinoa, roasted vegetables, and tahini dressing</string>
+    <string name="buddha_ingredient_1">1 cup quinoa, rinsed</string>
+    <string name="buddha_ingredient_2">1 sweet potato, diced</string>
+    <string name="buddha_ingredient_3">1 cup broccoli florets</string>
+    <string name="buddha_ingredient_4">1 red bell pepper, sliced</string>
+    <string name="buddha_ingredient_5">1 cup chickpeas, drained and rinsed</string>
+    <string name="buddha_ingredient_6">2 tbsp olive oil</string>
+    <string name="buddha_ingredient_7">1 avocado, sliced</string>
+    <string name="buddha_ingredient_8">2 tbsp tahini</string>
+    <string name="buddha_ingredient_9">1 tbsp lemon juice</string>
+    <string name="buddha_ingredient_10">1 tsp maple syrup</string>
+    <string name="buddha_ingredient_11">Salt and pepper to taste</string>
+
+    <string name="buddha_instruction_1">1. Preheat oven to 425°F (220°C)</string>
+    <string name="buddha_instruction_2">2. Cook quinoa according to package instructions</string>
+    <string name="buddha_instruction_3">3. Toss sweet potato, broccoli and bell pepper with olive oil, salt and pepper</string>
+    <string name="buddha_instruction_4">4. Roast vegetables for 20-25 minutes until tender</string>
+    <string name="buddha_instruction_5">5. Mix tahini, lemon juice, maple syrup and 2-3 tbsp water to make dressing</string>
+    <string name="buddha_instruction_6">6. Assemble bowl with quinoa, roasted vegetables, chickpeas and avocado</string>
+    <string name="buddha_instruction_7">7. Drizzle with tahini dressing and serve</string>
+
+    <!-- Mushroom Risotto Recipe -->
+    <string name="mushroom_risotto_name">Mushroom Risotto</string>
+    <string name="mushroom_risotto_description">Creamy arborio rice with wild mushrooms and herbs</string>
+    <string name="mushroom_risotto_ingredient_1">1 1/2 cups arborio rice</string>
+    <string name="mushroom_risotto_ingredient_2">4 cups vegetable broth, warmed</string>
+    <string name="mushroom_risotto_ingredient_3">8 oz mixed mushrooms, sliced</string>
+    <string name="mushroom_risotto_ingredient_4">1 onion, finely chopped</string>
+    <string name="mushroom_risotto_ingredient_5">3 cloves garlic, minced</string>
+    <string name="mushroom_risotto_ingredient_6">1/2 cup dry white wine (optional)</string>
+    <string name="mushroom_risotto_ingredient_7">2 tbsp olive oil</string>
+    <string name="mushroom_risotto_ingredient_8">2 tbsp nutritional yeast</string>
+    <string name="mushroom_risotto_ingredient_9">1 tbsp fresh thyme leaves</string>
+    <string name="mushroom_risotto_ingredient_10">Salt and pepper to taste</string>
+
+    <string name="mushroom_risotto_instruction_1">1. Heat olive oil in a large pan over medium heat</string>
+    <string name="mushroom_risotto_instruction_2">2. Sauté onions until translucent, about 5 minutes</string>
+    <string name="mushroom_risotto_instruction_3">3. Add mushrooms and garlic, cook until mushrooms release their moisture</string>
+    <string name="mushroom_risotto_instruction_4">4. Add arborio rice and stir for 2 minutes until translucent at edges</string>
+    <string name="mushroom_risotto_instruction_5">5. Pour in wine if using and cook until absorbed</string>
+    <string name="mushroom_risotto_instruction_6">6. Add warm broth 1/2 cup at a time, stirring frequently until absorbed</string>
+    <string name="mushroom_risotto_instruction_7">7. Continue adding broth until rice is creamy and al dente, about 25 minutes</string>
+    <string name="mushroom_risotto_instruction_8">8. Stir in nutritional yeast, thyme, salt and pepper</string>
+    <string name="mushroom_risotto_instruction_9">9. Let stand for 5 minutes before serving</string>
+
+    <!-- Avocado Toast Recipe -->
+    <string name="avocado_toast_name">Avocado Toast</string>
+    <string name="avocado_toast_description">Sourdough bread with smashed avocado, cherry tomatoes, and microgreens</string>
+    <string name="avocado_toast_ingredient_1">2 slices sourdough bread</string>
+    <string name="avocado_toast_ingredient_2">1 ripe avocado, mashed</string>
+    <string name="avocado_toast_ingredient_3">1/2 cup cherry tomatoes, halved</string>
+    <string name="avocado_toast_ingredient_4">1/4 cup microgreens</string>
+    <string name="avocado_toast_ingredient_5">Salt and pepper to taste</string>
+    <string name="avocado_toast_ingredient_6">1 tbsp olive oil</string>
+
+    <string name="avocado_toast_instruction_1">1. Toast bread until lightly browned</string>
+    <string name="avocado_toast_instruction_2">2. Spread mashed avocado on toast</string>
+    <string name="avocado_toast_instruction_3">3. Top with cherry tomatoes and microgreens</string>
+    <string name="avocado_toast_instruction_4">4. Season with salt and pepper to taste</string>
+    <string name="avocado_toast_instruction_5">5. Drizzle with olive oil and serve</string>
+
+    <!-- Vegetable Curry Recipe -->
+    <string name="vegetable_curry_name">Vegetable Curry</string>
+    <string name="vegetable_curry_description">Spicy coconut curry with mixed vegetables</string>
+    <string name="vegetable_curry_ingredient_1">2 medium onions, diced</string>
+    <string name="vegetable_curry_ingredient_2">2 medium carrots, peeled and diced</string>
+    <string name="vegetable_curry_ingredient_3">2 medium potatoes, peeled and diced</string>
+    <string name="vegetable_curry_ingredient_4">1 large red bell pepper, diced</string>
+    <string name="vegetable_curry_ingredient_5">2 cloves garlic, minced</string>
+    <string name="vegetable_curry_ingredient_6">1 tablespoon grated fresh ginger</string>
+    <string name="vegetable_curry_ingredient_7">1 tablespoon curry powder</string>
+    <string name="vegetable_curry_ingredient_8">1 teaspoon ground cumin</string>
+    <string name="vegetable_curry_ingredient_9">1/2 teaspoon ground turmeric</string>
+    <string name="vegetable_curry_ingredient_10">1/2 teaspoon cayenne pepper</string>
+    <string name="vegetable_curry_ingredient_11">1 can coconut milk</string>
+    <string name="vegetable_curry_ingredient_12">Salt and pepper to taste</string>
+
+    <string name="vegetable_curry_instruction_1">1. Heat oil in a large pan over medium heat</string>
+    <string name="vegetable_curry_instruction_2">2. Add onions and cook until they are translucent</string>
+    <string name="vegetable_curry_instruction_3">3. Add carrots, potatoes, and bell pepper, and cook for a few minutes</string>
+    <string name="vegetable_curry_instruction_4">4. Add garlic, ginger, curry powder, cumin, turmeric, and cayenne pepper, and cook for 1 minute</string>
+    <string name="vegetable_curry_instruction_5">5. Pour in coconut milk and bring to a simmer</string>
+    <string name="vegetable_curry_instruction_6">6. Reduce heat to low and let cook for 20-25 minutes or until the vegetables are tender</string>
+    <string name="vegetable_curry_instruction_7">7. Season with salt and pepper to taste</string>
+    <string name="vegetable_curry_instruction_8">8. Serve hot over rice or with naan bread</string>
+
+    <!-- Stuffed Bell Peppers Recipe -->
+    <string name="stuffed_bell_peppers_name">Stuffed Bell Peppers</string>
+    <string name="stuffed_bell_peppers_description">Bell peppers filled with quinoa, black beans, and corn</string>
+    <string name="stuffed_bell_peppers_ingredient_1">4 large bell peppers, any color</string>
+    <string name="stuffed_bell_peppers_ingredient_2">1 cup quinoa, rinsed</string>
+    <string name="stuffed_bell_peppers_ingredient_3">2 cups water or vegetable broth</string>
+    <string name="stuffed_bell_peppers_ingredient_4">1 can black beans, drained and rinsed</string>
+    <string name="stuffed_bell_peppers_ingredient_5">1 cup frozen corn kernels</string>
+    <string name="stuffed_bell_peppers_ingredient_6">1 small onion, diced</string>
+    <string name="stuffed_bell_peppers_ingredient_7">1 small zucchini, diced</string>
+    <string name="stuffed_bell_peppers_ingredient_8">1 small red bell pepper, diced</string>
+    <string name="stuffed_bell_peppers_ingredient_9">2 cloves garlic, minced</string>
+    <string name="stuffed_bell_peppers_ingredient_10">1 tablespoon olive oil</string>
+    <string name="stuffed_bell_peppers_ingredient_11">1 teaspoon cumin</string>
+    <string name="stuffed_bell_peppers_ingredient_12">1 teaspoon smoked paprika</string>
+    <string name="stuffed_bell_peppers_ingredient_13">Salt and pepper to taste</string>
+
+    <string name="stuffed_bell_peppers_instruction_1">1. Preheat oven to 375°F (190°C)</string>
+    <string name="stuffed_bell_peppers_instruction_2">2. Cut off the tops of the bell peppers and remove the seeds and membranes</string>
+    <string name="stuffed_bell_peppers_instruction_3">3. In a medium saucepan, bring the quinoa and water or broth to a boil</string>
+    <string name="stuffed_bell_peppers_instruction_4">4. Reduce the heat to low, cover, and simmer until the quinoa is tender and the water is absorbed</string>
+    <string name="stuffed_bell_peppers_instruction_5">5. In a large skillet, heat the olive oil over medium heat</string>
+    <string name="stuffed_bell_peppers_instruction_6">6. Add the onion, zucchini, and red bell pepper, and cook until the vegetables are tender</string>
+    <string name="stuffed_bell_peppers_instruction_7">7. Add the garlic, cumin, and smoked paprika, and cook for 1 minute</string>
+    <string name="stuffed_bell_peppers_instruction_8">8. Stir in the cooked quinoa, black beans, and corn kernels</string>
+    <string name="stuffed_bell_peppers_instruction_9">9. Stuff each bell pepper with the quinoa mixture and place them in a baking dish</string>
+    <string name="stuffed_bell_peppers_instruction_10">10. Cover the baking dish with aluminum foil and bake for 25 minutes</string>
+    <string name="stuffed_bell_peppers_instruction_11">11. Remove the foil and bake for an additional 10-15 minutes, or until the bell peppers are tender</string>
+
+    <!-- Sweet Potato Tacos Recipe -->
+    <string name="sweet_potato_tacos_name">Sweet Potato Tacos</string>
+    <string name="sweet_potato_tacos_description">Corn tortillas with roasted sweet potatoes, black beans, and avocado</string>
+    <string name="sweet_potato_tacos_ingredient_1">2 large sweet potatoes, peeled and diced</string>
+    <string name="sweet_potato_tacos_ingredient_2">1/4 cup olive oil</string>
+    <string name="sweet_potato_tacos_ingredient_3">1 small onion, diced</string>
+    <string name="sweet_potato_tacos_ingredient_4">1 small red bell pepper, diced</string>
+    <string name="sweet_potato_tacos_ingredient_5">2 cloves garlic, minced</string>
+    <string name="sweet_potato_tacos_ingredient_6">1 can black beans, drained and rinsed</string>
+    <string name="sweet_potato_tacos_ingredient_7">1 avocado, diced</string>
+    <string name="sweet_potato_tacos_ingredient_8">8-10 corn tortillas</string>
+    <string name="sweet_potato_tacos_ingredient_9">Salt and pepper to taste</string>
+    <string name="sweet_potato_tacos_ingredient_10">Optional toppings: salsa, shredded lettuce, diced tomatoes, shredded vegan cheese</string>
+
+    <string name="sweet_potato_tacos_instruction_1">1. Preheat oven to 400°F (200°C)</string>
+    <string name="sweet_potato_tacos_instruction_2">2. Toss the sweet potatoes with 2 tablespoons of the olive oil, salt, and pepper on a baking sheet</string>
+    <string name="sweet_potato_tacos_instruction_3">3. Roast the sweet potatoes for 20-25 minutes, or until they are tender</string>
+    <string name="sweet_potato_tacos_instruction_4">4. In a large skillet, heat the remaining 2 tablespoons of olive oil over medium heat</string>
+    <string name="sweet_potato_tacos_instruction_5">5. Add the onion and red bell pepper, and cook until they are tender</string>
+    <string name="sweet_potato_tacos_instruction_6">6. Add the garlic and cook for 1 minute</string>
+    <string name="sweet_potato_tacos_instruction_7">7. Add the black beans and cook for 2-3 minutes, or until they are heated through</string>
+    <string name="sweet_potato_tacos_instruction_8">8. Warm the tortillas by wrapping them in a damp paper towel and microwaving for 20-30 seconds</string>
+    <string name="sweet_potato_tacos_instruction_9">9. Assemble the tacos by spooning the sweet potato and black bean mixture onto a tortilla, and topping with avocado and any desired toppings</string>
+
+    <!-- Chickpea Masala Recipe -->
+    <string name="chickpea_masala_name">Chickpea Masala</string>
+    <string name="chickpea_masala_description">Spiced chickpeas in tomato curry sauce with fragrant rice</string>
+    <string name="chickpea_masala_ingredient_1">1 can chickpeas, drained and rinsed</string>
+    <string name="chickpea_masala_ingredient_2">2 medium onions, diced</string>
+    <string name="chickpea_masala_ingredient_3">2 medium tomatoes, diced</string>
+    <string name="chickpea_masala_ingredient_4">2 cloves garlic, minced</string>
+    <string name="chickpea_masala_ingredient_5">1 tablespoon grated fresh ginger</string>
+    <string name="chickpea_masala_ingredient_6">1 tablespoon curry powder</string>
+    <string name="chickpea_masala_ingredient_7">1 teaspoon ground cumin</string>
+    <string name="chickpea_masala_ingredient_8">1/2 teaspoon ground turmeric</string>
+    <string name="chickpea_masala_ingredient_9">1/2 teaspoon cayenne pepper</string>
+    <string name="chickpea_masala_ingredient_10">1 can coconut milk</string>
+    <string name="chickpea_masala_ingredient_11">Salt and pepper to taste</string>
+    <string name="chickpea_masala_ingredient_12">Fresh cilantro, chopped (optional)</string>
+
+    <string name="chickpea_masala_instruction_1">1. Heat oil in a large pan over medium heat</string>
+    <string name="chickpea_masala_instruction_2">2. Add onions and cook until they are translucent</string>
+    <string name="chickpea_masala_instruction_3">3. Add garlic and ginger, and cook for 1 minute</string>
+    <string name="chickpea_masala_instruction_4">4. Add curry powder, cumin, turmeric, and cayenne pepper, and cook for 1 minute</string>
+    <string name="chickpea_masala_instruction_5">5. Add tomatoes and cook for a few minutes</string>
+    <string name="chickpea_masala_instruction_6">6. Add chickpeas and coconut milk, and bring to a simmer</string>
+    <string name="chickpea_masala_instruction_7">7. Reduce heat to low and let cook for 20-25 minutes or until the sauce has thickened</string>
+    <string name="chickpea_masala_instruction_8">8. Season with salt and pepper to taste</string>
+    <string name="chickpea_masala_instruction_9">9. Serve hot over rice, garnished with chopped cilantro if desired</string>
+
+    <!-- Lentil Soup Recipe -->
+    <string name="lentil_soup_name">Lentil Soup</string>
+    <string name="lentil_soup_description">Hearty lentil soup with carrots, celery, and fresh herbs</string>
+    <string name="lentil_soup_ingredient_1">1 cup dried green or brown lentils, rinsed</string>
+    <string name="lentil_soup_ingredient_2">4 cups vegetable broth</string>
+    <string name="lentil_soup_ingredient_3">1 medium onion, diced</string>
+    <string name="lentil_soup_ingredient_4">2 medium carrots, peeled and diced</string>
+    <string name="lentil_soup_ingredient_5">2 medium celery stalks, diced</string>
+    <string name="lentil_soup_ingredient_6">2 cloves garlic, minced</string>
+    <string name="lentil_soup_ingredient_7">1 can diced tomatoes</string>
+    <string name="lentil_soup_ingredient_8">1 teaspoon dried thyme</string>
+    <string name="lentil_soup_ingredient_9">1 teaspoon dried rosemary</string>
+    <string name="lentil_soup_ingredient_10">Salt and pepper to taste</string>
+
+    <string name="lentil_soup_instruction_1">1. In a large pot, sauté the onion, carrots, and celery in a little bit of oil until they are tender</string>
+    <string name="lentil_soup_instruction_2">2. Add the garlic and cook for 1 minute</string>
+    <string name="lentil_soup_instruction_3">3. Add the lentils, vegetable broth, diced tomatoes, thyme, and rosemary</string>
+    <string name="lentil_soup_instruction_4">4. Bring to a boil, then reduce the heat to low and let simmer for 30-40 minutes or until the lentils are tender</string>
+    <string name="lentil_soup_instruction_5">5. Season with salt and pepper to taste</string>
+    <string name="lentil_soup_instruction_6">6. Serve hot, garnished with fresh herbs if desired</string>
+
+    <!-- Roasted Vegetable Salad Recipe -->
+    <string name="roasted_vegetable_salad_name">Roasted Vegetable Salad</string>
+    <string name="roasted_vegetable_salad_description">Mixed roasted vegetables with quinoa and balsamic glaze</string>
+    <string name="roasted_vegetable_salad_ingredient_1">2 cups mixed vegetables (such as broccoli, carrots, bell peppers, and zucchini)</string>
+    <string name="roasted_vegetable_salad_ingredient_2">2 tablespoons olive oil</string>
+    <string name="roasted_vegetable_salad_ingredient_3">Salt and pepper to taste</string>
+    <string name="roasted_vegetable_salad_ingredient_4">1 cup quinoa, rinsed</string>
+    <string name="roasted_vegetable_salad_ingredient_5">2 cups water or vegetable broth</string>
+    <string name="roasted_vegetable_salad_ingredient_6">1/4 cup balsamic glaze</string>
+    <string name="roasted_vegetable_salad_ingredient_7">1/4 cup chopped fresh parsley</string>
+
+    <string name="roasted_vegetable_salad_instruction_1">1. Preheat oven to 425°F (220°C)</string>
+    <string name="roasted_vegetable_salad_instruction_2">2. Toss the vegetables with 1 tablespoon of the olive oil, salt, and pepper on a baking sheet</string>
+    <string name="roasted_vegetable_salad_instruction_3">3. Roast the vegetables for 20-25 minutes, or until they are tender</string>
+    <string name="roasted_vegetable_salad_instruction_4">4. In a medium saucepan, bring the quinoa and water or broth to a boil</string>
+    <string name="roasted_vegetable_salad_instruction_5">5. Reduce the heat to low, cover, and simmer until the quinoa is tender and the water is absorbed</string>
+    <string name="roasted_vegetable_salad_instruction_6">6. In a large bowl, combine the roasted vegetables, cooked quinoa, and balsamic glaze</string>
+    <string name="roasted_vegetable_salad_instruction_7">7. Toss to combine, and top with chopped parsley</string>
+
+    <!-- Quinoa Salad Recipe -->
+    <string name="quinoa_salad_name">Quinoa Salad</string>
+    <string name="quinoa_salad_description">Fresh salad with quinoa, cucumber, tomatoes, and lemon dressing</string>
+    <string name="quinoa_salad_ingredient_1">1 cup quinoa, rinsed</string>
+    <string name="quinoa_salad_ingredient_2">2 cups water or vegetable broth</string>
+    <string name="quinoa_salad_ingredient_3">1 medium cucumber, diced</string>
+    <string name="quinoa_salad_ingredient_4">1 medium tomato, diced</string>
+    <string name="quinoa_salad_ingredient_5">1/4 cup chopped fresh parsley</string>
+    <string name="quinoa_salad_ingredient_6">2 tablespoons lemon juice</string>
+    <string name="quinoa_salad_ingredient_7">1 tablespoon olive oil</string>
+    <string name="quinoa_salad_ingredient_8">Salt and pepper to taste</string>
+
+    <string name="quinoa_salad_instruction_1">1. In a medium saucepan, bring the quinoa and water or broth to a boil</string>
+    <string name="quinoa_salad_instruction_2">2. Reduce the heat to low, cover, and simmer until the quinoa is tender and the water is absorbed</string>
+    <string name="quinoa_salad_instruction_3">3. In a large bowl, combine the cooked quinoa, cucumber, tomato, and parsley</string>
+    <string name="quinoa_salad_instruction_4">4. In a small bowl, whisk together the lemon juice and olive oil</string>
+    <string name="quinoa_salad_instruction_5">5. Pour the dressing over the quinoa mixture, and toss to combine</string>
+    <string name="quinoa_salad_instruction_6">6. Season with salt and pepper to taste</string>
+
+</resources>

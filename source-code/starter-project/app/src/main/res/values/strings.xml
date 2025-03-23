@@ -1,10 +1,13 @@
 <resources>
+    <!-- App Name -->
     <string name="app_name">Flavorshub</string>
 
+    <!-- Filter Options -->
     <string name="filter_meat">Meat</string>
     <string name="filter_fish">Fish</string>
     <string name="filter_vegan">Vegan</string>
 
+    <!-- Bottom Navigation -->
     <string name="bottom_nav_home">Home</string>
     <string name="bottom_nav_Favorites">Favorites</string>
 </resources>

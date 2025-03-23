@@ -10,7 +10,7 @@ import androidx.navigation.navArgument
 import com.droidcon.flavorshub.NavigationDestinations.MAIN_SCREEN
 import com.droidcon.flavorshub.NavigationDestinations.RECIPE_ID_KEY
 import com.droidcon.flavorshub.ui.mainscreen.MainScreenEntryPoint
-import com.droidcon.flavorshub.ui.recipedetailscreen.RecipeDetailsScreen
+import com.droidcon.flavorshub.ui.recipedetailscreen.RecipeDetailsScreenEntryPoint
 
 object NavigationDestinations {
     const val MAIN_SCREEN = "main_screen"
@@ -28,17 +28,20 @@ fun AppNavigation() {
         composable(MAIN_SCREEN) {
             MainScreenEntryPoint(navController = navController)
         }
-        
+
         composable(
             route = "${NavigationDestinations.RECIPE_DETAILS_SCREEN}/{${RECIPE_ID_KEY}}",
             arguments = listOf(
                 navArgument(RECIPE_ID_KEY) {
-                    type = NavType.IntType 
+                    type = NavType.IntType
                 }
             )
         ) { backStackEntry ->
             val recipeId = requireNotNull(backStackEntry.arguments).getInt(RECIPE_ID_KEY)
-            RecipeDetailsScreen(recipeId = recipeId)
+            RecipeDetailsScreenEntryPoint(
+                recipeId = recipeId,
+                onBackPressed = { navController.popBackStack() }
+            )
 
         }
     }

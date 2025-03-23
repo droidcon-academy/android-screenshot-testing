@@ -2,6 +2,7 @@ package com.droidcon.flavorshub.ui.mainscreen
 
 import android.content.res.Configuration
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -45,11 +46,11 @@ import com.droidcon.flavorshub.R
 import com.droidcon.flavorshub.model.BottomNavItem
 import com.droidcon.flavorshub.model.BottomNavItem.FAVOURITES
 import com.droidcon.flavorshub.model.BottomNavItem.HOME
-import com.droidcon.flavorshub.model.screens.MainScreenRecipeItem
 import com.droidcon.flavorshub.model.Type
 import com.droidcon.flavorshub.model.Type.FISH
 import com.droidcon.flavorshub.model.Type.MEAT
 import com.droidcon.flavorshub.model.Type.VEGAN
+import com.droidcon.flavorshub.model.screens.MainScreenRecipeItem
 import com.droidcon.flavorshub.navigateToRecipeDetails
 import com.droidcon.flavorshub.ui.mainscreen.MainScreenRecipeContent.Recipes
 import com.droidcon.flavorshub.ui.theme.FlavorshubTheme
@@ -85,7 +86,7 @@ fun MainScreenEntryPoint(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalAnimationApi::class)
 @Composable
 fun MainScreen(
     selectedBottomNavItem: BottomNavItem,

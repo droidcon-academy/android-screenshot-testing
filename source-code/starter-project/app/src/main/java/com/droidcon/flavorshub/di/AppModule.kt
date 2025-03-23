@@ -1,5 +1,6 @@
 package com.droidcon.flavorshub.di
 
+import com.droidcon.flavorshub.utils.LocaleProvider
 import com.droidcon.flavorshub.viewmodels.RecipesRepo
 import dagger.Module
 import dagger.Provides
@@ -13,7 +14,9 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRecipesRepo(): RecipesRepo {
-        return RecipesRepo()
+    fun provideRecipesRepo(
+        localeProvider: LocaleProvider
+    ): RecipesRepo {
+        return RecipesRepo(localeProvider)
     }
 }

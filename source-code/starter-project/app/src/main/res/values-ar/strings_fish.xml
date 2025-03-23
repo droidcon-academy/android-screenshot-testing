@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- FISH RECIPES -->
+    <!-- Grilled Salmon Recipe (ID 10) -->
+    <string name="fish_grilled_salmon_name">سمك السلمون المشوي</string>
+    <string name="fish_grilled_salmon_description">سمك سلمون مشوي بشكل مثالي مع الليمون والأعشاب</string>
+    <string name="fish_grilled_salmon_ingredient_1">4 شرائح من سمك السلمون (6 أونصات لكل منها)</string>
+    <string name="fish_grilled_salmon_ingredient_2">1/4 كوب زيت زيتون</string>
+    <string name="fish_grilled_salmon_ingredient_3">2 ليمون، مقطع إلى شرائح</string>
+    <string name="fish_grilled_salmon_ingredient_4">1/4 كوب بقدونس طازج مفروم</string>
+    <string name="fish_grilled_salmon_ingredient_5">2 فص ثوم، مفروم</string>
+    <string name="fish_grilled_salmon_ingredient_6">ملح وفلفل حسب الذوق</string>
+
+    <string name="fish_grilled_salmon_instruction_1">1. سخن الشواية على نار متوسطة عالية</string>
+    <string name="fish_grilled_salmon_instruction_2">2. في وعاء صغير، اخلط زيت الزيتون وشرائح الليمون والبقدونس والثوم</string>
+    <string name="fish_grilled_salmon_instruction_3">3. ادهن الخليط على جانبي شرائح السلمون</string>
+    <string name="fish_grilled_salmon_instruction_4">4. تبل بالملح والفلفل حسب الذوق</string>
+    <string name="fish_grilled_salmon_instruction_5">5. اشوِ السلمون لمدة 4-6 دقائق لكل جانب، أو حتى ينضج تماماً</string>
+
+    <!-- Tuna Poke Bowl Recipe (ID 11) -->
+    <string name="fish_tuna_poke_bowl_name">سلطة التونة البوكي</string>
+    <string name="fish_tuna_poke_bowl_description">مكعبات التونة النيئة مع الأرز والأفوكادو وصلصة الصويا والسمسم</string>
+    <string name="fish_tuna_poke_bowl_ingredient_1">1 رطل من سمك التونة المُعد للسوشي، مقطع إلى مكعبات صغيرة</string>
+    <string name="fish_tuna_poke_bowl_ingredient_2">1 كوب أرز أبيض مطبوخ</string>
+    <string name="fish_tuna_poke_bowl_ingredient_3">1 أفوكادو، مقطع إلى مكعبات</string>
+    <string name="fish_tuna_poke_bowl_ingredient_4">1/4 كوب صلصة صويا</string>
+    <string name="fish_tuna_poke_bowl_ingredient_5">1/4 كوب زيت سمسم</string>
+    <string name="fish_tuna_poke_bowl_ingredient_6">2 فص ثوم، مفروم</string>
+    <string name="fish_tuna_poke_bowl_ingredient_7">1 ملعقة كبيرة زنجبيل طازج مبشور</string>
+    <string name="fish_tuna_poke_bowl_ingredient_8">ملح وفلفل حسب الذوق</string>
+
+    <string name="fish_tuna_poke_bowl_instruction_1">1. في وعاء كبير، اخلط التونة والأرز والأفوكادو</string>
+    <string name="fish_tuna_poke_bowl_instruction_2">2. في وعاء صغير، اخفق صلصة الصويا وزيت السمسم والثوم والزنجبيل</string>
+    <string name="fish_tuna_poke_bowl_instruction_3">3. صب الصلصة فوق خليط التونة، وقلب حتى تمتزج المكونات</string>
+    <string name="fish_tuna_poke_bowl_instruction_4">4. تبل بالملح والفلفل حسب الذوق</string>
+    <string name="fish_tuna_poke_bowl_instruction_5">5. قدمها فوراً</string>
+
+    <!-- Fish Tacos Recipe (ID 12) -->
+    <string name="fish_fish_tacos_name">تاكو السمك</string>
+    <string name="fish_fish_tacos_description">سمك أبيض مقلي مع سلطة الملفوف وكريمة الليمون في خبز التورتيلا</string>
+    <string name="fish_fish_tacos_ingredient_1">1 رطل من السمك الأبيض (مثل سمك القد أو البلطي)، مقطع إلى قطع صغيرة</string>
+    <string name="fish_fish_tacos_ingredient_2">1 كوب دقيق لجميع الأغراض</string>
+    <string name="fish_fish_tacos_ingredient_3">1/2 كوب نشا ذرة</string>
+    <string name="fish_fish_tacos_ingredient_4">1/2 كوب فتات خبز</string>
+    <string name="fish_fish_tacos_ingredient_5">1/4 كوب عصير ليمون</string>
+    <string name="fish_fish_tacos_ingredient_6">1/4 كوب كزبرة طازجة مفرومة</string>
+    <string name="fish_fish_tacos_ingredient_7">1/2 كوب سلطة ملفوف (مثل الملفوف الأحمر والجزر والبصل)</string>
+    <string name="fish_fish_tacos_ingredient_8">4 خبز تورتيلا ذرة</string>
+    <string name="fish_fish_tacos_ingredient_9">ملح وفلفل حسب الذوق</string>
+
+    <string name="fish_fish_tacos_instruction_1">1. في وعاء كبير، اخلط الدقيق ونشا الذرة ورشة ملح</string>
+    <string name="fish_fish_tacos_instruction_2">2. غمس قطع السمك في خليط الدقيق، مع التخلص من الزائد</string>
+    <string name="fish_fish_tacos_instruction_3">3. غمس السمك المغطى بالدقيق في البيض المخفوق، ثم غطيه بفتات الخبز</string>
+    <string name="fish_fish_tacos_instruction_4">4. سخن الزيت في مقلاة كبيرة على نار متوسطة عالية</string>
+    <string name="fish_fish_tacos_instruction_5">5. اقلي السمك حتى يصبح ذهبي اللون وينضج تماماً</string>
+    <string name="fish_fish_tacos_instruction_6">6. سخن خبز التورتيلا بلفها في منشفة ورقية مبللة وضعها في الميكروويف لمدة 20-30 ثانية</string>
+    <string name="fish_fish_tacos_instruction_7">7. جمّع التاكو بوضع قطعة سمك على خبز التورتيلا، وأضف فوقها سلطة الملفوف وكريمة الليمون والكزبرة</string>
+
+    <!-- Fish Curry Recipe (ID 13) -->
+    <string name="fish_fish_curry_name">كاري السمك</string>
+    <string name="fish_fish_curry_description">كاري السمك الحار مع حليب جوز الهند والتوابل العطرية</string>
+    <string name="fish_fish_curry_ingredient_1">1 رطل من السمك الأبيض (مثل سمك القد أو البلطي)، مقطع إلى قطع صغيرة</string>
+    <string name="fish_fish_curry_ingredient_2">2 بصل متوسط، مفروم</string>
+    <string name="fish_fish_curry_ingredient_3">2 طماطم متوسطة، مفرومة</string>
+    <string name="fish_fish_curry_ingredient_4">2 فص ثوم، مفروم</string>
+    <string name="fish_fish_curry_ingredient_5">1 ملعقة كبيرة زنجبيل طازج مبشور</string>
+    <string name="fish_fish_curry_ingredient_6">1 ملعقة كبيرة مسحوق الكاري</string>
+    <string name="fish_fish_curry_ingredient_7">1 ملعقة صغيرة كمون مطحون</string>
+    <string name="fish_fish_curry_ingredient_8">1/2 ملعقة صغيرة كركم مطحون</string>
+    <string name="fish_fish_curry_ingredient_9">1/2 ملعقة صغيرة فلفل حار</string>
+    <string name="fish_fish_curry_ingredient_10">1 علبة حليب جوز الهند</string>
+    <string name="fish_fish_curry_ingredient_11">ملح وفلفل حسب الذوق</string>
+
+    <string name="fish_fish_curry_instruction_1">1. سخن الزيت في مقلاة كبيرة على نار متوسطة</string>
+    <string name="fish_fish_curry_instruction_2">2. أضف البصل واطهيه حتى يصبح شفافاً</string>
+    <string name="fish_fish_curry_instruction_3">3. أضف الثوم والزنجبيل، واطهيهما لمدة دقيقة واحدة</string>
+    <string name="fish_fish_curry_instruction_4">4. أضف مسحوق الكاري والكمون والكركم والفلفل الحار، واطهيهم لمدة دقيقة واحدة</string>
+    <string name="fish_fish_curry_instruction_5">5. أضف الطماطم واطهيها لبضع دقائق</string>
+    <string name="fish_fish_curry_instruction_6">6. أضف السمك وحليب جوز الهند، واتركهم حتى يغلي المزيج</string>
+    <string name="fish_fish_curry_instruction_7">7. خفض النار واتركها على نار هادئة لمدة 10-15 دقيقة أو حتى ينضج السمك تماماً</string>
+    <string name="fish_fish_curry_instruction_8">8. تبل بالملح والفلفل حسب الذوق</string>
+    <string name="fish_fish_curry_instruction_9">9. قدميه ساخناً مع الأرز</string>
+
+    <!-- Lemon Herb Fish Recipe (ID 14) -->
+    <string name="fish_lemon_herb_fish_name">سمك بالليمون والأعشاب</string>
+    <string name="fish_lemon_herb_fish_description">سمك أبيض طري مخبوز بالليمون والثوم والأعشاب الطازجة</string>
+    <string name="fish_lemon_herb_fish_ingredient_1">4 شرائح من السمك الأبيض (6 أونصات لكل منها)</string>
+    <string name="fish_lemon_herb_fish_ingredient_2">1/4 كوب زيت زيتون</string>
+    <string name="fish_lemon_herb_fish_ingredient_3">2 ليمون، مقطع إلى شرائح</string>
+    <string name="fish_lemon_herb_fish_ingredient_4">1/4 كوب بقدونس طازج مفروم</string>
+    <string name="fish_lemon_herb_fish_ingredient_5">2 فص ثوم، مفروم</string>
+    <string name="fish_lemon_herb_fish_ingredient_6">ملح وفلفل حسب الذوق</string>
+
+    <string name="fish_lemon_herb_fish_instruction_1">1. سخن الفرن إلى 400 درجة فهرنهايت (200 درجة مئوية)</string>
+    <string name="fish_lemon_herb_fish_instruction_2">2. في وعاء صغير، اخلط زيت الزيتون وشرائح الليمون والبقدونس والثوم</string>
+    <string name="fish_lemon_herb_fish_instruction_3">3. ادهن الخليط على جانبي شرائح السمك</string>
+    <string name="fish_lemon_herb_fish_instruction_4">4. تبل بالملح والفلفل حسب الذوق</string>
+    <string name="fish_lemon_herb_fish_instruction_5">5. اخبز السمك لمدة 12-15 دقيقة أو حتى ينضج تماماً</string>
+
+    <!-- Garlic Butter Shrimp Recipe (ID 15) -->
+    <string name="fish_garlic_butter_shrimp_name">روبيان بالثوم والزبدة</string>
+    <string name="fish_garlic_butter_shrimp_description">روبيان طري بصلصة الثوم والزبدة</string>
+    <string name="fish_garlic_butter_shrimp_ingredient_1">1 رطل من الروبيان الكبير، مقشر</string>
+    <string name="fish_garlic_butter_shrimp_ingredient_2">4 ملاعق كبيرة زبدة</string>
+    <string name="fish_garlic_butter_shrimp_ingredient_3">2 فص ثوم، مفروم</string>
+    <string name="fish_garlic_butter_shrimp_ingredient_4">1/4 كوب بقدونس طازج مفروم</string>
+    <string name="fish_garlic_butter_shrimp_ingredient_5">ملح وفلفل حسب الذوق</string>
+
+    <string name="fish_garlic_butter_shrimp_instruction_1">1. سخن الزبدة في مقلاة كبيرة على نار متوسطة عالية</string>
+    <string name="fish_garlic_butter_shrimp_instruction_2">2. أضف الثوم واطهيه لمدة دقيقة واحدة</string>
+    <string name="fish_garlic_butter_shrimp_instruction_3">3. أضف الروبيان واطهيه لبضع دقائق حتى يصبح وردي اللون وينضج تماماً</string>
+    <string name="fish_garlic_butter_shrimp_instruction_4">4. قدمه ساخناً مع رشة من البقدونس الطازج</string>
+
+    <!-- Seafood Pasta Recipe (ID 16) -->
+    <string name="fish_seafood_pasta_name">معكرونة المأكولات البحرية</string>
+    <string name="fish_seafood_pasta_description">معكرونة مع مأكولات بحرية متنوعة في صلصة طماطم خفيفة</string>
+    <string name="fish_seafood_pasta_ingredient_1">8 أونصات معكرونة</string>
+    <string name="fish_seafood_pasta_ingredient_2">2 ملعقة كبيرة زيت زيتون</string>
+    <string name="fish_seafood_pasta_ingredient_3">1 بصل، مفروم</string>
+    <string name="fish_seafood_pasta_ingredient_4">1 رطل من المأكولات البحرية المتنوعة (مثل الروبيان والاسكالوب وبلح البحر)</string>
+    <string name="fish_seafood_pasta_ingredient_5">2 كوب صلصة طماطم</string>
+    <string name="fish_seafood_pasta_ingredient_6">1 كوب نبيذ أبيض</string>
+    <string name="fish_seafood_pasta_ingredient_7">1/4 كوب بقدونس طازج مفروم</string>
+    <string name="fish_seafood_pasta_ingredient_8">ملح وفلفل حسب الذوق</string>
+
+    <string name="fish_seafood_pasta_instruction_1">1. اطهِ المعكرونة حسب تعليمات العبوة</string>
+    <string name="fish_seafood_pasta_instruction_2">2. سخن الزيت في مقلاة كبيرة على نار متوسطة</string>
+    <string name="fish_seafood_pasta_instruction_3">3. أضف البصل واطهيه حتى يصبح شفافاً</string>
+    <string name="fish_seafood_pasta_instruction_4">4. أضف المأكولات البحرية واطهيها لبضع دقائق</string>
+    <string name="fish_seafood_pasta_instruction_5">5. أضف صلصة الطماطم والنبيذ الأبيض، واتركهم حتى يغلي المزيج</string>
+    <string name="fish_seafood_pasta_instruction_6">6. خفض النار واتركها على نار هادئة لمدة 10-15 دقيقة أو حتى تنضج المأكولات البحرية تماماً</string>
+    <string name="fish_seafood_pasta_instruction_7">7. قدميه ساخناً فوق المعكرونة</string>
+
+    <!-- Miso Glazed Salmon Recipe (ID 17) -->
+    <string name="fish_miso_glazed_salmon_name">سلمون بصلصة الميسو</string>
+    <string name="fish_miso_glazed_salmon_description">شرائح سلمون مع صلصة الميسو الحلوة والمالحة</string>
+    <string name="fish_miso_glazed_salmon_ingredient_1">4 شرائح من سمك السلمون (6 أونصات لكل منها)</string>
+    <string name="fish_miso_glazed_salmon_ingredient_2">1/4 كوب معجون ميسو</string>
+    <string name="fish_miso_glazed_salmon_ingredient_3">1/4 كوب شراب القيقب</string>
+    <string name="fish_miso_glazed_salmon_ingredient_4">2 ملعقة كبيرة صلصة صويا</string>
+    <string name="fish_miso_glazed_salmon_ingredient_5">2 ملعقة كبيرة خل أرز</string>
+    <string name="fish_miso_glazed_salmon_ingredient_6">2 ملعقة كبيرة زيت زيتون</string>
+    <string name="fish_miso_glazed_salmon_ingredient_7">2 فص ثوم، مفروم</string>
+    <string name="fish_miso_glazed_salmon_ingredient_8">1 ملعقة كبيرة زنجبيل طازج مبشور</string>
+
+    <string name="fish_miso_glazed_salmon_instruction_1">1. سخن الفرن إلى 400 درجة فهرنهايت (200 درجة مئوية)</string>
+    <string name="fish_miso_glazed_salmon_instruction_2">2. في وعاء صغير، اخفق معجون الميسو وشراب القيقب وصلصة الصويا وخل الأرز وزيت الزيتون</string>
+    <string name="fish_miso_glazed_salmon_instruction_3">3. أضف الثوم والزنجبيل إلى الوعاء واخفق حتى يصبح المزيج ناعماً</string>
+    <string name="fish_miso_glazed_salmon_instruction_4">4. ادهن الخليط على جانبي شرائح السلمون</string>
+    <string name="fish_miso_glazed_salmon_instruction_5">5. اخبز السلمون لمدة 12-15 دقيقة أو حتى ينضج تماماً</string>
+
+    <!-- Mediterranean Seafood Stew Recipe (ID 18) -->
+    <string name="fish_mediterranean_seafood_stew_name">حساء المأكولات البحرية المتوسطي</string>
+    <string name="fish_mediterranean_seafood_stew_description">حساء مأكولات بحرية دسم مع الطماطم والأعشاب والنبيذ الأبيض</string>
+    <string name="fish_mediterranean_seafood_stew_ingredient_1">2 ملعقة كبيرة زيت زيتون</string>
+    <string name="fish_mediterranean_seafood_stew_ingredient_2">1 بصل، مفروم</string>
+    <string name="fish_mediterranean_seafood_stew_ingredient_3">2 رطل من المأكولات البحرية المتنوعة (مثل الروبيان والاسكالوب وبلح البحر)</string>
+    <string name="fish_mediterranean_seafood_stew_ingredient_4">2 كوب طماطم مفرومة</string>
+    <string name="fish_mediterranean_seafood_stew_ingredient_5">2 كوب نبيذ أبيض</string>
+    <string name="fish_mediterranean_seafood_stew_ingredient_6">1/4 كوب أعشاب طازجة مفرومة</string>
+    <string name="fish_mediterranean_seafood_stew_ingredient_7">ملح وفلفل حسب الذوق</string>
+
+    <string name="fish_mediterranean_seafood_stew_instruction_1">1. سخن الزيت في قدر كبير على نار متوسطة</string>
+    <string name="fish_mediterranean_seafood_stew_instruction_2">2. أضف البصل واطهيه حتى يصبح شفافاً</string>
+    <string name="fish_mediterranean_seafood_stew_instruction_3">3. أضف المأكولات البحرية واطهيها لبضع دقائق</string>
+    <string name="fish_mediterranean_seafood_stew_instruction_4">4. أضف الطماطم المفرومة والنبيذ الأبيض، واتركهم حتى يغلي المزيج</string>
+    <string name="fish_mediterranean_seafood_stew_instruction_5">5. خفض النار واتركها على نار هادئة لمدة 20-25 دقيقة أو حتى تنضج المأكولات البحرية تماماً</string>
+    <string name="fish_mediterranean_seafood_stew_instruction_6">6. قدمه ساخناً مع خبز مقرمش</string>
+
+    <!-- Lemon Garlic Tilapia Recipe (ID 19) -->
+    <string name="fish_lemon_garlic_tilapia_name">سمك البلطي بالليمون والثوم</string>
+    <string name="fish_lemon_garlic_tilapia_description">سمك بلطي خفيف ورقيق مع الليمون والثوم</string>
+    <string name="fish_lemon_garlic_tilapia_ingredient_1">4 شرائح من سمك البلطي (6 أونصات لكل منها)</string>
+    <string name="fish_lemon_garlic_tilapia_ingredient_2">1/4 كوب زيت زيتون</string>
+    <string name="fish_lemon_garlic_tilapia_ingredient_3">2 ليمون، مقطع إلى شرائح</string>
+    <string name="fish_lemon_garlic_tilapia_ingredient_4">2 فص ثوم، مفروم</string>
+    <string name="fish_lemon_garlic_tilapia_ingredient_5">ملح وفلفل حسب الذوق</string>
+
+    <string name="fish_lemon_garlic_tilapia_instruction_1">1. سخن الفرن إلى 400 درجة فهرنهايت (200 درجة مئوية)</string>
+    <string name="fish_lemon_garlic_tilapia_instruction_2">2. في وعاء صغير، اخلط زيت الزيتون وشرائح الليمون والثوم</string>
+    <string name="fish_lemon_garlic_tilapia_instruction_3">3. ادهن الخليط على جانبي شرائح البلطي</string>
+    <string name="fish_lemon_garlic_tilapia_instruction_4">4. تبل بالملح والفلفل حسب الذوق</string>
+    <string name="fish_lemon_garlic_tilapia_instruction_5">5. اخبز البلطي لمدة 12-15 دقيقة أو حتى ينضج تماماً</string>
+
+    <!-- Seared Ahi Tuna Recipe (ID 20) -->
+    <string name="fish_seared_ahi_tuna_name">تونة آهي المحمرة</string>
+    <string name="fish_seared_ahi_tuna_description">تونة محمرة نادرة مع قشرة سمسم وصلصة واسابي</string>
+    <string name="fish_seared_ahi_tuna_ingredient_1">4 شرائح من تونة آهي (6 أونصات لكل منها)</string>
+    <string name="fish_seared_ahi_tuna_ingredient_2">1/4 كوب بذور سمسم</string>
+    <string name="fish_seared_ahi_tuna_ingredient_3">1/4 كوب صلصة صويا</string>
+    <string name="fish_seared_ahi_tuna_ingredient_4">1/4 كوب صلصة واسابي</string>
+    <string name="fish_seared_ahi_tuna_ingredient_5">2 ملعقة كبيرة زيت زيتون</string>
+    <string name="fish_seared_ahi_tuna_ingredient_6">ملح وفلفل حسب الذوق</string>
+
+    <string name="fish_seared_ahi_tuna_instruction_1">1. سخن الزيت في مقلاة كبيرة على نار عالية</string>
+    <string name="fish_seared_ahi_tuna_instruction_2">2. أضف شرائح التونة وحمرها لمدة 1-2 دقيقة لكل جانب</string>
+    <string name="fish_seared_ahi_tuna_instruction_3">3. ادهن التونة بصلصة الصويا وصلصة الواسابي</string>
+    <string name="fish_seared_ahi_tuna_instruction_4">4. رش بذور السمسم فوق التونة</string>
+    <string name="fish_seared_ahi_tuna_instruction_5">5. قدمها ساخنة</string>
+</resources>

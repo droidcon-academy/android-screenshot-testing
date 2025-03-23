@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- FISH RECIPES -->
+    <!-- Grilled Salmon Recipe (ID 10) -->
+    <string name="fish_grilled_salmon_name">Grilled Salmon</string>
+    <string name="fish_grilled_salmon_description">Perfectly grilled salmon with lemon and herbs</string>
+    <string name="fish_grilled_salmon_ingredient_1">4 salmon fillets (6 ounces each)</string>
+    <string name="fish_grilled_salmon_ingredient_2">1/4 cup olive oil</string>
+    <string name="fish_grilled_salmon_ingredient_3">2 lemons, sliced</string>
+    <string name="fish_grilled_salmon_ingredient_4">1/4 cup chopped fresh parsley</string>
+    <string name="fish_grilled_salmon_ingredient_5">2 cloves garlic, minced</string>
+    <string name="fish_grilled_salmon_ingredient_6">Salt and pepper to taste</string>
+
+    <string name="fish_grilled_salmon_instruction_1">1. Preheat grill to medium-high heat</string>
+    <string name="fish_grilled_salmon_instruction_2">2. In a small bowl, mix together the olive oil, lemon slices, parsley, and garlic</string>
+    <string name="fish_grilled_salmon_instruction_3">3. Brush the mixture on both sides of the salmon fillets</string>
+    <string name="fish_grilled_salmon_instruction_4">4. Season with salt and pepper to taste</string>
+    <string name="fish_grilled_salmon_instruction_5">5. Grill the salmon for 4-6 minutes per side, or until it is cooked through</string>
+
+    <!-- Tuna Poke Bowl Recipe (ID 11) -->
+    <string name="fish_tuna_poke_bowl_name">Tuna Poke Bowl</string>
+    <string name="fish_tuna_poke_bowl_description">Raw tuna cubes with rice, avocado, and soy-sesame dressing</string>
+    <string name="fish_tuna_poke_bowl_ingredient_1">1 pound sushi-grade tuna, cut into small cubes</string>
+    <string name="fish_tuna_poke_bowl_ingredient_2">1 cup cooked white rice</string>
+    <string name="fish_tuna_poke_bowl_ingredient_3">1 avocado, diced</string>
+    <string name="fish_tuna_poke_bowl_ingredient_4">1/4 cup soy sauce</string>
+    <string name="fish_tuna_poke_bowl_ingredient_5">1/4 cup sesame oil</string>
+    <string name="fish_tuna_poke_bowl_ingredient_6">2 cloves garlic, minced</string>
+    <string name="fish_tuna_poke_bowl_ingredient_7">1 tablespoon grated fresh ginger</string>
+    <string name="fish_tuna_poke_bowl_ingredient_8">Salt and pepper to taste</string>
+
+    <string name="fish_tuna_poke_bowl_instruction_1">1. In a large bowl, combine the tuna, rice, and avocado</string>
+    <string name="fish_tuna_poke_bowl_instruction_2">2. In a small bowl, whisk together the soy sauce, sesame oil, garlic, and ginger</string>
+    <string name="fish_tuna_poke_bowl_instruction_3">3. Pour the dressing over the tuna mixture, and toss to combine</string>
+    <string name="fish_tuna_poke_bowl_instruction_4">4. Season with salt and pepper to taste</string>
+    <string name="fish_tuna_poke_bowl_instruction_5">5. Serve immediately</string>
+
+    <!-- Fish Tacos Recipe (ID 12) -->
+    <string name="fish_fish_tacos_name">Fish Tacos</string>
+    <string name="fish_fish_tacos_description">Battered white fish with cabbage slaw and lime crema in tortillas</string>
+    <string name="fish_fish_tacos_ingredient_1">1 pound white fish (such as cod or tilapia), cut into small pieces</string>
+    <string name="fish_fish_tacos_ingredient_2">1 cup all-purpose flour</string>
+    <string name="fish_fish_tacos_ingredient_3">1/2 cup cornstarch</string>
+    <string name="fish_fish_tacos_ingredient_4">1/2 cup bread crumbs</string>
+    <string name="fish_fish_tacos_ingredient_5">1/4 cup lime juice</string>
+    <string name="fish_fish_tacos_ingredient_6">1/4 cup chopped fresh cilantro</string>
+    <string name="fish_fish_tacos_ingredient_7">1/2 cup cabbage slaw (such as red cabbage, carrots, and onions)</string>
+    <string name="fish_fish_tacos_ingredient_8">4 corn tortillas</string>
+    <string name="fish_fish_tacos_ingredient_9">Salt and pepper to taste</string>
+
+    <string name="fish_fish_tacos_instruction_1">1. In a large bowl, combine the flour, cornstarch, and a pinch of salt</string>
+    <string name="fish_fish_tacos_instruction_2">2. Dip the fish pieces in the flour mixture, shaking off excess</string>
+    <string name="fish_fish_tacos_instruction_3">3. Dip the floured fish in beaten eggs, and then coat in bread crumbs</string>
+    <string name="fish_fish_tacos_instruction_4">4. Heat oil in a large skillet over medium-high heat</string>
+    <string name="fish_fish_tacos_instruction_5">5. Fry the fish until golden brown and cooked through</string>
+    <string name="fish_fish_tacos_instruction_6">6. Warm the tortillas by wrapping them in a damp paper towel and microwaving for 20-30 seconds</string>
+    <string name="fish_fish_tacos_instruction_7">7. Assemble the tacos by placing a piece of fish on a tortilla, and topping with cabbage slaw, lime crema, and cilantro</string>
+
+    <!-- Fish Curry Recipe (ID 13) -->
+    <string name="fish_fish_curry_name">Fish Curry</string>
+    <string name="fish_fish_curry_description">Spicy fish curry with coconut milk and aromatic spices</string>
+    <string name="fish_fish_curry_ingredient_1">1 pound white fish (such as cod or tilapia), cut into small pieces</string>
+    <string name="fish_fish_curry_ingredient_2">2 medium onions, diced</string>
+    <string name="fish_fish_curry_ingredient_3">2 medium tomatoes, diced</string>
+    <string name="fish_fish_curry_ingredient_4">2 cloves garlic, minced</string>
+    <string name="fish_fish_curry_ingredient_5">1 tablespoon grated fresh ginger</string>
+    <string name="fish_fish_curry_ingredient_6">1 tablespoon curry powder</string>
+    <string name="fish_fish_curry_ingredient_7">1 teaspoon ground cumin</string>
+    <string name="fish_fish_curry_ingredient_8">1/2 teaspoon ground turmeric</string>
+    <string name="fish_fish_curry_ingredient_9">1/2 teaspoon cayenne pepper</string>
+    <string name="fish_fish_curry_ingredient_10">1 can coconut milk</string>
+    <string name="fish_fish_curry_ingredient_11">Salt and pepper to taste</string>
+
+    <string name="fish_fish_curry_instruction_1">1. Heat oil in a large pan over medium heat</string>
+    <string name="fish_fish_curry_instruction_2">2. Add onions and cook until they are translucent</string>
+    <string name="fish_fish_curry_instruction_3">3. Add garlic and ginger, and cook for 1 minute</string>
+    <string name="fish_fish_curry_instruction_4">4. Add curry powder, cumin, turmeric, and cayenne pepper, and cook for 1 minute</string>
+    <string name="fish_fish_curry_instruction_5">5. Add tomatoes and cook for a few minutes</string>
+    <string name="fish_fish_curry_instruction_6">6. Add fish and coconut milk, and bring to a simmer</string>
+    <string name="fish_fish_curry_instruction_7">7. Reduce heat to low and let cook for 10-15 minutes or until the fish is cooked through</string>
+    <string name="fish_fish_curry_instruction_8">8. Season with salt and pepper to taste</string>
+    <string name="fish_fish_curry_instruction_9">9. Serve hot over rice</string>
+
+    <!-- Lemon Herb Fish Recipe (ID 14) -->
+    <string name="fish_lemon_herb_fish_name">Lemon Herb Fish</string>
+    <string name="fish_lemon_herb_fish_description">Tender white fish baked with lemon, garlic and fresh herbs</string>
+    <string name="fish_lemon_herb_fish_ingredient_1">4 white fish fillets (6 ounces each)</string>
+    <string name="fish_lemon_herb_fish_ingredient_2">1/4 cup olive oil</string>
+    <string name="fish_lemon_herb_fish_ingredient_3">2 lemons, sliced</string>
+    <string name="fish_lemon_herb_fish_ingredient_4">1/4 cup chopped fresh parsley</string>
+    <string name="fish_lemon_herb_fish_ingredient_5">2 cloves garlic, minced</string>
+    <string name="fish_lemon_herb_fish_ingredient_6">Salt and pepper to taste</string>
+
+    <string name="fish_lemon_herb_fish_instruction_1">1. Preheat oven to 400°F (200°C)</string>
+    <string name="fish_lemon_herb_fish_instruction_2">2. In a small bowl, mix together the olive oil, lemon slices, parsley, and garlic</string>
+    <string name="fish_lemon_herb_fish_instruction_3">3. Brush the mixture on both sides of the fish fillets</string>
+    <string name="fish_lemon_herb_fish_instruction_4">4. Season with salt and pepper to taste</string>
+    <string name="fish_lemon_herb_fish_instruction_5">5. Bake the fish for 12-15 minutes or until it is cooked through</string>
+
+    <!-- Garlic Butter Shrimp Recipe (ID 15) -->
+    <string name="fish_garlic_butter_shrimp_name">Garlic Butter Shrimp</string>
+    <string name="fish_garlic_butter_shrimp_description">Succulent shrimp in garlic butter sauce</string>
+    <string name="fish_garlic_butter_shrimp_ingredient_1">1 pound large shrimp, peeled</string>
+    <string name="fish_garlic_butter_shrimp_ingredient_2">4 tablespoons butter</string>
+    <string name="fish_garlic_butter_shrimp_ingredient_3">2 cloves garlic, minced</string>
+    <string name="fish_garlic_butter_shrimp_ingredient_4">1/4 cup chopped fresh parsley</string>
+    <string name="fish_garlic_butter_shrimp_ingredient_5">Salt and pepper to taste</string>
+
+    <string name="fish_garlic_butter_shrimp_instruction_1">1. Heat butter in a large skillet over medium-high heat</string>
+    <string name="fish_garlic_butter_shrimp_instruction_2">2. Add garlic and cook for 1 minute</string>
+    <string name="fish_garlic_butter_shrimp_instruction_3">3. Add shrimp and cook for a few minutes until pink and cooked through</string>
+    <string name="fish_garlic_butter_shrimp_instruction_4">4. Serve hot with a sprinkle of fresh parsley</string>
+
+    <!-- Seafood Pasta Recipe (ID 16) -->
+    <string name="fish_seafood_pasta_name">Seafood Pasta</string>
+    <string name="fish_seafood_pasta_description">Pasta with mixed seafood in a light tomato sauce</string>
+    <string name="fish_seafood_pasta_ingredient_1">8 oz pasta</string>
+    <string name="fish_seafood_pasta_ingredient_2">2 tablespoons olive oil</string>
+    <string name="fish_seafood_pasta_ingredient_3">1 onion, diced</string>
+    <string name="fish_seafood_pasta_ingredient_4">1 pound mixed seafood (such as shrimp, scallops, and mussels)</string>
+    <string name="fish_seafood_pasta_ingredient_5">2 cups tomato sauce</string>
+    <string name="fish_seafood_pasta_ingredient_6">1 cup white wine</string>
+    <string name="fish_seafood_pasta_ingredient_7">1/4 cup chopped fresh parsley</string>
+    <string name="fish_seafood_pasta_ingredient_8">Salt and pepper to taste</string>
+
+    <string name="fish_seafood_pasta_instruction_1">1. Cook pasta according to package instructions</string>
+    <string name="fish_seafood_pasta_instruction_2">2. Heat oil in a large skillet over medium heat</string>
+    <string name="fish_seafood_pasta_instruction_3">3. Add onion and cook until it is translucent</string>
+    <string name="fish_seafood_pasta_instruction_4">4. Add seafood and cook for a few minutes</string>
+    <string name="fish_seafood_pasta_instruction_5">5. Add tomato sauce and white wine, and bring to a simmer</string>
+    <string name="fish_seafood_pasta_instruction_6">6. Reduce heat to low and let cook for 10-15 minutes or until the seafood is cooked through</string>
+    <string name="fish_seafood_pasta_instruction_7">7. Serve hot over pasta</string>
+
+    <!-- Miso Glazed Salmon Recipe (ID 17) -->
+    <string name="fish_miso_glazed_salmon_name">Miso Glazed Salmon</string>
+    <string name="fish_miso_glazed_salmon_description">Salmon fillets with sweet and savory miso glaze</string>
+    <string name="fish_miso_glazed_salmon_ingredient_1">4 salmon fillets (6 ounces each)</string>
+    <string name="fish_miso_glazed_salmon_ingredient_2">1/4 cup miso paste</string>
+    <string name="fish_miso_glazed_salmon_ingredient_3">1/4 cup maple syrup</string>
+    <string name="fish_miso_glazed_salmon_ingredient_4">2 tablespoons soy sauce</string>
+    <string name="fish_miso_glazed_salmon_ingredient_5">2 tablespoons rice vinegar</string>
+    <string name="fish_miso_glazed_salmon_ingredient_6">2 tablespoons olive oil</string>
+    <string name="fish_miso_glazed_salmon_ingredient_7">2 cloves garlic, minced</string>
+    <string name="fish_miso_glazed_salmon_ingredient_8">1 tablespoon grated fresh ginger</string>
+
+    <string name="fish_miso_glazed_salmon_instruction_1">1. Preheat oven to 400°F (200°C)</string>
+    <string name="fish_miso_glazed_salmon_instruction_2">2. In a small bowl, whisk together the miso paste, maple syrup, soy sauce, rice vinegar, and olive oil</string>
+    <string name="fish_miso_glazed_salmon_instruction_3">3. Add garlic and ginger to the bowl and whisk until smooth</string>
+    <string name="fish_miso_glazed_salmon_instruction_4">4. Brush the glaze on both sides of the salmon fillets</string>
+    <string name="fish_miso_glazed_salmon_instruction_5">5. Bake the salmon for 12-15 minutes or until it is cooked through</string>
+
+    <!-- Mediterranean Seafood Stew Recipe (ID 18) -->
+    <string name="fish_mediterranean_seafood_stew_name">Mediterranean Seafood Stew</string>
+    <string name="fish_mediterranean_seafood_stew_description">Hearty seafood stew with tomatoes, herbs, and white wine</string>
+    <string name="fish_mediterranean_seafood_stew_ingredient_1">2 tablespoons olive oil</string>
+    <string name="fish_mediterranean_seafood_stew_ingredient_2">1 onion, diced</string>
+    <string name="fish_mediterranean_seafood_stew_ingredient_3">2 pounds mixed seafood (such as shrimp, scallops, and mussels)</string>
+    <string name="fish_mediterranean_seafood_stew_ingredient_4">2 cups diced tomatoes</string>
+    <string name="fish_mediterranean_seafood_stew_ingredient_5">2 cups white wine</string>
+    <string name="fish_mediterranean_seafood_stew_ingredient_6">1/4 cup chopped fresh herbs</string>
+    <string name="fish_mediterranean_seafood_stew_ingredient_7">Salt and pepper to taste</string>
+
+    <string name="fish_mediterranean_seafood_stew_instruction_1">1. Heat oil in a large pot over medium heat</string>
+    <string name="fish_mediterranean_seafood_stew_instruction_2">2. Add onion and cook until it is translucent</string>
+    <string name="fish_mediterranean_seafood_stew_instruction_3">3. Add seafood and cook for a few minutes</string>
+    <string name="fish_mediterranean_seafood_stew_instruction_4">4. Add diced tomatoes and white wine, and bring to a simmer</string>
+    <string name="fish_mediterranean_seafood_stew_instruction_5">5. Reduce heat to low and let cook for 20-25 minutes or until the seafood is cooked through</string>
+    <string name="fish_mediterranean_seafood_stew_instruction_6">6. Serve hot with crusty bread</string>
+
+    <!-- Lemon Garlic Tilapia Recipe (ID 19) -->
+    <string name="fish_lemon_garlic_tilapia_name">Lemon Garlic Tilapia</string>
+    <string name="fish_lemon_garlic_tilapia_description">Light and flaky tilapia with lemon and garlic</string>
+    <string name="fish_lemon_garlic_tilapia_ingredient_1">4 tilapia fillets (6 ounces each)</string>
+    <string name="fish_lemon_garlic_tilapia_ingredient_2">1/4 cup olive oil</string>
+    <string name="fish_lemon_garlic_tilapia_ingredient_3">2 lemons, sliced</string>
+    <string name="fish_lemon_garlic_tilapia_ingredient_4">2 cloves garlic, minced</string>
+    <string name="fish_lemon_garlic_tilapia_ingredient_5">Salt and pepper to taste</string>
+
+    <string name="fish_lemon_garlic_tilapia_instruction_1">1. Preheat oven to 400°F (200°C)</string>
+    <string name="fish_lemon_garlic_tilapia_instruction_2">2. In a small bowl, mix together the olive oil, lemon slices, and garlic</string>
+    <string name="fish_lemon_garlic_tilapia_instruction_3">3. Brush the mixture on both sides of the tilapia fillets</string>
+    <string name="fish_lemon_garlic_tilapia_instruction_4">4. Season with salt and pepper to taste</string>
+    <string name="fish_lemon_garlic_tilapia_instruction_5">5. Bake the tilapia for 12-15 minutes or until it is cooked through</string>
+
+    <!-- Seared Ahi Tuna Recipe (ID 20) -->
+    <string name="fish_seared_ahi_tuna_name">Seared Ahi Tuna</string>
+    <string name="fish_seared_ahi_tuna_description">Seared rare tuna with sesame crust and wasabi sauce</string>
+    <string name="fish_seared_ahi_tuna_ingredient_1">4 ahi tuna steaks (6 ounces each)</string>
+    <string name="fish_seared_ahi_tuna_ingredient_2">1/4 cup sesame seeds</string>
+    <string name="fish_seared_ahi_tuna_ingredient_3">1/4 cup soy sauce</string>
+    <string name="fish_seared_ahi_tuna_ingredient_4">1/4 cup wasabi sauce</string>
+    <string name="fish_seared_ahi_tuna_ingredient_5">2 tablespoons olive oil</string>
+    <string name="fish_seared_ahi_tuna_ingredient_6">Salt and pepper to taste</string>
+
+    <string name="fish_seared_ahi_tuna_instruction_1">1. Heat oil in a large skillet over high heat</string>
+    <string name="fish_seared_ahi_tuna_instruction_2">2. Add tuna steaks and sear for 1-2 minutes on each side</string>
+    <string name="fish_seared_ahi_tuna_instruction_3">3. Brush the tuna with soy sauce and wasabi sauce</string>
+    <string name="fish_seared_ahi_tuna_instruction_4">4. Sprinkle sesame seeds on top of the tuna</string>
+    <string name="fish_seared_ahi_tuna_instruction_5">5. Serve hot</string>
+</resources>
