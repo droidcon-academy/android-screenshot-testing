@@ -10,4 +10,8 @@
     <!-- Bottom Navigation -->
     <string name="bottom_nav_home">Home</string>
     <string name="bottom_nav_Favorites">Favorites</string>
+
+    <!-- No recipes -->
+    <string name="no_recipes_found">No recipes found</string>
+    <string name="cooking_time_in_minutes">%s min</string>
 </resources>

@@ -10,8 +10,8 @@ class RecipeDetailsScreenViewModel @Inject constructor(
     private val recipesRepo: RecipesRepo
 ) : ViewModel() {
 
-    fun fetchedRecipeById(recipeId: Int): RecipeDetailsItem {
-        val recipe = recipesRepo.fetchRecipeById(recipeId).recipe
+    fun fetchRecipeInCurrentLocaleById(recipeId: Int): RecipeDetailsItem {
+        val recipe = recipesRepo.fetchRecipeInCurrentLocaleById(recipeId).recipe
         return RecipeDetailsItem(
             id = recipe.id,
             name = recipe.name,

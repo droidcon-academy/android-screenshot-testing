@@ -32,6 +32,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -89,7 +90,7 @@ fun RecipeCard(
 
                 RecipeType(
                     icon = recipe.type.icon,
-                    text = recipe.type.text
+                    text = stringResource(recipe.type.text)
                 )
             }
 
@@ -146,9 +147,12 @@ private fun CookingTime(
         )
         Text(
             modifier = Modifier.padding(horizontal = 4.dp),
-            text = "${
-                NumberFormat.getInstance(LocalConfiguration.current.locale).format(cookingTimeInMin)
-            } min",
+            text = stringResource(
+                id = R.string.cooking_time_in_minutes,
+                formatArgs = arrayOf(
+                    NumberFormat.getInstance(LocalConfiguration.current.locale).format(cookingTimeInMin)
+                )
+            ),
             fontSize = 14.sp,
             color = Color.Gray
         )

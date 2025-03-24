@@ -969,8 +969,8 @@ class RecipesRepo @Inject constructor(
                 )
             )
 
-    fun fetchRecipes(): List<RecipeItem> = recipes
+    fun fetchRecipesInCurrentLocale(): List<RecipeItem> = recipes
 
-    fun fetchRecipeById(id: Int): RecipeItem =
+    fun fetchRecipeInCurrentLocaleById(id: Int): RecipeItem =
         requireNotNull(recipes.find { it.recipe.id == id })
 }

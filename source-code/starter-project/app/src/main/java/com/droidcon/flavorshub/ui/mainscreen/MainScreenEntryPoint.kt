@@ -66,10 +66,11 @@ fun MainScreenEntryPoint(
     viewModel: MainScreenViewModel = hiltViewModel(),
     navController: NavController
 ) {
-    val mainScreenRecipeContent = when (val contentState = viewModel.uiState.content) {
+
+    val mainScreenRecipeContent = when (val contentState = viewModel.screenUiState.content) {
         is Content -> Recipes(
             recipes = contentState.recipes,
-            selectedBottomNavItem = viewModel.uiState.selectedNavItem,
+            selectedBottomNavItem = viewModel.screenUiState.selectedNavItem,
             onToggleFavorite = { id -> viewModel.toggleFavorite(id) },
             onRecipeClick = { id -> navController.navigateToRecipeDetails(id) }
         )
@@ -78,8 +79,8 @@ fun MainScreenEntryPoint(
     }
 
     MainScreen(
-        selectedBottomNavItem = viewModel.uiState.selectedNavItem,
-        selectedFilters = viewModel.uiState.selectedRecipeFilter,
+        selectedBottomNavItem = viewModel.screenUiState.selectedNavItem,
+        selectedFilters = viewModel.screenUiState.selectedRecipeFilter,
         onBottomNavItemClick = { navItem -> viewModel.onNavItemClick(navItem) },
         onToggleFilter = { filter -> viewModel.toggleFilter(filter) },
         content = mainScreenRecipeContent

@@ -1,14 +1,12 @@
 package com.droidcon.flavorshub.viewmodels
 
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.droidcon.flavorshub.model.BottomNavItem
 import com.droidcon.flavorshub.model.BottomNavItem.FAVOURITES
 import com.droidcon.flavorshub.model.BottomNavItem.HOME
-import com.droidcon.flavorshub.model.screens.MainScreenRecipeItem
 import com.droidcon.flavorshub.model.Type
+import com.droidcon.flavorshub.model.screens.MainScreenRecipeItem
 import com.droidcon.flavorshub.viewmodels.MainScreenViewModel.ContentState.Content
 import com.droidcon.flavorshub.viewmodels.MainScreenViewModel.ContentState.Empty
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,7 +19,7 @@ class MainScreenViewModel @Inject constructor(
     private val recipesRepo: RecipesRepo
 ) : ViewModel() {
 
-    data class UiState(
+    data class ScreenUiState(
         val selectedRecipeFilter: ImmutableList<Type>,
         val content: ContentState,
         val selectedNavItem: BottomNavItem,
@@ -32,8 +30,33 @@ class MainScreenViewModel @Inject constructor(
         object Empty : ContentState()
     }
 
-    private var fetchedRecipes: List<MainScreenRecipeItem> =
-        recipesRepo.fetchRecipes().map { recipeItem ->
+    private var userFavorites: MutableSet<Int> = mutableSetOf()
+    private var selectedBottomNavItem: BottomNavItem = HOME
+    private var selectedRecipeFilter: MutableSet<Type> = Type.entries.toMutableSet()
+
+    private val _screenUiState = mutableStateOf<ScreenUiState>(
+        ScreenUiState(
+            selectedRecipeFilter = selectedRecipeFilter.toImmutableList(),
+            content = Empty,
+            selectedNavItem = HOME
+        )
+    )
+
+    var screenUiState: ScreenUiState
+        get() {
+            computeState()
+            return _screenUiState.value
+        }
+        private set(value) {
+            _screenUiState.value = value
+        }
+
+    init {
+        computeState()
+    }
+
+    private fun computeState() {
+        val recipesInCurrentLocale = recipesRepo.fetchRecipesInCurrentLocale().map { recipeItem ->
             val recipe = recipeItem.recipe
             MainScreenRecipeItem(
                 id = recipe.id,
@@ -42,58 +65,45 @@ class MainScreenViewModel @Inject constructor(
                 shortDescription = recipe.shortDescription,
                 type = recipe.type,
                 imageUrl = recipe.imageUrl,
-                isFavorite = recipeItem.isFavourite
+                isFavorite = userFavorites.contains(recipe.id) || recipeItem.isFavourite
             )
         }
-    private var selectedBottomNavItem: BottomNavItem = HOME
-    private var selectedRecipeFilter: List<Type> = Type.entries.toList()
 
-    var uiState by mutableStateOf<UiState>(
-        UiState(
+        val filteredRecipes = when (selectedBottomNavItem) {
+            HOME -> recipesInCurrentLocale
+            FAVOURITES -> recipesInCurrentLocale.filter { it.isFavorite }
+        }.filter { selectedRecipeFilter.contains(it.type) }
+
+        val contentState = when (filteredRecipes.isEmpty()) {
+            true -> Empty
+            false -> Content(filteredRecipes.toImmutableList())
+        }
+
+        screenUiState = ScreenUiState(
             selectedRecipeFilter = selectedRecipeFilter.toImmutableList(),
-            content = Content(fetchedRecipes.toImmutableList()),
-            selectedNavItem = HOME
+            content = contentState,
+            selectedNavItem = selectedBottomNavItem
         )
-    )
-        private set
+    }
 
     fun toggleFavorite(recipeId: Int) {
-        fetchedRecipes = fetchedRecipes.map { recipeUi ->
-            when (recipeUi.id == recipeId) {
-                true -> recipeUi.copy(isFavorite = !recipeUi.isFavorite)
-                else -> recipeUi
-            }
+        when (userFavorites.contains(recipeId)) {
+            true -> userFavorites.remove(recipeId)
+            false -> userFavorites.add(recipeId)
         }
-        uiState = computeUiState()
+        computeState()
     }
 
     fun toggleFilter(recipeFilter: Type) {
-        selectedRecipeFilter =
-            when (selectedRecipeFilter.contains(recipeFilter)) {
-                true -> selectedRecipeFilter.minus(recipeFilter)
-                false -> selectedRecipeFilter.plus(recipeFilter)
-            }
-        uiState = computeUiState()
-    }
-
-    private fun computeUiState(): UiState {
-        val content = navItemRecipes(selectedBottomNavItem)
-        val contentState = when (content.isEmpty()) {
-            true -> Empty
-            false -> Content(content.toImmutableList())
+        when (selectedRecipeFilter.contains(recipeFilter)) {
+            true -> selectedRecipeFilter.remove(recipeFilter)
+            false -> selectedRecipeFilter.add(recipeFilter)
         }
-        return UiState(selectedRecipeFilter.toImmutableList(), contentState, selectedBottomNavItem)
+        computeState()
     }
 
     fun onNavItemClick(bottomNavItem: BottomNavItem) {
         selectedBottomNavItem = bottomNavItem
-        uiState = computeUiState()
+        computeState()
     }
-
-    private fun navItemRecipes(bottomNavItem: BottomNavItem): List<MainScreenRecipeItem> =
-        when (bottomNavItem) {
-            HOME -> fetchedRecipes
-            FAVOURITES -> fetchedRecipes.filter { it.isFavorite }
-        }
-            .filter { selectedRecipeFilter.contains(it.type) }
 }

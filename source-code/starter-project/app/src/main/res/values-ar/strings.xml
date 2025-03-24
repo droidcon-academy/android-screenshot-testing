@@ -11,4 +11,8 @@
     <!-- Bottom Navigation -->
     <string name="bottom_nav_home">الرئيسية</string>
     <string name="bottom_nav_Favorites">المفضلة</string>
+
+    <!-- No recipes -->
+    <string name="no_recipes_found">لم يتم العثور على وصفات</string>
+    <string name="cooking_time_in_minutes">%s دقيقة</string>
 </resources>

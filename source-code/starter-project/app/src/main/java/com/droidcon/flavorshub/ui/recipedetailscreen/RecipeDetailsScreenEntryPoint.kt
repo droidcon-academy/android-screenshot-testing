@@ -44,7 +44,7 @@ fun RecipeDetailsScreenEntryPoint(
     recipeId: Int,
     onBackPressed: () -> Unit
 ) {
-    val recipe = viewModel.fetchedRecipeById(recipeId)
+    val recipe = viewModel.fetchRecipeInCurrentLocaleById(recipeId)
     val scrollState = rememberScrollState()
 
     RecipeDetailsScreen(
