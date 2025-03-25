@@ -24,14 +24,15 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.derivedStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
+import com.droidcon.flavorshub.R
 import com.droidcon.flavorshub.model.Type
 import com.droidcon.flavorshub.model.screens.RecipeDetailsItem
 import com.droidcon.flavorshub.ui.theme.FlavorshubTheme
@@ -64,99 +65,137 @@ fun RecipeDetailsScreen(
     val imageHeight = 200.dp
     val topAppBarHeight = 56.dp
 
-    val startingTopBarAlpha = 0.8f
-    val topBarAlpha = remember {
-        derivedStateOf {
-            (startingTopBarAlpha + (1 - startingTopBarAlpha) * 
-            (scrollState.value / (imageHeight.value - topAppBarHeight.value))).coerceIn(0.5f, 1f)
-        }
-    }
+    val initialTopAppBarAlpha = 0.8f
+    val initialTopAppBarOpacity = 1 - initialTopAppBarAlpha
+    val alphaFactor = scrollState.value / (imageHeight.value - topAppBarHeight.value)
+    val overlayAlpha =
+        (initialTopAppBarAlpha + initialTopAppBarOpacity * alphaFactor).coerceIn(0.5f, 1f)
 
-    val primaryColor = MaterialTheme.colorScheme.primary
-    val surfaceColor = MaterialTheme.colorScheme.surface
+    val topAppBarAlpha = when (overlayAlpha == 1f) {
+        true -> 1f
+        false -> overlayAlpha - 0.8f
+    }
 
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(surfaceColor)  
+                .background(MaterialTheme.colorScheme.surface)
                 .verticalScroll(scrollState)
         ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(imageHeight) // Image height
-            ) {
-                Image(
-                    painter = rememberAsyncImagePainter(model = recipe.imageUrl),
-                    contentDescription = "Recipe image",
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize()
-                )
-
-                // Color overlay matching the app bar color with the SAME alpha
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(primaryColor.copy(alpha = topBarAlpha.value))
-                )
-            }
-
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(surfaceColor)  
-                    .padding(16.dp)
-            ) {
-                Text(
-                    "Ingredients", 
-                    style = typography.titleLarge,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    recipe.ingredients.joinToString("\n"),
-                    style = typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-
-                Spacer(modifier = Modifier.height(32.dp))
-
-                Text(
-                    "Instructions", 
-                    style = typography.titleLarge,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    recipe.instructions.joinToString("\n\n"),
-                    style = typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-            }
+            // Overlay matching the Top app bar color with the SAME alpha
+            RecipeImageWithOverlay(
+                imageHeight = imageHeight,
+                recipeName = recipe.name,
+                recipeImageUrl = recipe.imageUrl,
+                topBarAlpha = overlayAlpha
+            )
+            RecipePreparation(
+                recipeIngredients = recipe.ingredients,
+                recipeInstructions = recipe.instructions
+            )
         }
 
-        TopAppBar(
-            title = { Text(recipe.name) },
-            navigationIcon = {
-                IconButton(onClick = onBackPressed) {
-                    Icon(
-                        imageVector = Icons.Filled.ArrowBack,
-                        contentDescription = "Back"
-                    )
-                }
-            },
-            colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = primaryColor.copy(
-                    when (topBarAlpha.value == 1f) {
-                        true -> 1f
-                        false -> topBarAlpha.value - 0.8f
-                    }
-                ),
-                titleContentColor = MaterialTheme.colorScheme.onPrimary,
-                navigationIconContentColor = MaterialTheme.colorScheme.onPrimary
+        AlphaTopAppBar(
+            recipeName = recipe.name,
+            topBarAlpha = topAppBarAlpha,
+            onBackPressed = onBackPressed
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun AlphaTopAppBar(
+    recipeName: String,
+    topBarAlpha: Float,
+    onBackPressed: () -> Unit,
+) {
+    TopAppBar(
+        title = { Text(recipeName) },
+        navigationIcon = {
+            IconButton(onClick = onBackPressed) {
+                Icon(
+                    imageVector = Icons.Filled.ArrowBack,
+                    contentDescription = "Navigate Back"
+                )
+            }
+        },
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = MaterialTheme.colorScheme.primary.copy(topBarAlpha),
+            titleContentColor = MaterialTheme.colorScheme.onPrimary,
+            navigationIconContentColor = MaterialTheme.colorScheme.onPrimary
+        ),
+        modifier = Modifier.fillMaxWidth()
+    )
+}
+
+@Composable
+fun RecipeImageWithOverlay(
+    imageHeight: Dp,
+    recipeName: String,
+    recipeImageUrl: String,
+    topBarAlpha: Float
+) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(imageHeight)
+    ) {
+        Image(
+            painter = rememberAsyncImagePainter(model = recipeImageUrl),
+            contentDescription = stringResource(
+                id = R.string.recipe_image_content_description,
+                formatArgs = arrayOf(recipeName)
             ),
-            modifier = Modifier.fillMaxWidth()
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize()
+        )
+
+        // Overlay
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.primary.copy(alpha = topBarAlpha))
+        )
+    }
+}
+
+@Composable
+fun RecipePreparation(
+    recipeIngredients: List<String>,
+    recipeInstructions: List<String>,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.surface)
+            .padding(16.dp)
+    ) {
+        Text(
+            "Ingredients",
+            style = typography.titleLarge,
+            color = MaterialTheme.colorScheme.onSurface
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(
+            recipeIngredients.joinToString("\n"),
+            style = typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurface
+        )
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+        Text(
+            stringResource(R.string.details_screen_instructions_title),
+            style = typography.titleLarge,
+            color = MaterialTheme.colorScheme.onSurface
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(
+            recipeInstructions.joinToString("\n\n"),
+            style = typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurface
         )
     }
 }

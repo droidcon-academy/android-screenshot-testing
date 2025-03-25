@@ -15,4 +15,9 @@
     <!-- No recipes -->
     <string name="no_recipes_found">لم يتم العثور على وصفات</string>
     <string name="cooking_time_in_minutes">%s دقيقة</string>
+
+    <string name="recipe_image_content_description">صورة %s</string>
+    <string name="details_screen_instructions_title">التعليمات</string>
+    <string name="selected_icon_filter_chip_content_description">محدد</string>
+    <string name="no_recipes_illustration_content_description">رسم توضيحي لعدم وجود وصفات</string>
 </resources>

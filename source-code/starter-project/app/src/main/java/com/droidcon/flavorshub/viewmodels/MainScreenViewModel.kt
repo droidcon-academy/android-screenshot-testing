@@ -56,18 +56,20 @@ class MainScreenViewModel @Inject constructor(
     }
 
     private fun computeState() {
-        val recipesInCurrentLocale = recipesRepo.fetchRecipesInCurrentLocale().map { recipeItem ->
-            val recipe = recipeItem.recipe
-            MainScreenRecipeItem(
-                id = recipe.id,
-                name = recipe.name,
-                cookingTimeInMin = recipe.cookingTimeInMin,
-                shortDescription = recipe.shortDescription,
-                type = recipe.type,
-                imageUrl = recipe.imageUrl,
-                isFavorite = userFavorites.contains(recipe.id) || recipeItem.isFavourite
-            )
-        }
+        // Ensure the recipes are in the language of the User before rendering the UI
+        val recipesInCurrentLocale = recipesRepo.fetchRecipesInCurrentLocale()
+            .map { recipeItem ->
+                val recipe = recipeItem.recipe
+                MainScreenRecipeItem(
+                    id = recipe.id,
+                    name = recipe.name,
+                    cookingTimeInMin = recipe.cookingTimeInMin,
+                    shortDescription = recipe.shortDescription,
+                    type = recipe.type,
+                    imageUrl = recipe.imageUrl,
+                    isFavorite = userFavorites.contains(recipe.id) || recipeItem.isFavourite
+                )
+            }
 
         val filteredRecipes = when (selectedBottomNavItem) {
             HOME -> recipesInCurrentLocale

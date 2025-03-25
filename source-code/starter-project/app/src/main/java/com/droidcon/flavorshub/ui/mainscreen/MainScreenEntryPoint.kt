@@ -107,14 +107,14 @@ fun MainScreen(
         bottomBar = {
             NavigationBar {
                 NavigationBarItem(
-                    icon = { Icon(Default.Home, contentDescription = "Home") },
+                    icon = { Icon(Default.Home, stringResource(R.string.bottom_nav_home)) },
                     label = { Text(stringResource(R.string.bottom_nav_home)) },
                     selected = selectedBottomNavItem == HOME,
                     onClick = { onBottomNavItemClick(HOME) }
                 )
 
                 NavigationBarItem(
-                    icon = { Icon(Default.Favorite, contentDescription = "Favorites") },
+                    icon = { Icon(Default.Favorite, stringResource(R.string.bottom_nav_Favorites)) },
                     label = { Text(stringResource(R.string.bottom_nav_Favorites)) },
                     selected = selectedBottomNavItem == FAVOURITES,
                     onClick = { onBottomNavItemClick(FAVOURITES) }
@@ -166,12 +166,12 @@ fun EmptyContent() {
     ) {
         Image(
             painter = painterResource(id = R.drawable.empty_recipes),
-            contentDescription = "Empty recipes illustration",
+            contentDescription = stringResource(R.string.no_recipes_illustration_content_description),
             contentScale = ContentScale.FillBounds,
             modifier = Modifier.size(200.dp)
         )
         Spacer(modifier = Modifier.height(24.dp))
-        Text("No recipes found")
+        Text(stringResource(R.string.no_recipes_found))
     }
 }
 
@@ -233,7 +233,7 @@ fun FoodFilterChip(
                 Icon(
                     modifier = Modifier.size(18.dp),
                     imageVector = Icons.Outlined.Check,
-                    contentDescription = "Selected",
+                    contentDescription = stringResource(R.string.selected_icon_filter_chip_content_description),
                     tint = MaterialTheme.colorScheme.onSurface
                 )
             }
