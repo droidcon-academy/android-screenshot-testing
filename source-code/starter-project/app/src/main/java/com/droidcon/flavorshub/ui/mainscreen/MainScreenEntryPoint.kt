@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
@@ -66,9 +67,13 @@ fun MainScreenEntryPoint(
     viewModel: MainScreenViewModel = hiltViewModel(),
     navController: NavController
 ) {
+    val homeScrollState = rememberLazyListState()
+    val favoritesScrollState = rememberLazyListState()
 
     val mainScreenRecipeContent = when (val contentState = viewModel.screenUiState.content) {
         is Content -> Recipes(
+            homeScrollState = homeScrollState,
+            favoritesScrollState = favoritesScrollState,
             recipes = contentState.recipes,
             selectedBottomNavItem = viewModel.screenUiState.selectedNavItem,
             onToggleFavorite = { id -> viewModel.toggleFavorite(id) },
@@ -178,13 +183,13 @@ fun EmptyContent() {
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun RecipesContent(
+    homeScrollState: LazyListState,
+    favoritesScrollState: LazyListState,
     selectedBottomNavItem: BottomNavItem,
     recipes: ImmutableList<MainScreenRecipeItem>,
     onRecipeClick: (Int) -> Unit,
     onToggleFavorite: (Int) -> Unit
 ) {
-    val homeScrollState = rememberLazyListState()
-    val favoritesScrollState = rememberLazyListState()
 
     LazyColumn(
         state = when (selectedBottomNavItem) {
@@ -272,6 +277,8 @@ fun ContentScreenPreview() {
     FlavorshubTheme {
         MainScreen(
             content = Recipes(
+                homeScrollState = rememberLazyListState(),
+                favoritesScrollState = rememberLazyListState(),
                 recipes = recipes,
                 onToggleFavorite = {},
                 selectedBottomNavItem = HOME,

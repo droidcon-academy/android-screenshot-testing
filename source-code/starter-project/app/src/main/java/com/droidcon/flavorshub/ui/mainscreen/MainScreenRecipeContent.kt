@@ -1,5 +1,7 @@
 package com.droidcon.flavorshub.ui.mainscreen
 
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import com.droidcon.flavorshub.model.BottomNavItem
 import com.droidcon.flavorshub.model.screens.MainScreenRecipeItem
@@ -10,6 +12,8 @@ sealed interface MainScreenRecipeContent {
     fun Display()
 
     class Recipes(
+        private val homeScrollState: LazyListState,
+        private val favoritesScrollState : LazyListState,
         private val recipes: ImmutableList<MainScreenRecipeItem>,
         private val selectedBottomNavItem: BottomNavItem,
         private val onToggleFavorite: (Int) -> Unit,
@@ -18,6 +22,8 @@ sealed interface MainScreenRecipeContent {
         @Composable
         override fun Display() {
             RecipesContent(
+                homeScrollState = homeScrollState,
+                favoritesScrollState = favoritesScrollState,
                 recipes = recipes,
                 selectedBottomNavItem = selectedBottomNavItem,
                 onToggleFavorite = onToggleFavorite,
