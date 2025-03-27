@@ -7,8 +7,8 @@ import com.droidcon.flavorshub.model.BottomNavItem.FAVOURITES
 import com.droidcon.flavorshub.model.BottomNavItem.HOME
 import com.droidcon.flavorshub.model.Type
 import com.droidcon.flavorshub.model.screens.MainScreenRecipeItem
-import com.droidcon.flavorshub.viewmodels.MainScreenViewModel.ContentState.Content
-import com.droidcon.flavorshub.viewmodels.MainScreenViewModel.ContentState.Empty
+import com.droidcon.flavorshub.viewmodels.MainScreenViewModel.ContentState.RecipesContent.Favorites
+import com.droidcon.flavorshub.viewmodels.MainScreenViewModel.ContentState.RecipesContent.Home
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
@@ -26,7 +26,11 @@ class MainScreenViewModel @Inject constructor(
     )
 
     sealed class ContentState {
-        data class Content(val recipes: ImmutableList<MainScreenRecipeItem>) : ContentState()
+        sealed class RecipesContent : ContentState() {
+            abstract val recipes: ImmutableList<MainScreenRecipeItem>
+            data class Home(override val recipes: ImmutableList<MainScreenRecipeItem>) : RecipesContent()
+            data class Favorites(override val recipes: ImmutableList<MainScreenRecipeItem>) : RecipesContent()
+        }
         object Empty : ContentState()
     }
 
@@ -37,7 +41,7 @@ class MainScreenViewModel @Inject constructor(
     private val _screenUiState = mutableStateOf<ScreenUiState>(
         ScreenUiState(
             selectedRecipeFilter = selectedRecipeFilter.toImmutableList(),
-            content = Empty,
+            content = ContentState.Empty,
             selectedNavItem = HOME
         )
     )
@@ -77,8 +81,11 @@ class MainScreenViewModel @Inject constructor(
         }.filter { selectedRecipeFilter.contains(it.type) }
 
         val contentState = when (filteredRecipes.isEmpty()) {
-            true -> Empty
-            false -> Content(filteredRecipes.toImmutableList())
+            true -> ContentState.Empty
+            false -> when (selectedBottomNavItem) {
+                HOME -> Home(filteredRecipes.toImmutableList())
+                FAVOURITES -> Favorites(filteredRecipes.toImmutableList())
+            }
         }
 
         screenUiState = ScreenUiState(

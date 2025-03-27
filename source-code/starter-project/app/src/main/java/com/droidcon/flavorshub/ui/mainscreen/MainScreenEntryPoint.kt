@@ -56,8 +56,7 @@ import com.droidcon.flavorshub.navigateToRecipeDetails
 import com.droidcon.flavorshub.ui.mainscreen.MainScreenRecipeContent.Recipes
 import com.droidcon.flavorshub.ui.theme.FlavorshubTheme
 import com.droidcon.flavorshub.viewmodels.MainScreenViewModel
-import com.droidcon.flavorshub.viewmodels.MainScreenViewModel.ContentState.Content
-import com.droidcon.flavorshub.viewmodels.MainScreenViewModel.ContentState.Empty
+import com.droidcon.flavorshub.viewmodels.MainScreenViewModel.ContentState.*
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 
@@ -71,15 +70,18 @@ fun MainScreenEntryPoint(
     val favoritesScrollState = rememberLazyListState()
 
     val mainScreenRecipeContent = when (val contentState = viewModel.screenUiState.content) {
-        is Content -> Recipes(
-            homeScrollState = homeScrollState,
-            favoritesScrollState = favoritesScrollState,
-            recipes = contentState.recipes,
-            selectedBottomNavItem = viewModel.screenUiState.selectedNavItem,
-            onToggleFavorite = { id -> viewModel.toggleFavorite(id) },
-            onRecipeClick = { id -> navController.navigateToRecipeDetails(id) }
-        )
-
+        is RecipesContent -> {
+            val scrollState = when(contentState) {
+                is RecipesContent.Favorites -> favoritesScrollState
+                is RecipesContent.Home -> homeScrollState
+            }
+            Recipes(
+                scrollState = scrollState,
+                recipes = contentState.recipes,
+                onToggleFavorite = { id -> viewModel.toggleFavorite(id) },
+                onRecipeClick = { id -> navController.navigateToRecipeDetails(id) }
+            )
+        }
         Empty -> MainScreenRecipeContent.NoRecipes
     }
 
@@ -119,7 +121,12 @@ fun MainScreen(
                 )
 
                 NavigationBarItem(
-                    icon = { Icon(Default.Favorite, stringResource(R.string.bottom_nav_Favorites)) },
+                    icon = {
+                        Icon(
+                            Default.Favorite,
+                            stringResource(R.string.bottom_nav_Favorites)
+                        )
+                    },
                     label = { Text(stringResource(R.string.bottom_nav_Favorites)) },
                     selected = selectedBottomNavItem == FAVOURITES,
                     onClick = { onBottomNavItemClick(FAVOURITES) }
@@ -183,19 +190,14 @@ fun EmptyContent() {
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun RecipesContent(
-    homeScrollState: LazyListState,
-    favoritesScrollState: LazyListState,
-    selectedBottomNavItem: BottomNavItem,
+    scrollState: LazyListState,
     recipes: ImmutableList<MainScreenRecipeItem>,
     onRecipeClick: (Int) -> Unit,
     onToggleFavorite: (Int) -> Unit
 ) {
 
     LazyColumn(
-        state = when (selectedBottomNavItem) {
-            HOME -> homeScrollState
-            FAVOURITES -> favoritesScrollState
-        },
+        state = scrollState,
         modifier = Modifier
             .padding(horizontal = 16.dp)
             .padding(top = 16.dp),
@@ -277,11 +279,9 @@ fun ContentScreenPreview() {
     FlavorshubTheme {
         MainScreen(
             content = Recipes(
-                homeScrollState = rememberLazyListState(),
-                favoritesScrollState = rememberLazyListState(),
+                scrollState = rememberLazyListState(),
                 recipes = recipes,
                 onToggleFavorite = {},
-                selectedBottomNavItem = HOME,
                 onRecipeClick = {}
             ),
             selectedBottomNavItem = HOME,
