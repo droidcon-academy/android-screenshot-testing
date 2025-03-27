@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -26,6 +27,8 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -35,8 +38,9 @@ import coil.compose.rememberAsyncImagePainter
 import com.droidcon.flavorshub.R
 import com.droidcon.flavorshub.model.Type
 import com.droidcon.flavorshub.ui.screens.recipedetails.model.RecipeDetailsItem
-import com.droidcon.flavorshub.ui.theme.FlavorshubTheme
 import com.droidcon.flavorshub.ui.screens.recipedetails.viewmodel.RecipeDetailsScreenViewModel
+import com.droidcon.flavorshub.ui.shared.RecipeCookingInfo
+import com.droidcon.flavorshub.ui.theme.FlavorshubTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -73,7 +77,7 @@ fun RecipeDetailsScreen(
 
     val topAppBarAlpha = when (overlayAlpha == 1f) {
         true -> 1f
-        false -> overlayAlpha - 0.8f
+        false -> overlayAlpha - initialTopAppBarAlpha
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
@@ -82,6 +86,7 @@ fun RecipeDetailsScreen(
                 .fillMaxSize()
                 .background(MaterialTheme.colorScheme.surface)
                 .verticalScroll(scrollState)
+                .padding(bottom = 16.dp)
         ) {
             // Overlay matching the Top app bar color with the SAME alpha
             RecipeImageWithOverlay(
@@ -90,6 +95,15 @@ fun RecipeDetailsScreen(
                 recipeImageUrl = recipe.imageUrl,
                 topBarAlpha = overlayAlpha
             )
+            RecipeCookingInfo(
+                modifier = Modifier
+                    .padding(top = 16.dp)
+                    .fillMaxWidth(),
+                cookingTimeInMin = recipe.cookingTimeInMin,
+                recipeIcon = recipe.type.icon,
+                recipeText = recipe.type.text
+            )
+
             RecipePreparation(
                 recipeIngredients = recipe.ingredients,
                 recipeInstructions = recipe.instructions
@@ -143,7 +157,10 @@ fun RecipeImageWithOverlay(
             .height(imageHeight)
     ) {
         Image(
-            painter = rememberAsyncImagePainter(model = recipeImageUrl),
+            painter = when (LocalInspectionMode.current) {
+                true -> painterResource(id = R.drawable.empty_recipes)
+                false -> rememberAsyncImagePainter(model = recipeImageUrl)
+            },
             contentDescription = stringResource(
                 id = R.string.recipe_image_content_description,
                 formatArgs = arrayOf(recipeName)
@@ -173,7 +190,7 @@ fun RecipePreparation(
             .padding(16.dp)
     ) {
         Text(
-            "Ingredients",
+            stringResource(R.string.details_screen_ingredients_title),
             style = typography.titleLarge,
             color = MaterialTheme.colorScheme.onSurface
         )
@@ -202,6 +219,7 @@ fun RecipePreparation(
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Preview(showBackground = true)
+@Preview(locale = "ar")
 @Composable
 fun MyPreview() {
     FlavorshubTheme {

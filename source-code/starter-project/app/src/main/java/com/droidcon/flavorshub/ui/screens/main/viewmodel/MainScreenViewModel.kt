@@ -3,6 +3,7 @@ package com.droidcon.flavorshub.ui.screens.main.viewmodel
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.droidcon.flavorshub.model.BottomNavItem
+import com.droidcon.flavorshub.model.FavoriteState
 import com.droidcon.flavorshub.model.Type
 import com.droidcon.flavorshub.repositories.RecipesRepo
 import com.droidcon.flavorshub.ui.screens.main.model.MainScreenRecipeItem
@@ -68,13 +69,16 @@ class MainScreenViewModel @Inject constructor(
                     shortDescription = recipe.shortDescription,
                     type = recipe.type,
                     imageUrl = recipe.imageUrl,
-                    isFavorite = userFavorites.contains(recipe.id) || recipeItem.isFavourite
+                    isFavorite = when(userFavorites.contains(recipe.id) || recipeItem.isFavourite) {
+                        true -> FavoriteState.FAVORITE
+                        false -> FavoriteState.NOT_FAVORITE
+                    }
                 )
             }
 
         val filteredRecipes = when (selectedBottomNavItem) {
             BottomNavItem.HOME -> recipesInCurrentLocale
-            BottomNavItem.FAVOURITES -> recipesInCurrentLocale.filter { it.isFavorite }
+            BottomNavItem.FAVOURITES -> recipesInCurrentLocale.filter { it.isFavorite == FavoriteState.FAVORITE }
         }.filter { selectedRecipeFilter.contains(it.type) }
 
         val contentState = when (filteredRecipes.isEmpty()) {

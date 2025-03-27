@@ -1,5 +1,6 @@
 package com.droidcon.flavorshub.ui.screens.main.model
 
+import com.droidcon.flavorshub.model.FavoriteState
 import com.droidcon.flavorshub.model.Type
 
 data class MainScreenRecipeItem(
@@ -9,5 +10,5 @@ data class MainScreenRecipeItem(
     val shortDescription: String,
     val type: Type,
     val imageUrl: String,
-    val isFavorite: Boolean
+    val isFavorite: FavoriteState
 )

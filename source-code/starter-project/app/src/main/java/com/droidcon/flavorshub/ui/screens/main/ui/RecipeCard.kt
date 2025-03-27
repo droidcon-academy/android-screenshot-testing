@@ -1,6 +1,5 @@
 package com.droidcon.flavorshub.ui.screens.main.ui
 
-import android.icu.text.NumberFormat
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -14,7 +13,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Icon
@@ -23,13 +21,10 @@ import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -40,7 +35,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.droidcon.flavorshub.R
+import com.droidcon.flavorshub.model.FavoriteState
 import com.droidcon.flavorshub.ui.screens.main.model.MainScreenRecipeItem
+import com.droidcon.flavorshub.ui.shared.RecipeCookingInfo
 
 @Composable
 fun RecipeCard(
@@ -70,29 +67,24 @@ fun RecipeCard(
                     fontWeight = FontWeight.Bold,
                     fontSize = 18.sp
                 )
-                FavouriteIcon(
-                    isFavourite = recipe.isFavorite,
+                FavouriteIconButton(
+                    isFavorite = recipe.isFavorite,
                     onClick = { onFavouriteClick(recipe.id) }
                 )
             }
 
             RecipeImage(
                 modifier = Modifier.padding(bottom = 12.dp),
+                recipeName = recipe.name,
                 imageUrl = recipe.imageUrl
             )
 
-            Row(
+            RecipeCookingInfo(
                 modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceEvenly
-            ) {
-                CookingTime(cookingTimeInMin = recipe.cookingTimeInMin)
-
-                RecipeType(
-                    icon = recipe.type.icon,
-                    text = stringResource(recipe.type.text)
-                )
-            }
+                cookingTimeInMin = recipe.cookingTimeInMin,
+                recipeIcon = recipe.type.icon,
+                recipeText = recipe.type.text
+            )
 
             Text(
                 modifier = Modifier.padding(vertical = 8.dp),
@@ -106,77 +98,20 @@ fun RecipeCard(
 }
 
 @Composable
-private fun RecipeType(
+private fun FavouriteIconButton(
     modifier: Modifier = Modifier,
-    icon: Int,
-    text: String
-) {
-    Row(
-        modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Icon(
-            modifier = Modifier.size(20.dp),
-            painter = painterResource(icon),
-            contentDescription = "Time",
-            tint = Color.Gray
-        )
-        Text(
-            modifier = Modifier.padding(horizontal = 4.dp),
-            text = text,
-            fontSize = 14.sp,
-            color = Color.Gray
-        )
-    }
-}
-
-@Composable
-private fun CookingTime(
-    modifier: Modifier = Modifier,
-    cookingTimeInMin: Int
-) {
-    Row(
-        modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Icon(
-            modifier = Modifier.size(20.dp),
-            painter = painterResource(R.drawable.ic_timer_50),
-            contentDescription = "Time",
-            tint = Color.Gray
-        )
-        Text(
-            modifier = Modifier.padding(horizontal = 4.dp),
-            text = stringResource(
-                id = R.string.cooking_time_in_minutes,
-                formatArgs = arrayOf(
-                    NumberFormat.getInstance(LocalConfiguration.current.locale).format(cookingTimeInMin)
-                )
-            ),
-            fontSize = 14.sp,
-            color = Color.Gray
-        )
-    }
-}
-
-@Composable
-private fun FavouriteIcon(
-    modifier: Modifier = Modifier,
-    isFavourite: Boolean,
+    isFavorite: FavoriteState,
     onClick: () -> Unit
 ) {
-    val icon = when (isFavourite) {
-        true -> R.drawable.ic_baseline_favorite_24
-        false -> R.drawable.ic_baseline_favorite_border_24
-    }
+    
     Icon(
         modifier = modifier.clickable(
             interactionSource = remember { MutableInteractionSource() },
             indication = rememberRipple(bounded = false),
             onClick = onClick
         ),
-        imageVector = ImageVector.vectorResource(id = icon),
-        contentDescription = "Favourite",
+        imageVector = ImageVector.vectorResource(id = isFavorite.iconRes),
+        contentDescription = stringResource(isFavorite.contentDescriptionRes),
         tint = MaterialTheme.colorScheme.error
     )
 }
@@ -184,6 +119,7 @@ private fun FavouriteIcon(
 @Composable
 private fun RecipeImage(
     modifier: Modifier = Modifier,
+    recipeName: String,
     imageUrl: String,
 ) {
     Box(
@@ -193,18 +129,21 @@ private fun RecipeImage(
             .border(
                 border = BorderStroke(
                     width = 1.dp,
-                    color = Color.LightGray
-                ), // TODO -> System color custom
+                    color = MaterialTheme.colorScheme.outline
+                ),
                 shape = RoundedCornerShape(12.dp)
             )
     ) {
 
         Image(
             painter = when (LocalInspectionMode.current) {
-                true -> painterResource(id = R.drawable.americano_small)
+                true -> painterResource(id = R.drawable.empty_recipes)
                 false -> rememberAsyncImagePainter(model = imageUrl)
             },
-            contentDescription = "Hello",
+            contentDescription =  stringResource(
+                id = R.string.recipe_image_content_description,
+                formatArgs = arrayOf(recipeName)
+            ),
             contentScale = ContentScale.FillWidth,
             modifier = Modifier
                 .fillMaxSize()

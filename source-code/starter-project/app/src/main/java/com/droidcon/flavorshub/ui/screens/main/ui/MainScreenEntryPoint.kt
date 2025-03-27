@@ -47,6 +47,9 @@ import com.droidcon.flavorshub.R
 import com.droidcon.flavorshub.model.BottomNavItem
 import com.droidcon.flavorshub.model.BottomNavItem.FAVOURITES
 import com.droidcon.flavorshub.model.BottomNavItem.HOME
+import com.droidcon.flavorshub.model.FavoriteState
+import com.droidcon.flavorshub.model.FavoriteState.FAVORITE
+import com.droidcon.flavorshub.model.FavoriteState.NOT_FAVORITE
 import com.droidcon.flavorshub.model.Type
 import com.droidcon.flavorshub.model.Type.FISH
 import com.droidcon.flavorshub.model.Type.MEAT
@@ -263,7 +266,7 @@ fun ContentScreenPreview() {
             cookingTimeInMin = 30,
             type = MEAT,
             imageUrl = "https://example.com/recipe1.jpg",
-            isFavorite = false
+            isFavorite = NOT_FAVORITE
         ),
         MainScreenRecipeItem(
             id = 2,
@@ -272,7 +275,7 @@ fun ContentScreenPreview() {
             cookingTimeInMin = 30,
             type = MEAT,
             imageUrl = "https://example.com/recipe1.jpg",
-            isFavorite = true
+            isFavorite = FAVORITE
         )
     ).toImmutableList()
 
