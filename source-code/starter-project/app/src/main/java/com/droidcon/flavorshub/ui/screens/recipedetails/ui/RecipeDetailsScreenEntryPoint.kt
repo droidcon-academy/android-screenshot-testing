@@ -1,4 +1,4 @@
-package com.droidcon.flavorshub.ui.recipedetailscreen
+package com.droidcon.flavorshub.ui.screens.recipedetails.ui
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
@@ -34,9 +34,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.droidcon.flavorshub.R
 import com.droidcon.flavorshub.model.Type
-import com.droidcon.flavorshub.model.screens.RecipeDetailsItem
+import com.droidcon.flavorshub.ui.screens.recipedetails.model.RecipeDetailsItem
 import com.droidcon.flavorshub.ui.theme.FlavorshubTheme
-import com.droidcon.flavorshub.viewmodels.RecipeDetailsScreenViewModel
+import com.droidcon.flavorshub.ui.screens.recipedetails.viewmodel.RecipeDetailsScreenViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

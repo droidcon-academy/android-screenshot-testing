@@ -1,7 +1,7 @@
 package com.droidcon.flavorshub.di
 
-import com.droidcon.flavorshub.utils.LocaleProvider
-import com.droidcon.flavorshub.viewmodels.RecipesRepo
+import com.droidcon.flavorshub.repositories.LocaleProvider
+import com.droidcon.flavorshub.repositories.RecipesRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

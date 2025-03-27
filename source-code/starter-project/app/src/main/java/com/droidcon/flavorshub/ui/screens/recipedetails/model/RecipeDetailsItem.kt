@@ -1,4 +1,4 @@
-package com.droidcon.flavorshub.model.screens
+package com.droidcon.flavorshub.ui.screens.recipedetails.model
 
 import com.droidcon.flavorshub.model.Type
 

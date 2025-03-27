@@ -1,4 +1,4 @@
-package com.droidcon.flavorshub.ui.mainscreen
+package com.droidcon.flavorshub.ui.screens.main.ui
 
 import android.icu.text.NumberFormat
 import androidx.compose.foundation.BorderStroke
@@ -40,7 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.droidcon.flavorshub.R
-import com.droidcon.flavorshub.model.screens.MainScreenRecipeItem
+import com.droidcon.flavorshub.ui.screens.main.model.MainScreenRecipeItem
 
 @Composable
 fun RecipeCard(

@@ -1,8 +1,8 @@
-package com.droidcon.flavorshub.ui.mainscreen
+package com.droidcon.flavorshub.ui.screens.main.ui
 
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.Composable
-import com.droidcon.flavorshub.model.screens.MainScreenRecipeItem
+import com.droidcon.flavorshub.ui.screens.main.model.MainScreenRecipeItem
 import kotlinx.collections.immutable.ImmutableList
 
 sealed interface MainScreenRecipeContent {

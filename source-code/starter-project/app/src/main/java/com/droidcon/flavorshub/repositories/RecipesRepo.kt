@@ -1,6 +1,5 @@
-package com.droidcon.flavorshub.viewmodels
+package com.droidcon.flavorshub.repositories
 
-import com.droidcon.flavorshub.utils.LocaleProvider
 import com.droidcon.flavorshub.R
 import com.droidcon.flavorshub.model.Recipe
 import com.droidcon.flavorshub.model.RecipeItem

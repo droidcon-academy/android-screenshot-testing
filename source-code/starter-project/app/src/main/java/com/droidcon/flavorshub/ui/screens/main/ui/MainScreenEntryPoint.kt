@@ -1,4 +1,4 @@
-package com.droidcon.flavorshub.ui.mainscreen
+package com.droidcon.flavorshub.ui.screens.main.ui
 
 import android.content.res.Configuration
 import androidx.compose.animation.AnimatedVisibility
@@ -51,12 +51,12 @@ import com.droidcon.flavorshub.model.Type
 import com.droidcon.flavorshub.model.Type.FISH
 import com.droidcon.flavorshub.model.Type.MEAT
 import com.droidcon.flavorshub.model.Type.VEGAN
-import com.droidcon.flavorshub.model.screens.MainScreenRecipeItem
-import com.droidcon.flavorshub.navigateToRecipeDetails
-import com.droidcon.flavorshub.ui.mainscreen.MainScreenRecipeContent.Recipes
+import com.droidcon.flavorshub.ui.screens.main.model.MainScreenRecipeItem
+import com.droidcon.flavorshub.navigation.navigateToRecipeDetails
+import com.droidcon.flavorshub.ui.screens.main.ui.MainScreenRecipeContent.Recipes
 import com.droidcon.flavorshub.ui.theme.FlavorshubTheme
-import com.droidcon.flavorshub.viewmodels.MainScreenViewModel
-import com.droidcon.flavorshub.viewmodels.MainScreenViewModel.ContentState.*
+import com.droidcon.flavorshub.ui.screens.main.viewmodel.MainScreenViewModel
+import com.droidcon.flavorshub.ui.screens.main.viewmodel.MainScreenViewModel.ContentState.*
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 

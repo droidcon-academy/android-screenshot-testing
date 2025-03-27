@@ -1,14 +1,11 @@
-package com.droidcon.flavorshub.viewmodels
+package com.droidcon.flavorshub.ui.screens.main.viewmodel
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.droidcon.flavorshub.model.BottomNavItem
-import com.droidcon.flavorshub.model.BottomNavItem.FAVOURITES
-import com.droidcon.flavorshub.model.BottomNavItem.HOME
 import com.droidcon.flavorshub.model.Type
-import com.droidcon.flavorshub.model.screens.MainScreenRecipeItem
-import com.droidcon.flavorshub.viewmodels.MainScreenViewModel.ContentState.RecipesContent.Favorites
-import com.droidcon.flavorshub.viewmodels.MainScreenViewModel.ContentState.RecipesContent.Home
+import com.droidcon.flavorshub.repositories.RecipesRepo
+import com.droidcon.flavorshub.ui.screens.main.model.MainScreenRecipeItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
@@ -35,14 +32,14 @@ class MainScreenViewModel @Inject constructor(
     }
 
     private var userFavorites: MutableSet<Int> = mutableSetOf()
-    private var selectedBottomNavItem: BottomNavItem = HOME
+    private var selectedBottomNavItem: BottomNavItem = BottomNavItem.HOME
     private var selectedRecipeFilter: MutableSet<Type> = Type.entries.toMutableSet()
 
     private val _screenUiState = mutableStateOf<ScreenUiState>(
         ScreenUiState(
             selectedRecipeFilter = selectedRecipeFilter.toImmutableList(),
             content = ContentState.Empty,
-            selectedNavItem = HOME
+            selectedNavItem = BottomNavItem.HOME
         )
     )
 
@@ -76,15 +73,15 @@ class MainScreenViewModel @Inject constructor(
             }
 
         val filteredRecipes = when (selectedBottomNavItem) {
-            HOME -> recipesInCurrentLocale
-            FAVOURITES -> recipesInCurrentLocale.filter { it.isFavorite }
+            BottomNavItem.HOME -> recipesInCurrentLocale
+            BottomNavItem.FAVOURITES -> recipesInCurrentLocale.filter { it.isFavorite }
         }.filter { selectedRecipeFilter.contains(it.type) }
 
         val contentState = when (filteredRecipes.isEmpty()) {
             true -> ContentState.Empty
             false -> when (selectedBottomNavItem) {
-                HOME -> Home(filteredRecipes.toImmutableList())
-                FAVOURITES -> Favorites(filteredRecipes.toImmutableList())
+                BottomNavItem.HOME -> ContentState.RecipesContent.Home(filteredRecipes.toImmutableList())
+                BottomNavItem.FAVOURITES -> ContentState.RecipesContent.Favorites(filteredRecipes.toImmutableList())
             }
         }
 

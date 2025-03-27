@@ -1,4 +1,4 @@
-package com.droidcon.flavorshub
+package com.droidcon.flavorshub.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
@@ -7,10 +7,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.droidcon.flavorshub.NavigationDestinations.MAIN_SCREEN
-import com.droidcon.flavorshub.NavigationDestinations.RECIPE_ID_KEY
-import com.droidcon.flavorshub.ui.mainscreen.MainScreenEntryPoint
-import com.droidcon.flavorshub.ui.recipedetailscreen.RecipeDetailsScreenEntryPoint
+import com.droidcon.flavorshub.navigation.NavigationDestinations.MAIN_SCREEN
+import com.droidcon.flavorshub.navigation.NavigationDestinations.RECIPE_ID_KEY
+import com.droidcon.flavorshub.ui.screens.main.ui.MainScreenEntryPoint
+import com.droidcon.flavorshub.ui.screens.recipedetails.ui.RecipeDetailsScreenEntryPoint
 
 object NavigationDestinations {
     const val MAIN_SCREEN = "main_screen"

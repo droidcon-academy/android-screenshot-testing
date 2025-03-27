@@ -1,4 +1,4 @@
-package com.droidcon.flavorshub.utils
+package com.droidcon.flavorshub.repositories
 
 import android.content.Context
 import android.content.res.Configuration

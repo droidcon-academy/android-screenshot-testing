@@ -1,7 +1,8 @@
-package com.droidcon.flavorshub.viewmodels
+package com.droidcon.flavorshub.ui.screens.recipedetails.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.droidcon.flavorshub.model.screens.RecipeDetailsItem
+import com.droidcon.flavorshub.repositories.RecipesRepo
+import com.droidcon.flavorshub.ui.screens.recipedetails.model.RecipeDetailsItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

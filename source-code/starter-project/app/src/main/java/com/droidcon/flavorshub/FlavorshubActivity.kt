@@ -6,8 +6,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import com.droidcon.flavorshub.navigation.AppNavigation
 import com.droidcon.flavorshub.ui.theme.FlavorshubTheme
-import com.droidcon.flavorshub.utils.LocaleProvider
+import com.droidcon.flavorshub.repositories.LocaleProvider
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
