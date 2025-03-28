@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- MEAT RECIPES -->
+    <!-- Beef Steak Recipe (ID 21) -->
+    <string name="meat_beef_steak_name">Beef Steak</string>
+    <string name="meat_beef_steak_description">Juicy beef steak with roasted potatoes and vegetables</string>
+    <string name="meat_beef_steak_ingredient_1">4 beef steaks (6 ounces each)</string>
+    <string name="meat_beef_steak_ingredient_2">2 tablespoons olive oil</string>
+    <string name="meat_beef_steak_ingredient_3">2 medium potatoes, peeled and cubed</string>
+    <string name="meat_beef_steak_ingredient_4">1 medium onion, diced</string>
+    <string name="meat_beef_steak_ingredient_5">1 medium bell pepper, diced</string>
+    <string name="meat_beef_steak_ingredient_6">Salt and pepper to taste</string>
+
+    <string name="meat_beef_steak_instruction_1">1. Preheat oven to 400°F (200°C)</string>
+    <string name="meat_beef_steak_instruction_2">2. In a small bowl, mix together the olive oil, salt, and pepper</string>
+    <string name="meat_beef_steak_instruction_3">3. Brush the mixture on both sides of the beef steaks</string>
+    <string name="meat_beef_steak_instruction_4">4. Bake the beef for 15-20 minutes or until it is cooked to desired level of doneness</string>
+    <string name="meat_beef_steak_instruction_5">5. Toss the potatoes and onion with olive oil, salt, and pepper on a baking sheet</string>
+    <string name="meat_beef_steak_instruction_6">6. Roast the potatoes and onion for 20-25 minutes or until they are tender</string>
+
+    <!-- Chicken Parmesan Recipe (ID 22) -->
+    <string name="meat_chicken_parmesan_name">Chicken Parmesan</string>
+    <string name="meat_chicken_parmesan_description">Breaded chicken cutlets with marinara sauce and melted mozzarella</string>
+    <string name="meat_chicken_parmesan_ingredient_1">4 chicken breasts (6 ounces each)</string>
+    <string name="meat_chicken_parmesan_ingredient_2">1 cup all-purpose flour</string>
+    <string name="meat_chicken_parmesan_ingredient_3">1 cup breadcrumbs</string>
+    <string name="meat_chicken_parmesan_ingredient_4">1 cup grated mozzarella cheese</string>
+    <string name="meat_chicken_parmesan_ingredient_5">1 cup marinara sauce</string>
+    <string name="meat_chicken_parmesan_ingredient_6">1/4 cup chopped fresh basil</string>
+    <string name="meat_chicken_parmesan_ingredient_7">Salt and pepper to taste</string>
+    <string name="meat_chicken_parmesan_ingredient_8">2 eggs, beaten</string>
+
+    <string name="meat_chicken_parmesan_instruction_1">1. Preheat oven to 400°F (200°C)</string>
+    <string name="meat_chicken_parmesan_instruction_2">2. In a shallow dish, mix together the flour, breadcrumbs, and a pinch of salt</string>
+    <string name="meat_chicken_parmesan_instruction_3">3. Dip the chicken breasts in the flour mixture, shaking off excess</string>
+    <string name="meat_chicken_parmesan_instruction_4">4. Dip the floured chicken in the beaten eggs, and then coat in the breadcrumbs</string>
+    <string name="meat_chicken_parmesan_instruction_5">5. Heat about 1/2 inch of oil in a large skillet over medium-high heat</string>
+    <string name="meat_chicken_parmesan_instruction_6">6. Fry the chicken until golden brown and cooked through</string>
+    <string name="meat_chicken_parmesan_instruction_7">7. Transfer the chicken to a baking dish and top with marinara sauce and mozzarella cheese</string>
+    <string name="meat_chicken_parmesan_instruction_8">8. Bake the chicken for 15-20 minutes or until the cheese is melted and bubbly</string>
+
+    <!-- Pork Chops Recipe (ID 23) -->
+    <string name="meat_pork_chops_name">Pork Chops</string>
+    <string name="meat_pork_chops_description">Juicy pork chops with apple and sage sauce</string>
+    <string name="meat_pork_chops_ingredient_1">4 pork chops (6 ounces each)</string>
+    <string name="meat_pork_chops_ingredient_2">2 tablespoons olive oil</string>
+    <string name="meat_pork_chops_ingredient_3">1 medium onion, diced</string>
+    <string name="meat_pork_chops_ingredient_4">1 medium apple, diced</string>
+    <string name="meat_pork_chops_ingredient_5">1/4 cup chopped fresh sage</string>
+    <string name="meat_pork_chops_ingredient_6">Salt and pepper to taste</string>
+    <string name="meat_pork_chops_ingredient_7">1/2 cup chicken broth</string>
+    <string name="meat_pork_chops_ingredient_8">2 tablespoons butter</string>
+
+    <string name="meat_pork_chops_instruction_1">1. Preheat oven to 400°F (200°C)</string>
+    <string name="meat_pork_chops_instruction_2">2. In a small bowl, mix together the olive oil, salt, and pepper</string>
+    <string name="meat_pork_chops_instruction_3">3. Brush the mixture on both sides of the pork chops</string>
+    <string name="meat_pork_chops_instruction_4">4. Bake the pork for 15-20 minutes or until it is cooked to desired level of doneness</string>
+    <string name="meat_pork_chops_instruction_5">5. In a skillet, sauté the onion and apple with butter until tender</string>
+    <string name="meat_pork_chops_instruction_6">6. Add sage and chicken broth, simmer until sauce thickens</string>
+    <string name="meat_pork_chops_instruction_7">7. Serve sauce over cooked pork chops</string>
+
+    <!-- Beef Stroganoff Recipe (ID 24) -->
+    <string name="meat_beef_stroganoff_name">Beef Stroganoff</string>
+    <string name="meat_beef_stroganoff_description">Tender beef strips in creamy mushroom sauce over egg noodles</string>
+    <string name="meat_beef_stroganoff_ingredient_1">1 pound beef strips (such as sirloin or ribeye)</string>
+    <string name="meat_beef_stroganoff_ingredient_2">1 medium onion, diced</string>
+    <string name="meat_beef_stroganoff_ingredient_3">1 medium package mushrooms, sliced</string>
+    <string name="meat_beef_stroganoff_ingredient_4">1/4 cup chopped fresh parsley</string>
+    <string name="meat_beef_stroganoff_ingredient_5">1/4 cup all-purpose flour</string>
+    <string name="meat_beef_stroganoff_ingredient_6">1/4 cup sour cream</string>
+    <string name="meat_beef_stroganoff_ingredient_7">2 cups beef broth</string>
+    <string name="meat_beef_stroganoff_ingredient_8">8 oz egg noodles</string>
+    <string name="meat_beef_stroganoff_ingredient_9">Salt and pepper to taste</string>
+
+    <string name="meat_beef_stroganoff_instruction_1">1. Cook egg noodles according to package instructions</string>
+    <string name="meat_beef_stroganoff_instruction_2">2. Heat oil in a large skillet over medium-high heat</string>
+    <string name="meat_beef_stroganoff_instruction_3">3. Add beef and cook until browned</string>
+    <string name="meat_beef_stroganoff_instruction_4">4. Add onion and mushrooms and cook until they are tender</string>
+    <string name="meat_beef_stroganoff_instruction_5">5. Add flour and cook for a few minutes</string>
+    <string name="meat_beef_stroganoff_instruction_6">6. Add broth and bring to a simmer</string>
+    <string name="meat_beef_stroganoff_instruction_7">7. Reduce heat to low and let cook for 10-15 minutes or until the sauce has thickened</string>
+    <string name="meat_beef_stroganoff_instruction_8">8. Stir in sour cream just before serving</string>
+    <string name="meat_beef_stroganoff_instruction_9">9. Serve hot over egg noodles</string>
+
+    <!-- Lamb Curry Recipe (ID 25) -->
+    <string name="meat_lamb_curry_name">Lamb Curry</string>
+    <string name="meat_lamb_curry_description">Tender lamb pieces simmered in rich aromatic curry sauce</string>
+    <string name="meat_lamb_curry_ingredient_1">1 pound lamb pieces (such as shoulder or leg)</string>
+    <string name="meat_lamb_curry_ingredient_2">2 medium onions, diced</string>
+    <string name="meat_lamb_curry_ingredient_3">2 medium tomatoes, diced</string>
+    <string name="meat_lamb_curry_ingredient_4">2 cloves garlic, minced</string>
+    <string name="meat_lamb_curry_ingredient_5">1 tablespoon grated fresh ginger</string>
+    <string name="meat_lamb_curry_ingredient_6">1 tablespoon curry powder</string>
+    <string name="meat_lamb_curry_ingredient_7">1 teaspoon ground cumin</string>
+    <string name="meat_lamb_curry_ingredient_8">1/2 teaspoon ground turmeric</string>
+    <string name="meat_lamb_curry_ingredient_9">1/2 teaspoon cayenne pepper</string>
+    <string name="meat_lamb_curry_ingredient_10">1 can coconut milk</string>
+    <string name="meat_lamb_curry_ingredient_11">Salt and pepper to taste</string>
+
+    <string name="meat_lamb_curry_instruction_1">1. Heat oil in a large pot over medium heat</string>
+    <string name="meat_lamb_curry_instruction_2">2. Add onions and cook until they are translucent</string>
+    <string name="meat_lamb_curry_instruction_3">3. Add garlic and ginger, and cook for 1 minute</string>
+    <string name="meat_lamb_curry_instruction_4">4. Add curry powder, cumin, turmeric, and cayenne pepper, and cook for 1 minute</string>
+    <string name="meat_lamb_curry_instruction_5">5. Add lamb and cook for a few minutes</string>
+    <string name="meat_lamb_curry_instruction_6">6. Add tomatoes and coconut milk and bring to a simmer</string>
+    <string name="meat_lamb_curry_instruction_7">7. Reduce heat to low and let cook for 30-40 minutes or until the lamb is tender</string>
+    <string name="meat_lamb_curry_instruction_8">8. Season with salt and pepper to taste</string>
+    <string name="meat_lamb_curry_instruction_9">9. Serve hot over rice</string>
+
+    <!-- Beef Burritos Recipe (ID 26) -->
+    <string name="meat_beef_burritos_name">Beef Burritos</string>
+    <string name="meat_beef_burritos_description">Flour tortillas with seasoned beef, rice, beans and cheese</string>
+    <string name="meat_beef_burritos_ingredient_1">1 pound ground beef</string>
+    <string name="meat_beef_burritos_ingredient_2">1 medium onion, diced</string>
+    <string name="meat_beef_burritos_ingredient_3">1 medium bell pepper, diced</string>
+    <string name="meat_beef_burritos_ingredient_4">1/4 cup chopped fresh cilantro</string>
+    <string name="meat_beef_burritos_ingredient_5">1 tablespoon chili powder</string>
+    <string name="meat_beef_burritos_ingredient_6">1 teaspoon ground cumin</string>
+    <string name="meat_beef_burritos_ingredient_7">1 cup cooked rice</string>
+    <string name="meat_beef_burritos_ingredient_8">1 can black beans, rinsed and drained</string>
+    <string name="meat_beef_burritos_ingredient_9">8-10 flour tortillas</string>
+    <string name="meat_beef_burritos_ingredient_10">1 cup shredded cheese</string>
+    <string name="meat_beef_burritos_ingredient_11">Salt and pepper to taste</string>
+
+    <string name="meat_beef_burritos_instruction_1">1. Cook rice according to package instructions</string>
+    <string name="meat_beef_burritos_instruction_2">2. Heat oil in a large skillet over medium-high heat</string>
+    <string name="meat_beef_burritos_instruction_3">3. Add beef and cook until browned</string>
+    <string name="meat_beef_burritos_instruction_4">4. Add onion and bell pepper and cook until they are tender</string>
+    <string name="meat_beef_burritos_instruction_5">5. Add chili powder, cumin, salt and pepper</string>
+    <string name="meat_beef_burritos_instruction_6">6. Warm the tortillas by wrapping them in a damp paper towel and microwaving for 20-30 seconds</string>
+    <string name="meat_beef_burritos_instruction_7">7. Assemble the burritos by spooning the beef mixture onto a tortilla, and topping with rice, beans, and cheese</string>
+    <string name="meat_beef_burritos_instruction_8">8. Fold the sides of the tortilla and roll up tightly</string>
+    <string name="meat_beef_burritos_instruction_9">9. Serve immediately</string>
+
+    <!-- BBQ Ribs Recipe (ID 27) -->
+    <string name="meat_bbq_ribs_name">BBQ Ribs</string>
+    <string name="meat_bbq_ribs_description">Slow-cooked pork ribs with smoky BBQ sauce glaze</string>
+    <string name="meat_bbq_ribs_ingredient_1">2 pounds pork ribs</string>
+    <string name="meat_bbq_ribs_ingredient_2">1/4 cup BBQ sauce</string>
+    <string name="meat_bbq_ribs_ingredient_3">1/4 cup honey</string>
+    <string name="meat_bbq_ribs_ingredient_4">2 tablespoons apple cider vinegar</string>
+    <string name="meat_bbq_ribs_ingredient_5">1 teaspoon smoked paprika</string>
+    <string name="meat_bbq_ribs_ingredient_6">1 teaspoon garlic powder</string>
+    <string name="meat_bbq_ribs_ingredient_7">Salt and pepper to taste</string>
+
+    <string name="meat_bbq_ribs_instruction_1">1. Preheat oven to 275°F (135°C)</string>
+    <string name="meat_bbq_ribs_instruction_2">2. In a small bowl, mix together the BBQ sauce, honey, apple cider vinegar, smoked paprika, and garlic powder</string>
+    <string name="meat_bbq_ribs_instruction_3">3. Season ribs with salt and pepper</string>
+    <string name="meat_bbq_ribs_instruction_4">4. Brush the mixture on both sides of the pork ribs</string>
+    <string name="meat_bbq_ribs_instruction_5">5. Place the ribs on a baking sheet and bake for 2-3 hours or until they are tender</string>
+    <string name="meat_bbq_ribs_instruction_6">6. Brush the ribs with additional BBQ sauce during the last 10 minutes of cooking</string>
+
+    <!-- Beef Burger Recipe (ID 28) -->
+    <string name="meat_beef_burger_name">Beef Burger</string>
+    <string name="meat_beef_burger_description">Juicy beef patty on a brioche bun with all the fixings</string>
+    <string name="meat_beef_burger_ingredient_1">1 pound ground beef</string>
+    <string name="meat_beef_burger_ingredient_2">4 brioche buns</string>
+    <string name="meat_beef_burger_ingredient_3">1 medium onion, sliced</string>
+    <string name="meat_beef_burger_ingredient_4">1 medium tomato, sliced</string>
+    <string name="meat_beef_burger_ingredient_5">4 lettuce leaves</string>
+    <string name="meat_beef_burger_ingredient_6">4 slices cheese (optional)</string>
+    <string name="meat_beef_burger_ingredient_7">Condiments of choice (ketchup, mustard, mayonnaise)</string>
+    <string name="meat_beef_burger_ingredient_8">Salt and pepper to taste</string>
+
+    <string name="meat_beef_burger_instruction_1">1. Preheat grill or grill pan to medium-high heat</string>
+    <string name="meat_beef_burger_instruction_2">2. Form the beef into 4 equal patties</string>
+    <string name="meat_beef_burger_instruction_3">3. Season patties with salt and pepper</string>
+    <string name="meat_beef_burger_instruction_4">4. Grill the patties for 4-6 minutes per side or until they are cooked to desired level of doneness</string>
+    <string name="meat_beef_burger_instruction_5">5. If using cheese, add to patties during the last minute of cooking</string>
+    <string name="meat_beef_burger_instruction_6">6. Lightly toast the brioche buns on the grill</string>
+    <string name="meat_beef_burger_instruction_7">7. Assemble the burgers by spreading condiments on the bottom bun, followed by a cooked patty, lettuce, tomato, onion, and top bun</string>
+
+    <!-- Roast Chicken Recipe (ID 29) -->
+    <string name="meat_roast_chicken_name">Roast Chicken</string>
+    <string name="meat_roast_chicken_description">Whole roasted chicken with herbs, garlic, and lemon</string>
+    <string name="meat_roast_chicken_ingredient_1">1 whole chicken (3-4 pounds)</string>
+    <string name="meat_roast_chicken_ingredient_2">2 tablespoons olive oil</string>
+    <string name="meat_roast_chicken_ingredient_3">2 cloves garlic, minced</string>
+    <string name="meat_roast_chicken_ingredient_4">1 lemon, sliced</string>
+    <string name="meat_roast_chicken_ingredient_5">1/4 cup mixed fresh herbs (such as rosemary, thyme, and parsley)</string>
+    <string name="meat_roast_chicken_ingredient_6">Salt and pepper to taste</string>
+
+    <string name="meat_roast_chicken_instruction_1">1. Preheat oven to 425°F (220°C)</string>
+    <string name="meat_roast_chicken_instruction_2">2. In a small bowl, mix together the olive oil, garlic, and herbs</string>
+    <string name="meat_roast_chicken_instruction_3">3. Rub the mixture on the chicken, making sure to get some under the skin as well</string>
+    <string name="meat_roast_chicken_instruction_4">4. Place lemon slices inside the cavity and under the skin</string>
+    <string name="meat_roast_chicken_instruction_5">5. Season with salt and pepper to taste</string>
+    <string name="meat_roast_chicken_instruction_6">6. Place the chicken in a roasting pan and roast for 45-50 minutes or until it is cooked through</string>
+    <string name="meat_roast_chicken_instruction_7">7. Let rest for 10 minutes before carving</string>
+
+    <!-- Beef Stir Fry Recipe (ID 30) -->
+    <string name="meat_beef_stir_fry_name">Beef Stir Fry</string>
+    <string name="meat_beef_stir_fry_description">Thin sliced beef with vegetables in savory stir-fry sauce</string>
+    <string name="meat_beef_stir_fry_ingredient_1">1 pound beef strips (such as sirloin or ribeye)</string>
+    <string name="meat_beef_stir_fry_ingredient_2">2 medium onions, sliced</string>
+    <string name="meat_beef_stir_fry_ingredient_3">2 medium bell peppers, sliced</string>
+    <string name="meat_beef_stir_fry_ingredient_4">1 cup broccoli florets</string>
+    <string name="meat_beef_stir_fry_ingredient_5">1 cup snap peas</string>
+    <string name="meat_beef_stir_fry_ingredient_6">2 cloves garlic, minced</string>
+    <string name="meat_beef_stir_fry_ingredient_7">1 tablespoon soy sauce</string>
+    <string name="meat_beef_stir_fry_ingredient_8">1 tablespoon oyster sauce</string>
+    <string name="meat_beef_stir_fry_ingredient_9">1 tablespoon honey</string>
+    <string name="meat_beef_stir_fry_ingredient_10">1 teaspoon grated fresh ginger</string>
+    <string name="meat_beef_stir_fry_ingredient_11">Salt and pepper to taste</string>
+
+    <string name="meat_beef_stir_fry_instruction_1">1. Heat oil in a large skillet or wok over medium-high heat</string>
+    <string name="meat_beef_stir_fry_instruction_2">2. Add beef and cook until browned</string>
+    <string name="meat_beef_stir_fry_instruction_3">3. Add onion, bell peppers, broccoli, and snap peas, and cook until vegetables are tender-crisp</string>
+    <string name="meat_beef_stir_fry_instruction_4">4. Add garlic and ginger and cook for 1 minute</string>
+    <string name="meat_beef_stir_fry_instruction_5">5. Add soy sauce, oyster sauce, and honey, and stir to combine</string>
+    <string name="meat_beef_stir_fry_instruction_6">6. Cook for an additional 2-3 minutes or until the sauce has thickened</string>
+    <string name="meat_beef_stir_fry_instruction_7">7. Season with salt and pepper to taste</string>
+    <string name="meat_beef_stir_fry_instruction_8">8. Serve hot over rice</string>
+</resources>

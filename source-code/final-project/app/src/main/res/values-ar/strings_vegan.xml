@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Buddha Bowl Recipe -->
+    <string name="vegan_buddha_bowl_name">طبق بوذا النباتي</string>
+    <string name="vegan_buddha_bowl_description">طبق ملون من الكينوا والخضروات المشوية وصلصة الطحينة</string>
+    <string name="buddha_ingredient_1">1 كوب كينوا، مغسولة</string>
+    <string name="buddha_ingredient_2">1 بطاطا حلوة، مقطعة مكعبات</string>
+    <string name="buddha_ingredient_3">1 كوب زهيرات بروكلي</string>
+    <string name="buddha_ingredient_4">1 فلفل أحمر، مقطع شرائح</string>
+    <string name="buddha_ingredient_5">1 كوب حمص، مصفى ومغسول</string>
+    <string name="buddha_ingredient_6">2 ملعقة كبيرة زيت زيتون</string>
+    <string name="buddha_ingredient_7">1 أفوكادو، مقطع شرائح</string>
+    <string name="buddha_ingredient_8">2 ملعقة كبيرة طحينة</string>
+    <string name="buddha_ingredient_9">1 ملعقة كبيرة عصير ليمون</string>
+    <string name="buddha_ingredient_10">1 ملعقة صغيرة شراب القيقب</string>
+    <string name="buddha_ingredient_11">ملح وفلفل حسب الذوق</string>
+
+    <string name="buddha_instruction_1">1. سخّن الفرن إلى 425 درجة فهرنهايت (220 درجة مئوية)</string>
+    <string name="buddha_instruction_2">2. اطهِ الكينوا وفقًا لتعليمات العبوة</string>
+    <string name="buddha_instruction_3">3. قلّب البطاطا الحلوة والبروكلي والفلفل مع زيت الزيتون والملح والفلفل</string>
+    <string name="buddha_instruction_4">4. اشوِ الخضروات لمدة 20-25 دقيقة حتى تنضج</string>
+    <string name="buddha_instruction_5">5. امزج الطحينة وعصير الليمون وشراب القيقب و 2-3 ملاعق كبيرة من الماء لعمل الصلصة</string>
+    <string name="buddha_instruction_6">6. جمّع الطبق مع الكينوا والخضروات المشوية والحمص والأفوكادو</string>
+    <string name="buddha_instruction_7">7. رش بصلصة الطحينة وقدم</string>
+
+    <!-- Mushroom Risotto Recipe -->
+    <string name="mushroom_risotto_name">ريزوتو الفطر</string>
+    <string name="mushroom_risotto_description">أرز أربوريو كريمي مع الفطر البري والأعشاب</string>
+    <string name="mushroom_risotto_ingredient_1">1 1/2 كوب أرز أربوريو</string>
+    <string name="mushroom_risotto_ingredient_2">4 أكواب مرق خضار، دافئ</string>
+    <string name="mushroom_risotto_ingredient_3">8 أونصات فطر مشكل، مقطع شرائح</string>
+    <string name="mushroom_risotto_ingredient_4">1 بصلة، مفرومة ناعمًا</string>
+    <string name="mushroom_risotto_ingredient_5">3 فصوص ثوم، مفرومة</string>
+    <string name="mushroom_risotto_ingredient_6">1/2 كوب نبيذ أبيض جاف (اختياري)</string>
+    <string name="mushroom_risotto_ingredient_7">2 ملعقة كبيرة زيت زيتون</string>
+    <string name="mushroom_risotto_ingredient_8">2 ملعقة كبيرة خميرة غذائية</string>
+    <string name="mushroom_risotto_ingredient_9">1 ملعقة كبيرة أوراق زعتر طازجة</string>
+    <string name="mushroom_risotto_ingredient_10">ملح وفلفل حسب الذوق</string>
+
+    <string name="mushroom_risotto_instruction_1">1. سخّن زيت الزيتون في مقلاة كبيرة على نار متوسطة</string>
+    <string name="mushroom_risotto_instruction_2">2. قم بتشويح البصل حتى يصبح شفافًا، لمدة 5 دقائق تقريبًا</string>
+    <string name="mushroom_risotto_instruction_3">3. أضف الفطر والثوم، واطهِ حتى يطلق الفطر رطوبته</string>
+    <string name="mushroom_risotto_instruction_4">4. أضف أرز أربوريو وقلب لمدة دقيقتين حتى يصبح شفافًا عند الحواف</string>
+    <string name="mushroom_risotto_instruction_5">5. صب النبيذ إذا كنت تستخدمه واطهِ حتى يمتص</string>
+    <string name="mushroom_risotto_instruction_6">6. أضف المرق الدافئ نصف كوب في المرة، مع التقليب باستمرار حتى يمتص</string>
+    <string name="mushroom_risotto_instruction_7">7. استمر في إضافة المرق حتى يصبح الأرز كريميًا وطريًا، حوالي 25 دقيقة</string>
+    <string name="mushroom_risotto_instruction_8">8. قلّب الخميرة الغذائية والزعتر والملح والفلفل</string>
+    <string name="mushroom_risotto_instruction_9">9. اتركه يستريح لمدة 5 دقائق قبل التقديم</string>
+
+    <!-- Avocado Toast Recipe -->
+    <string name="avocado_toast_name">توست الأفوكادو</string>
+    <string name="avocado_toast_description">خبز العجين المخمر مع الأفوكادو المهروس والطماطم الكرزية والخضروات الدقيقة</string>
+    <string name="avocado_toast_ingredient_1">2 شريحة خبز العجين المخمر</string>
+    <string name="avocado_toast_ingredient_2">1 أفوكادو ناضج، مهروس</string>
+    <string name="avocado_toast_ingredient_3">1/2 كوب طماطم كرزية، مقطعة أنصاف</string>
+    <string name="avocado_toast_ingredient_4">1/4 كوب خضروات دقيقة</string>
+    <string name="avocado_toast_ingredient_5">ملح وفلفل حسب الذوق</string>
+    <string name="avocado_toast_ingredient_6">1 ملعقة كبيرة زيت زيتون</string>
+
+    <string name="avocado_toast_instruction_1">1. حمّص الخبز حتى يصبح بنيًا فاتحًا</string>
+    <string name="avocado_toast_instruction_2">2. افرد الأفوكادو المهروس على التوست</string>
+    <string name="avocado_toast_instruction_3">3. ضع فوقه الطماطم الكرزية والخضروات الدقيقة</string>
+    <string name="avocado_toast_instruction_4">4. تبّل بالملح والفلفل حسب الذوق</string>
+    <string name="avocado_toast_instruction_5">5. رش زيت الزيتون وقدم</string>
+
+    <!-- Vegetable Curry Recipe -->
+    <string name="vegetable_curry_name">كاري الخضار</string>
+    <string name="vegetable_curry_description">كاري جوز الهند الحار مع الخضروات المشكلة</string>
+    <string name="vegetable_curry_ingredient_1">2 بصل متوسط، مقطع مكعبات</string>
+    <string name="vegetable_curry_ingredient_2">2 جزر متوسط، مقشر ومقطع مكعبات</string>
+    <string name="vegetable_curry_ingredient_3">2 بطاطس متوسطة، مقشرة ومقطعة مكعبات</string>
+    <string name="vegetable_curry_ingredient_4">1 فلفل أحمر كبير، مقطع مكعبات</string>
+    <string name="vegetable_curry_ingredient_5">2 فص ثوم، مفروم</string>
+    <string name="vegetable_curry_ingredient_6">1 ملعقة كبيرة زنجبيل طازج مبشور</string>
+    <string name="vegetable_curry_ingredient_7">1 ملعقة كبيرة مسحوق كاري</string>
+    <string name="vegetable_curry_ingredient_8">1 ملعقة صغيرة كمون مطحون</string>
+    <string name="vegetable_curry_ingredient_9">1/2 ملعقة صغيرة كركم مطحون</string>
+    <string name="vegetable_curry_ingredient_10">1/2 ملعقة صغيرة فلفل حار</string>
+    <string name="vegetable_curry_ingredient_11">1 علبة حليب جوز الهند</string>
+    <string name="vegetable_curry_ingredient_12">ملح وفلفل حسب الذوق</string>
+
+    <string name="vegetable_curry_instruction_1">1. سخّن الزيت في مقلاة كبيرة على نار متوسطة</string>
+    <string name="vegetable_curry_instruction_2">2. أضف البصل واطهِ حتى يصبح شفافًا</string>
+    <string name="vegetable_curry_instruction_3">3. أضف الجزر والبطاطس والفلفل، واطهِ لبضع دقائق</string>
+    <string name="vegetable_curry_instruction_4">4. أضف الثوم والزنجبيل ومسحوق الكاري والكمون والكركم والفلفل الحار، واطهِ لمدة دقيقة واحدة</string>
+    <string name="vegetable_curry_instruction_5">5. صب حليب جوز الهند واترك المزيج يغلي</string>
+    <string name="vegetable_curry_instruction_6">6. خفّض الحرارة واترك الطبق ينضج لمدة 20-25 دقيقة أو حتى تصبح الخضروات طرية</string>
+    <string name="vegetable_curry_instruction_7">7. تبّل بالملح والفلفل حسب الذوق</string>
+    <string name="vegetable_curry_instruction_8">8. قدّمه ساخنًا فوق الأرز أو مع خبز النان</string>
+
+    <!-- Stuffed Bell Peppers Recipe -->
+    <string name="stuffed_bell_peppers_name">فلفل محشو</string>
+    <string name="stuffed_bell_peppers_description">فلفل رومي محشو بالكينوا والفاصوليا السوداء والذرة</string>
+    <string name="stuffed_bell_peppers_ingredient_1">4 حبات فلفل رومي كبير، أي لون</string>
+    <string name="stuffed_bell_peppers_ingredient_2">1 كوب كينوا، مغسولة</string>
+    <string name="stuffed_bell_peppers_ingredient_3">2 كوب ماء أو مرق خضار</string>
+    <string name="stuffed_bell_peppers_ingredient_4">1 علبة فاصوليا سوداء، مصفاة ومغسولة</string>
+    <string name="stuffed_bell_peppers_ingredient_5">1 كوب حبات ذرة مجمدة</string>
+    <string name="stuffed_bell_peppers_ingredient_6">1 بصلة صغيرة، مقطعة مكعبات</string>
+    <string name="stuffed_bell_peppers_ingredient_7">1 كوسة صغيرة، مقطعة مكعبات</string>
+    <string name="stuffed_bell_peppers_ingredient_8">1 فلفل أحمر صغير، مقطع مكعبات</string>
+    <string name="stuffed_bell_peppers_ingredient_9">2 فص ثوم، مفروم</string>
+    <string name="stuffed_bell_peppers_ingredient_10">1 ملعقة كبيرة زيت زيتون</string>
+    <string name="stuffed_bell_peppers_ingredient_11">1 ملعقة صغيرة كمون</string>
+    <string name="stuffed_bell_peppers_ingredient_12">1 ملعقة صغيرة بابريكا مدخنة</string>
+    <string name="stuffed_bell_peppers_ingredient_13">ملح وفلفل حسب الذوق</string>
+
+    <string name="stuffed_bell_peppers_instruction_1">1. سخّن الفرن إلى 375 درجة فهرنهايت (190 درجة مئوية)</string>
+    <string name="stuffed_bell_peppers_instruction_2">2. اقطع رؤوس الفلفل وأزل البذور والأغشية</string>
+    <string name="stuffed_bell_peppers_instruction_3">3. في قدر متوسط، اغلِ الكينوا والماء أو المرق</string>
+    <string name="stuffed_bell_peppers_instruction_4">4. خفّض الحرارة، وغطِ القدر، واتركه على نار هادئة حتى تنضج الكينوا ويمتص الماء</string>
+    <string name="stuffed_bell_peppers_instruction_5">5. في مقلاة كبيرة، سخّن زيت الزيتون على نار متوسطة</string>
+    <string name="stuffed_bell_peppers_instruction_6">6. أضف البصل والكوسة والفلفل الأحمر، واطهِ حتى تنضج الخضروات</string>
+    <string name="stuffed_bell_peppers_instruction_7">7. أضف الثوم والكمون والبابريكا المدخنة، واطهِ لمدة دقيقة واحدة</string>
+    <string name="stuffed_bell_peppers_instruction_8">8. حرّك الكينوا المطبوخة والفاصوليا السوداء وحبات الذرة</string>
+    <string name="stuffed_bell_peppers_instruction_9">9. احشِ كل فلفل بخليط الكينوا وضعها في صينية خبز</string>
+    <string name="stuffed_bell_peppers_instruction_10">10. غطِ صينية الخبز بورق ألومنيوم واخبزها لمدة 25 دقيقة</string>
+    <string name="stuffed_bell_peppers_instruction_11">11. أزل ورق الألومنيوم واخبزها لمدة 10-15 دقيقة إضافية، أو حتى ينضج الفلفل</string>
+
+    <!-- Sweet Potato Tacos Recipe -->
+    <string name="sweet_potato_tacos_name">تاكو البطاطا الحلوة</string>
+    <string name="sweet_potato_tacos_description">تورتيلا ذرة مع البطاطا الحلوة المشوية والفاصوليا السوداء والأفوكادو</string>
+    <string name="sweet_potato_tacos_ingredient_1">2 بطاطا حلوة كبيرة، مقشرة ومقطعة مكعبات</string>
+    <string name="sweet_potato_tacos_ingredient_2">1/4 كوب زيت زيتون</string>
+    <string name="sweet_potato_tacos_ingredient_3">1 بصلة صغيرة، مقطعة مكعبات</string>
+    <string name="sweet_potato_tacos_ingredient_4">1 فلفل أحمر صغير، مقطع مكعبات</string>
+    <string name="sweet_potato_tacos_ingredient_5">2 فص ثوم، مفروم</string>
+    <string name="sweet_potato_tacos_ingredient_6">1 علبة فاصوليا سوداء، مصفاة ومغسولة</string>
+    <string name="sweet_potato_tacos_ingredient_7">1 أفوكادو، مقطع مكعبات</string>
+    <string name="sweet_potato_tacos_ingredient_8">8-10 تورتيلا ذرة</string>
+    <string name="sweet_potato_tacos_ingredient_9">ملح وفلفل حسب الذوق</string>
+    <string name="sweet_potato_tacos_ingredient_10">إضافات اختيارية: صلصة، خس مقطع، طماطم مقطعة، جبن نباتي مبشور</string>
+
+    <string name="sweet_potato_tacos_instruction_1">1. سخّن الفرن إلى 400 درجة فهرنهايت (200 درجة مئوية)</string>
+    <string name="sweet_potato_tacos_instruction_2">2. قلّب البطاطا الحلوة مع ملعقتين كبيرتين من زيت الزيتون والملح والفلفل على صينية خبز</string>
+    <string name="sweet_potato_tacos_instruction_3">3. اشوِ البطاطا الحلوة لمدة 20-25 دقيقة، أو حتى تنضج</string>
+    <string name="sweet_potato_tacos_instruction_4">4. في مقلاة كبيرة، سخّن ما تبقى من زيت الزيتون (2 ملعقة كبيرة) على نار متوسطة</string>
+    <string name="sweet_potato_tacos_instruction_5">5. أضف البصل والفلفل الأحمر، واطهِ حتى ينضجا</string>
+    <string name="sweet_potato_tacos_instruction_6">6. أضف الثوم واطهِ لمدة دقيقة واحدة</string>
+    <string name="sweet_potato_tacos_instruction_7">7. أضف الفاصوليا السوداء واطهِ لمدة 2-3 دقائق، أو حتى تسخن</string>
+    <string name="sweet_potato_tacos_instruction_8">8. سخّن التورتيلا بلفها في منشفة ورقية رطبة وتسخينها في الميكروويف لمدة 20-30 ثانية</string>
+    <string name="sweet_potato_tacos_instruction_9">9. جمّع التاكو بوضع خليط البطاطا الحلوة والفاصوليا السوداء على تورتيلا، وأضف الأفوكادو وأي إضافات مرغوبة</string>
+
+    <!-- Chickpea Masala Recipe -->
+    <string name="chickpea_masala_name">ماسالا الحمص</string>
+    <string name="chickpea_masala_description">حمص متبل في صلصة طماطم كاري مع أرز عطري</string>
+    <string name="chickpea_masala_ingredient_1">1 علبة حمص، مصفى ومغسول</string>
+    <string name="chickpea_masala_ingredient_2">2 بصل متوسط، مقطع مكعبات</string>
+    <string name="chickpea_masala_ingredient_3">2 طماطم متوسطة، مقطعة مكعبات</string>
+    <string name="chickpea_masala_ingredient_4">2 فص ثوم، مفروم</string>
+    <string name="chickpea_masala_ingredient_5">1 ملعقة كبيرة زنجبيل طازج مبشور</string>
+    <string name="chickpea_masala_ingredient_6">1 ملعقة كبيرة مسحوق كاري</string>
+    <string name="chickpea_masala_ingredient_7">1 ملعقة صغيرة كمون مطحون</string>
+    <string name="chickpea_masala_ingredient_8">1/2 ملعقة صغيرة كركم مطحون</string>
+    <string name="chickpea_masala_ingredient_9">1/2 ملعقة صغيرة فلفل حار</string>
+    <string name="chickpea_masala_ingredient_10">1 علبة حليب جوز الهند</string>
+    <string name="chickpea_masala_ingredient_11">ملح وفلفل حسب الذوق</string>
+    <string name="chickpea_masala_ingredient_12">كزبرة طازجة، مفرومة (اختياري)</string>
+
+    <string name="chickpea_masala_instruction_1">1. سخّن الزيت في مقلاة كبيرة على نار متوسطة</string>
+    <string name="chickpea_masala_instruction_2">2. أضف البصل واطهِ حتى يصبح شفافًا</string>
+    <string name="chickpea_masala_instruction_3">3. أضف الثوم والزنجبيل، واطهِ لمدة دقيقة واحدة</string>
+    <string name="chickpea_masala_instruction_4">4. أضف مسحوق الكاري والكمون والكركم والفلفل الحار، واطهِ لمدة دقيقة واحدة</string>
+    <string name="chickpea_masala_instruction_5">5. أضف الطماطم واطهِ لبضع دقائق</string>
+    <string name="chickpea_masala_instruction_6">6. أضف الحمص وحليب جوز الهند، واترك المزيج يغلي</string>
+    <string name="chickpea_masala_instruction_7">7. خفّض الحرارة واترك الطبق ينضج لمدة 20-25 دقيقة أو حتى تتكثف الصلصة</string>
+    <string name="chickpea_masala_instruction_8">8. تبّل بالملح والفلفل حسب الذوق</string>
+    <string name="chickpea_masala_instruction_9">9. قدّمه ساخنًا فوق الأرز، مزينًا بالكزبرة المفرومة إذا رغبت</string>
+
+    <!-- Lentil Soup Recipe -->
+    <string name="lentil_soup_name">شوربة العدس</string>
+    <string name="lentil_soup_description">شوربة عدس دسمة مع الجزر والكرفس والأعشاب الطازجة</string>
+    <string name="lentil_soup_ingredient_1">1 كوب عدس أخضر أو بني مجفف، مغسول</string>
+    <string name="lentil_soup_ingredient_2">4 أكواب مرق خضار</string>
+    <string name="lentil_soup_ingredient_3">1 بصلة متوسطة، مقطعة مكعبات</string>
+    <string name="lentil_soup_ingredient_4">2 جزر متوسط، مقشر ومقطع مكعبات</string>
+    <string name="lentil_soup_ingredient_5">2 عود كرفس متوسط، مقطع مكعبات</string>
+    <string name="lentil_soup_ingredient_6">2 فص ثوم، مفروم</string>
+    <string name="lentil_soup_ingredient_7">1 علبة طماطم مقطعة</string>
+    <string name="lentil_soup_ingredient_8">1 ملعقة صغيرة زعتر مجفف</string>
+    <string name="lentil_soup_ingredient_9">1 ملعقة صغيرة إكليل الجبل مجفف</string>
+    <string name="lentil_soup_ingredient_10">ملح وفلفل حسب الذوق</string>
+
+    <string name="lentil_soup_instruction_1">1. في قدر كبير، قم بتشويح البصل والجزر والكرفس في قليل من الزيت حتى تنضج</string>
+    <string name="lentil_soup_instruction_2">2. أضف الثوم واطهِ لمدة دقيقة واحدة</string>
+    <string name="lentil_soup_instruction_3">3. أضف العدس ومرق الخضار والطماطم المقطعة والزعتر وإكليل الجبل</string>
+    <string name="lentil_soup_instruction_4">4. اترك المزيج يغلي، ثم خفّض الحرارة واتركه على نار هادئة لمدة 30-40 دقيقة أو حتى ينضج العدس</string>
+    <string name="lentil_soup_instruction_5">5. تبّل بالملح والفلفل حسب الذوق</string>
+    <string name="lentil_soup_instruction_6">6. قدّمها ساخنة، مزينة بالأعشاب الطازجة إذا رغبت</string>
+
+    <!-- Roasted Vegetable Salad Recipe -->
+    <string name="roasted_vegetable_salad_name">سلطة الخضار المشوية</string>
+    <string name="roasted_vegetable_salad_description">خضروات مشوية متنوعة مع الكينوا وصلصة البلسميك</string>
+    <string name="roasted_vegetable_salad_ingredient_1">2 كوب خضروات مشكلة (مثل البروكلي والجزر والفلفل والكوسة)</string>
+    <string name="roasted_vegetable_salad_ingredient_2">2 ملعقة كبيرة زيت زيتون</string>
+    <string name="roasted_vegetable_salad_ingredient_3">ملح وفلفل حسب الذوق</string>
+    <string name="roasted_vegetable_salad_ingredient_4">1 كوب كينوا، مغسولة</string>
+    <string name="roasted_vegetable_salad_ingredient_5">2 كوب ماء أو مرق خضار</string>
+    <string name="roasted_vegetable_salad_ingredient_6">1/4 كوب صلصة البلسميك</string>
+    <string name="roasted_vegetable_salad_ingredient_7">1/4 كوب بقدونس طازج مفروم</string>
+
+    <string name="roasted_vegetable_salad_instruction_1">1. سخّن الفرن إلى 425 درجة فهرنهايت (220 درجة مئوية)</string>
+    <string name="roasted_vegetable_salad_instruction_2">2. قلّب الخضروات مع ملعقة كبيرة من زيت الزيتون والملح والفلفل على صينية خبز</string>
+    <string name="roasted_vegetable_salad_instruction_3">3. اشوِ الخضروات لمدة 20-25 دقيقة، أو حتى تنضج</string>
+    <string name="roasted_vegetable_salad_instruction_4">4. في قدر متوسط، اغلِ الكينوا والماء أو المرق</string>
+    <string name="roasted_vegetable_salad_instruction_5">5. خفّض الحرارة، وغطِ القدر، واتركه على نار هادئة حتى تنضج الكينوا ويمتص الماء</string>
+    <string name="roasted_vegetable_salad_instruction_6">6. في وعاء كبير، اخلط الخضروات المشوية والكينوا المطبوخة وصلصة البلسميك</string>
+    <string name="roasted_vegetable_salad_instruction_7">7. قلّب المكونات لتتجانس، وزيّن بالبقدونس المفروم</string>
+
+    <!-- Quinoa Salad Recipe -->
+    <string name="quinoa_salad_name">سلطة الكينوا</string>
+    <string name="quinoa_salad_description">سلطة منعشة مع الكينوا والخيار والطماطم وصلصة الليمون</string>
+    <string name="quinoa_salad_ingredient_1">1 كوب كينوا، مغسولة</string>
+    <string name="quinoa_salad_ingredient_2">2 كوب ماء أو مرق خضار</string>
+    <string name="quinoa_salad_ingredient_3">1 خيار متوسط، مقطع مكعبات</string>
+    <string name="quinoa_salad_ingredient_4">1 طماطم متوسطة، مقطعة مكعبات</string>
+    <string name="quinoa_salad_ingredient_5">1/4 كوب بقدونس طازج مفروم</string>
+    <string name="quinoa_salad_ingredient_6">2 ملعقة كبيرة عصير ليمون</string>
+    <string name="quinoa_salad_ingredient_7">1 ملعقة كبيرة زيت زيتون</string>
+    <string name="quinoa_salad_ingredient_8">ملح وفلفل حسب الذوق</string>
+
+    <string name="quinoa_salad_instruction_1">1. في قدر متوسط، اغلِ الكينوا والماء أو المرق</string>
+    <string name="quinoa_salad_instruction_2">2. خفّض الحرارة، وغطِ القدر، واتركه على نار هادئة حتى تنضج الكينوا ويمتص الماء</string>
+    <string name="quinoa_salad_instruction_3">3. في وعاء كبير، اخلط الكينوا المطبوخة والخيار والطماطم والبقدونس</string>
+    <string name="quinoa_salad_instruction_4">4. في وعاء صغير، اخفق عصير الليمون وزيت الزيتون</string>
+    <string name="quinoa_salad_instruction_5">5. صب الصلصة فوق خليط الكينوا، وقلّب لتتجانس المكونات</string>
+    <string name="quinoa_salad_instruction_6">6. تبّل بالملح والفلفل حسب الذوق</string>
+</resources>
