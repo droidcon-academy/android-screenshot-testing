@@ -1,9 +1,9 @@
 package com.droidcon.flavorshub.repositories
 
 import com.droidcon.flavorshub.R
-import com.droidcon.flavorshub.model.Recipe
-import com.droidcon.flavorshub.model.RecipeItem
-import com.droidcon.flavorshub.model.Type
+import com.droidcon.flavorshub.ui.model.Recipe
+import com.droidcon.flavorshub.ui.model.RecipeItem
+import com.droidcon.flavorshub.ui.model.Type
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -11,7 +11,6 @@ import javax.inject.Singleton
 class RecipesRepo @Inject constructor(
     private val localeProvider: LocaleProvider
 ) {
-
     // WARNING: It uses get() because it needs to be recomputed on every call,
     // so when the Locale changes, it returns the recipes in the correct language
     private val recipes: List<RecipeItem>

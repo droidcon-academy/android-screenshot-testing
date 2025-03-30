@@ -9,8 +9,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.droidcon.flavorshub.navigation.NavigationDestinations.MAIN_SCREEN
 import com.droidcon.flavorshub.navigation.NavigationDestinations.RECIPE_ID_KEY
-import com.droidcon.flavorshub.ui.screens.main.ui.MainScreenEntryPoint
-import com.droidcon.flavorshub.ui.screens.recipedetails.ui.RecipeDetailsScreenEntryPoint
+import com.droidcon.flavorshub.screens.main.ui.MainScreenEntryPoint
+import com.droidcon.flavorshub.screens.recipedetails.ui.RecipeDetailsScreenEntryPoint
 
 object NavigationDestinations {
     const val MAIN_SCREEN = "main_screen"

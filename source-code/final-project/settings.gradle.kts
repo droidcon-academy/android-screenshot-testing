@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Flavorshub"
 include(":app")
+include(":paparazzi-tests")
+include(":ui")
