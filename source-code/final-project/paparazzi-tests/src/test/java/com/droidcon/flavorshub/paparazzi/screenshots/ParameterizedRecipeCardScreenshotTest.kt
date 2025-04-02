@@ -20,24 +20,48 @@ import org.junit.runner.RunWith
 
 /**
  * Execute the following command for this screenshot
- * ./gradlew :paparazzi-tests:recordPaparazziDebug
+ * ./gradlew :paparazzi-tests:recordPaparazziDebug --tests 'ParameterizedRecipeCardScreenshotTest'
  */
 @RunWith(TestParameterInjector::class)
 class ParameterizedRecipeCardScreenshotTest(
-    @TestParameter nightMode: NightMode,
-    @TestParameter locale: SupportedLocale
+    @TestParameter val nightMode: NightMode,
+    @TestParameter val recipeInLocale: RecipeInLocale
 ) {
 
-    enum class SupportedLocale(val localeString: String) {
-        ENGLISH("en"),
-        ARABIC("ar")
+    enum class RecipeInLocale(
+        val localeAsString: String,
+        val mainScreenRecipeItem: MainScreenRecipeItem
+    ) {
+        ENGLISH(
+            localeAsString ="en",
+            mainScreenRecipeItem = MainScreenRecipeItem(
+                id = 1,
+                name = "Recipe Title",
+                shortDescription = "Recipe Description",
+                type = Type.MEAT,
+                cookingTimeInMin = 30,
+                isFavorite = FavoriteState.FAVORITE,
+                imageUrl = "https://example.com/recipe-image.jpg"
+            )
+        ),
+        ARABIC(
+            localeAsString = "ar",
+            mainScreenRecipeItem = MainScreenRecipeItem(
+                id = 2,
+                name = "عنوان الوصفة",
+                shortDescription = "وصف الوصفة",
+                type = Type.VEGAN,
+                cookingTimeInMin = 30,
+                isFavorite = FavoriteState.NOT_FAVORITE,
+                imageUrl = "https://example.com/recipe-image.jpg"
+            ))
     }
 
     @get:Rule
     val paparazzi = Paparazzi(
         deviceConfig = DeviceConfig(
             nightMode = nightMode,
-            locale = locale.localeString
+            locale = recipeInLocale.localeAsString
         ),
         supportsRtl = true,
         renderingMode = SessionParams.RenderingMode.SHRINK
@@ -50,15 +74,7 @@ class ParameterizedRecipeCardScreenshotTest(
                 FlavorshubTheme {
                     RecipeCard(
                         modifier = Modifier.Companion,
-                        recipe = MainScreenRecipeItem(
-                            id = 1,
-                            name = "Recipe Title",
-                            shortDescription = "Recipe Description",
-                            type = Type.VEGAN,
-                            cookingTimeInMin = 30,
-                            isFavorite = FavoriteState.FAVORITE,
-                            imageUrl = "https://example.com/recipe-image.jpg"
-                        ),
+                        recipe = recipeInLocale.mainScreenRecipeItem,
                         onFavouriteClick = { id -> },
                         onClick = { }
                     )

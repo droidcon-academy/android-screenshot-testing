@@ -15,7 +15,7 @@ import org.junit.Test
 
 /**
  * Execute the following command for this screenshot
- * ./gradlew :paparazzi-tests:recordPaparazziDebug
+ * ./gradlew :paparazzi-tests:recordPaparazziDebug --tests 'SimpleRecipeCardScreenshotTest'
  */
 class SimpleRecipeCardScreenshotTest {
 
