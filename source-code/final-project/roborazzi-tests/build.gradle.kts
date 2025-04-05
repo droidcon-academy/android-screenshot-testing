@@ -45,6 +45,21 @@ android {
 }
 
 dependencies {
+    implementation(platform("androidx.compose:compose-bom:2025.01.01"))
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-graphics")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation("androidx.compose.material3:material3")
+    implementation(libs.coil.compose)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.kotlinx.collections.immutable.jvm)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.lifecycle.viewmodel.compose)
+    implementation(libs.lifecycle.runtime.compose)
+
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -52,6 +67,7 @@ dependencies {
     testImplementation(libs.robolectric)
     testImplementation(libs.roborazzi.junit.rule)
     testImplementation(libs.roborazzi.compose)
+    testImplementation(libs.roborazzi)
     implementation(libs.kotlinx.serialization.core)
     implementation(libs.kotlinx.serialization.json)
 
