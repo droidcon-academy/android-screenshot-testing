@@ -1,6 +1,6 @@
 package com.droidcon.flavorshub.repositories
 
-import com.droidcon.flavorshub.R
+import com.droidcon.flavorshub.ui.R
 import com.droidcon.flavorshub.ui.model.Recipe
 import com.droidcon.flavorshub.ui.model.RecipeItem
 import com.droidcon.flavorshub.ui.model.Type
