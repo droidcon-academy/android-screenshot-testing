@@ -1,7 +1,6 @@
 package com.droidcon.flavorshub.ui.screens.recipedetails.ui
 
 import android.content.res.Configuration
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -26,13 +25,11 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalInspectionMode
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import coil.compose.rememberAsyncImagePainter
+import coil3.compose.AsyncImage
 import com.droidcon.flavorshub.ui.R
 import com.droidcon.flavorshub.ui.model.Type
 import com.droidcon.flavorshub.ui.screens.recipedetails.model.RecipeDetailsItem
@@ -136,11 +133,8 @@ fun RecipeImageWithOverlay(
             .fillMaxWidth()
             .height(imageHeight)
     ) {
-        Image(
-            painter = when (LocalInspectionMode.current) {
-                true -> painterResource(id = R.drawable.empty_recipes)
-                false -> rememberAsyncImagePainter(model = recipeImageUrl)
-            },
+        AsyncImage(
+            model = recipeImageUrl,
             contentDescription = stringResource(
                 id = R.string.recipe_image_content_description,
                 formatArgs = arrayOf(recipeName)
