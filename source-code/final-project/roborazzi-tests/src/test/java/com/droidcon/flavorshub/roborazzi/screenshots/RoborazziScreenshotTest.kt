@@ -17,6 +17,7 @@ import android.content.ComponentName
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
@@ -32,6 +33,7 @@ import com.github.takahirom.roborazzi.RoborazziRule
 import com.github.takahirom.roborazzi.RoborazziRule.Options
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import java.util.concurrent.atomic.AtomicInteger
 
 @HiltAndroidTest
 @RunWith(RobolectricTestRunner::class)
@@ -41,22 +43,21 @@ class RoborazziScreenshotTest {
 
     @OptIn(ExperimentalCoilApi::class, DelicateCoilApi::class)
     @get:Rule(order = 0)
-    val fakeImageLoadingRule: TestWatcher = object : TestWatcher() {
+    val fakeImageLoaderRule = object : TestWatcher() {
         override fun starting(description: Description?) {
             super.starting(description)
-            val appContext: Application = ApplicationProvider.getApplicationContext()
+            val requestCounter = AtomicInteger(0)
             val engine = FakeImageLoaderEngine.Builder()
+                .intercept({ request -> requestCounter.getAndIncrement() == 0 }, ColorImage(Color.Red.toArgb()))
                 .intercept({ request -> true }, ColorImage(Color.Green.toArgb()))
-                .default(ColorImage(Color.Green.toArgb()))
                 .build()
-            val imageLoader = ImageLoader.Builder(appContext)
+            val imageLoader = ImageLoader.Builder(ApplicationProvider.getApplicationContext())
                 .components { add(engine) }
                 .build()
             SingletonImageLoader.setUnsafe(imageLoader)
         }
     }
 
-    @OptIn(ExperimentalCoilApi::class, DelicateCoilApi::class)
     @get:Rule(order = 1)
     val addActivityToRobolectricRule = object : TestWatcher() {
         override fun starting(description: Description?) {
@@ -77,7 +78,7 @@ class RoborazziScreenshotTest {
     @get:Rule(order = 3)
     val composeTestRule = createAndroidComposeRule<FlavorshubActivity>()
 
-    @get:Rule(order = 3)
+    @get:Rule(order = 4)
     val roborazziRule =
         RoborazziRule(
             composeRule = composeTestRule,
@@ -87,14 +88,28 @@ class RoborazziScreenshotTest {
             ),
         )
 
-    @Config(qualifiers = RobolectricDeviceQualifiers.Pixel5)
+    @Config(qualifiers = RobolectricDeviceQualifiers.Pixel4)
     @Test
     fun composable() {
-        composeTestRule.onRoot().captureRoboImage("Home")
-        // TODO favorite first recipe
-        composeTestRule.onNodeWithText("Favorites").performClick()
-        composeTestRule.onRoot().captureRoboImage(filePath = "Favorites")
-        // TODO click card -> navigate to detail
+        composeTestRule.onRoot().captureRoboImage("Home-BottomTab")
+        // TODO favorite second recipe
+        composeTestRule.onAllNodesWithContentDescription(
+            label = "Add to favorites icon",
+            useUnmergedTree = true
+        )[0].performClick()
+        composeTestRule.onRoot().captureRoboImage("Added to favorites")
+
+        composeTestRule.onNodeWithText("Favorites-BottomTab").performClick()
+        composeTestRule.onRoot().captureRoboImage("Favorites")
+
+        composeTestRule.onAllNodesWithContentDescription(
+            label = "Image of",
+            substring = true,
+            useUnmergedTree = true
+        )[0].performClick()
+
+        composeTestRule.onRoot().captureRoboImage("Detail-Screen")
         // TODO navigate back
+        // TODO click and remove from favorites
     }
 }
