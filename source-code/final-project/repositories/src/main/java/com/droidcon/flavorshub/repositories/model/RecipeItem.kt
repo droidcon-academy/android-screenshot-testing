@@ -1,4 +1,4 @@
-package com.droidcon.flavorshub.ui.model
+package com.droidcon.flavorshub.repositories.model
 
 data class RecipeItem(
     val recipe: Recipe,

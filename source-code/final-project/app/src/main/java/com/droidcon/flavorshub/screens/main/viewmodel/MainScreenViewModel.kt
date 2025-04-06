@@ -6,6 +6,7 @@ import com.droidcon.flavorshub.ui.model.BottomNavItem
 import com.droidcon.flavorshub.ui.model.FavoriteState
 import com.droidcon.flavorshub.ui.model.Type
 import com.droidcon.flavorshub.repositories.RecipesRepo
+import com.droidcon.flavorshub.repositories.model.RecipeItem
 import com.droidcon.flavorshub.ui.screens.main.model.MainScreenRecipeItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.ImmutableList
@@ -58,24 +59,24 @@ class MainScreenViewModel @Inject constructor(
         computeState()
     }
 
+    private fun RecipeItem.toMainScreenRecipeItem(): MainScreenRecipeItem =
+        MainScreenRecipeItem(
+            id = recipe.id,
+            name = recipe.name,
+            cookingTimeInMin = recipe.cookingTimeInMin,
+            shortDescription = recipe.shortDescription,
+            type = Type.valueOf(recipe.type.name),
+            imageUrl = recipe.imageUrl,
+            isFavorite = when(userFavorites.contains(recipe.id) || isFavourite) {
+                true -> FavoriteState.FAVORITE
+                false -> FavoriteState.NOT_FAVORITE
+            }
+        )
+
     private fun computeState() {
         // Ensure the recipes are in the language of the User before rendering the UI
         val recipesInCurrentLocale = recipesRepo.fetchRecipesInCurrentLocale()
-            .map { recipeItem ->
-                val recipe = recipeItem.recipe
-                MainScreenRecipeItem(
-                    id = recipe.id,
-                    name = recipe.name,
-                    cookingTimeInMin = recipe.cookingTimeInMin,
-                    shortDescription = recipe.shortDescription,
-                    type = recipe.type,
-                    imageUrl = recipe.imageUrl,
-                    isFavorite = when(userFavorites.contains(recipe.id) || recipeItem.isFavourite) {
-                        true -> FavoriteState.FAVORITE
-                        false -> FavoriteState.NOT_FAVORITE
-                    }
-                )
-            }
+            .map { recipeItem -> recipeItem.toMainScreenRecipeItem() }
 
         val filteredRecipes = when (selectedBottomNavItem) {
             BottomNavItem.HOME -> recipesInCurrentLocale

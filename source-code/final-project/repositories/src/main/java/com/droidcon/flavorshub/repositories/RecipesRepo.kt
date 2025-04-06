@@ -1,9 +1,8 @@
 package com.droidcon.flavorshub.repositories
 
-import com.droidcon.flavorshub.ui.R
-import com.droidcon.flavorshub.ui.model.Recipe
-import com.droidcon.flavorshub.ui.model.RecipeItem
-import com.droidcon.flavorshub.ui.model.Type
+import com.droidcon.flavorshub.repositories.model.Recipe
+import com.droidcon.flavorshub.repositories.model.RecipeItem
+import com.droidcon.flavorshub.repositories.model.Type
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -44,6 +44,8 @@ android {
 
 dependencies {
     implementation(project(":ui"))
+    implementation(project(":repositories"))
+
     implementation("com.google.dagger:hilt-android:2.45")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     implementation(platform("androidx.compose:compose-bom:2023.06.01"))

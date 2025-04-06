@@ -92,15 +92,15 @@ class RoborazziScreenshotTest {
     @Test
     fun composable() {
         composeTestRule.onRoot().captureRoboImage("Home-BottomTab")
-        // TODO favorite second recipe
+
         composeTestRule.onAllNodesWithContentDescription(
             label = "Add to favorites icon",
             useUnmergedTree = true
         )[0].performClick()
         composeTestRule.onRoot().captureRoboImage("Added to favorites")
 
-        composeTestRule.onNodeWithText("Favorites-BottomTab").performClick()
-        composeTestRule.onRoot().captureRoboImage("Favorites")
+        composeTestRule.onNodeWithText("Favorites").performClick()
+        composeTestRule.onRoot().captureRoboImage("Favorites-BottomTab")
 
         composeTestRule.onAllNodesWithContentDescription(
             label = "Image of",
