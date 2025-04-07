@@ -76,6 +76,7 @@ dependencies {
     testImplementation(libs.roborazzi.junit.rule)
     testImplementation(libs.roborazzi.compose)
     testImplementation(libs.roborazzi)
+    testImplementation(libs.test.parameter.injector)
     testImplementation(libs.androidx.junit)
     testImplementation(libs.androidx.compose.ui.test.junit4)
     testImplementation(libs.coil.test)
