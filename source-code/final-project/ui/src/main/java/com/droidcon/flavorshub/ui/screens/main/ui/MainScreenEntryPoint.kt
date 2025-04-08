@@ -34,13 +34,20 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil3.ColorImage
+import coil3.annotation.ExperimentalCoilApi
+import coil3.compose.AsyncImagePreviewHandler
+import coil3.compose.LocalAsyncImagePreviewHandler
 import com.droidcon.flavorshub.ui.R
 import com.droidcon.flavorshub.ui.model.BottomNavItem
 import com.droidcon.flavorshub.ui.model.BottomNavItem.FAVOURITES
@@ -211,7 +218,7 @@ fun FoodFilterChip(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalCoilApi::class)
 @Preview
 @Preview(locale = "es")
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
@@ -239,22 +246,28 @@ fun ContentScreenPreview() {
         )
     ).toImmutableList()
 
-    FlavorshubTheme {
-        MainScreen(
-            content = Recipes(
-                scrollState = rememberLazyListState(),
-                recipes = recipes,
-                onToggleFavorite = {},
-                onRecipeClick = {}
-            ),
-            selectedBottomNavItem = HOME,
-            onToggleFilter = {},
-            selectedFilters = listOf(MEAT).toImmutableList(),
-            onBottomNavItemClick = {},
-        )
+    val previewHandler = AsyncImagePreviewHandler {
+        ColorImage(Color.Red.toArgb())
+    }
+    CompositionLocalProvider(LocalAsyncImagePreviewHandler provides previewHandler) {
+        FlavorshubTheme {
+            MainScreen(
+                content = Recipes(
+                    scrollState = rememberLazyListState(),
+                    recipes = recipes,
+                    onToggleFavorite = {},
+                    onRecipeClick = {}
+                ),
+                selectedBottomNavItem = HOME,
+                onToggleFilter = {},
+                selectedFilters = listOf(MEAT).toImmutableList(),
+                onBottomNavItemClick = {},
+            )
+        }
     }
 }
 
+@OptIn(ExperimentalCoilApi::class)
 @Preview
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
@@ -268,4 +281,5 @@ fun EmptyScreenPreview() {
             content = MainScreenRecipeContent.NoRecipes
         )
     }
+
 }
