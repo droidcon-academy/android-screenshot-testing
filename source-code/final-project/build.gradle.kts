@@ -10,4 +10,5 @@ plugins {
     alias(libs.plugins.paparazzi) apply false
     alias(libs.plugins.roborazzi) apply false
     alias(libs.plugins.kotlin.serialization) apply false
+    alias(libs.plugins.screenshot) apply false
 }
