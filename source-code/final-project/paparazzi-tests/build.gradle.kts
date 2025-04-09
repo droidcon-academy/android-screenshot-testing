@@ -60,5 +60,6 @@ dependencies {
 
     testImplementation(libs.junit)
     testImplementation(libs.test.parameter.injector)
+    testImplementation(libs.composable.preview.scanner)
     testImplementation(libs.coil.test)
 }
