@@ -32,6 +32,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures {
+        compose = true
+    }
     experimentalProperties["android.experimental.enableScreenshotTest"] = true
 }
 
@@ -41,8 +44,6 @@ dependencies {
     screenshotTestImplementation(platform("androidx.compose:compose-bom:2023.06.01"))
     screenshotTestImplementation("androidx.compose.ui:ui")
     screenshotTestImplementation("androidx.compose.ui:ui-graphics")
-    screenshotTestImplementation("androidx.compose.ui:ui-tooling-preview")
-    screenshotTestImplementation("androidx.compose.material3:material3")
     screenshotTestImplementation("androidx.compose.material3:material3")
     screenshotTestImplementation(libs.coil.compose)
     screenshotTestImplementation(libs.coil.network)

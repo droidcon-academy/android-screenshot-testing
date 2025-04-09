@@ -199,8 +199,7 @@ fun RecipePreparation(
 }
 
 @OptIn(ExperimentalCoilApi::class)
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
-@Preview(showBackground = true)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Preview(locale = "ar")
 @Composable
 fun MyPreview() {

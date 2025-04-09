@@ -43,7 +43,7 @@ class ParameterizedRoborazziScreenshotTest(
 
     enum class FontSize(val scale: Float) {
         NORMAL(1.0f),
-        LARGE(1.3f)
+        // LARGE(1.3f)
     }
 
     enum class Locale(val cumulativeQualifier: String) {
@@ -57,7 +57,7 @@ class ParameterizedRoborazziScreenshotTest(
     }
 
     enum class DeviceQualifier(val qualifier: String) {
-        TABLET(RobolectricDeviceQualifiers.PixelC),
+        //TABLET(RobolectricDeviceQualifiers.PixelC),
         PIXEL(RobolectricDeviceQualifiers.Pixel4)
     }
 

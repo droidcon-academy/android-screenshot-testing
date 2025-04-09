@@ -1,3 +1,7 @@
+@file:OptIn(ExperimentalRoborazziApi::class)
+
+import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -20,6 +24,9 @@ android {
 
     testOptions.unitTests {
         isIncludeAndroidResources = true
+        all {
+            it.systemProperties["robolectric.pixelCopyRenderMode"] = "hardware"
+        }
     }
 
     buildTypes {
@@ -42,6 +49,13 @@ android {
 
     kotlinOptions {
         jvmTarget = "11"
+    }
+}
+
+roborazzi {
+    generateComposePreviewRobolectricTests {
+        enable = false
+        packages = listOf("com.droidcon.flavorshub")
     }
 }
 
@@ -76,6 +90,8 @@ dependencies {
     testImplementation(libs.roborazzi.junit.rule)
     testImplementation(libs.roborazzi.compose)
     testImplementation(libs.roborazzi)
+    testImplementation(libs.roborazzi.compose.preview.scanner.support)
+    testImplementation(libs.composable.preview.scanner)
     testImplementation(libs.test.parameter.injector)
     testImplementation(libs.androidx.junit)
     testImplementation(libs.androidx.compose.ui.test.junit4)
