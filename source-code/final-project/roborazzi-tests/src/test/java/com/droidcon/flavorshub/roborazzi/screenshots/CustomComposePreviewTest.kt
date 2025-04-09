@@ -35,7 +35,7 @@ class ComposablePreviewProvider : TestParameterValuesProvider() {
             .getPreviews()
     }
 
-    override fun provideValues(context: Context?): List<ComposablePreview<AndroidPreviewInfo>>? =
+    override fun provideValues(context: Context): List<ComposablePreview<AndroidPreviewInfo>> =
         cachedPreviews
 }
 

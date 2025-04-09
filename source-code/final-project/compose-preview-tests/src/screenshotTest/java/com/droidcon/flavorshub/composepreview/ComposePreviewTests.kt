@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import coil3.ColorImage
 import coil3.annotation.ExperimentalCoilApi
@@ -28,12 +29,17 @@ import com.droidcon.flavorshub.ui.theme.FlavorshubTheme
 import kotlinx.collections.immutable.toImmutableList
 
 /**
+ * To execute these tests and generate screenshots, run the command
  * ./gradlew :compose-preview-tests:updateDebugScreenshotTest
+ *
+ * WARNING: It works although Android Studio might show errors
  */
 class ComposePreviewTests {
     @OptIn(ExperimentalMaterial3Api::class, ExperimentalCoilApi::class)
+    @Preview(fontScale = 1.3f)
     @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
     @Preview(locale = "ar")
+    @Preview(device = Devices.PIXEL_C)
     @Composable
     fun ContentMainScreenPreview() {
         val recipes = listOf(
@@ -79,8 +85,10 @@ class ComposePreviewTests {
     }
 
     @OptIn(ExperimentalCoilApi::class)
-    @Preview
+    @Preview(fontScale = 1.3f)
     @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+    @Preview(locale = "ar")
+    @Preview(device = Devices.PIXEL_C)
     @Composable
     fun EmptyMainScreenPreview() {
         FlavorshubTheme {
@@ -96,8 +104,10 @@ class ComposePreviewTests {
     }
 
     @OptIn(ExperimentalCoilApi::class)
+    @Preview(fontScale = 1.3f)
     @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
     @Preview(locale = "ar")
+    @Preview(device = Devices.PIXEL_C)
     @Composable
     fun RecipeDetailsPreview() {
         val previewHandler = AsyncImagePreviewHandler {

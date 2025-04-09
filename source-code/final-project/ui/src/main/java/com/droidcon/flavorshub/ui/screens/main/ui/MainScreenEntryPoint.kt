@@ -42,6 +42,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.ColorImage
@@ -219,10 +220,10 @@ fun FoodFilterChip(
 }
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalCoilApi::class)
-@Preview
-@Preview(locale = "es")
+@Preview(fontScale = 1.3f)
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Preview(locale = "ar")
+@Preview(device = Devices.PIXEL_C)
 @Composable
 fun ContentScreenPreview() {
     val recipes = listOf(
@@ -268,8 +269,10 @@ fun ContentScreenPreview() {
 }
 
 @OptIn(ExperimentalCoilApi::class)
-@Preview
+@Preview(fontScale = 1.3f)
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(locale = "ar")
+@Preview(device = Devices.PIXEL_C)
 @Composable
 fun EmptyScreenPreview() {
     FlavorshubTheme {
@@ -281,5 +284,4 @@ fun EmptyScreenPreview() {
             content = MainScreenRecipeContent.NoRecipes
         )
     }
-
 }
