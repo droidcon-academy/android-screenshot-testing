@@ -28,13 +28,13 @@ import org.robolectric.annotation.GraphicsMode
 
 /**
  * Execute the following command for this screenshot
- * ./gradlew :roborazzi-tests:recordRoborazziDebug --tests 'ParameterizedRoborazziScreenshotTest'
+ * ./gradlew :roborazzi-tests:recordRoborazziDebug --tests 'ParameterizedMultiFrameScreenshotTest'
  */
 @HiltAndroidTest
 @RunWith(RobolectricTestParameterInjector::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(application = HiltTestApplication::class)
-class ParameterizedRoborazziScreenshotTest(
+class ParameterizedMultiFrameScreenshotTest(
     @TestParameter val device: DeviceQualifier,
     @TestParameter val nightMode: NightMode,
     @TestParameter val locale: Locale,

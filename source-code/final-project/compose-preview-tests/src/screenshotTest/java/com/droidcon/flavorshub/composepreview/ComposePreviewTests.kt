@@ -18,6 +18,7 @@ import com.droidcon.flavorshub.ui.model.BottomNavItem.HOME
 import com.droidcon.flavorshub.ui.model.FavoriteState.FAVORITE
 import com.droidcon.flavorshub.ui.model.FavoriteState.NOT_FAVORITE
 import com.droidcon.flavorshub.ui.model.Type
+import com.droidcon.flavorshub.ui.model.Type.FISH
 import com.droidcon.flavorshub.ui.model.Type.MEAT
 import com.droidcon.flavorshub.ui.screens.main.model.MainScreenRecipeItem
 import com.droidcon.flavorshub.ui.screens.main.ui.MainScreen
@@ -54,10 +55,10 @@ class ComposePreviewTests {
             ),
             MainScreenRecipeItem(
                 id = 2,
-                name = "Recipe 1",
-                shortDescription = "Description 1",
+                name = "Recipe 2",
+                shortDescription = "Description 2",
                 cookingTimeInMin = 30,
-                type = MEAT,
+                type = FISH,
                 imageUrl = "https://example.com/recipe1.jpg",
                 isFavorite = FAVORITE
             )

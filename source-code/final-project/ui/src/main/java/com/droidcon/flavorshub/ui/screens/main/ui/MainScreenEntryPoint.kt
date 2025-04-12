@@ -238,10 +238,10 @@ fun ContentScreenPreview() {
         ),
         MainScreenRecipeItem(
             id = 2,
-            name = "Recipe 1",
-            shortDescription = "Description 1",
+            name = "Recipe 2",
+            shortDescription = "Description 2",
             cookingTimeInMin = 30,
-            type = MEAT,
+            type = FISH,
             imageUrl = "https://example.com/recipe1.jpg",
             isFavorite = FAVORITE
         )

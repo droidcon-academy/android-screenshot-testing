@@ -23,13 +23,13 @@ import org.robolectric.annotation.GraphicsMode
 
 /**
  * Execute the following command for this screenshot
- * ./gradlew :roborazzi-tests:recordRoborazziDebug --tests 'SimpleRoborazziScreenshotTest'
+ * ./gradlew :roborazzi-tests:recordRoborazziDebug --tests 'SimpleMultiFrameScreenshotTest'
  */
 @HiltAndroidTest
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(application = HiltTestApplication::class)
-class SimpleRoborazziScreenshotTest {
+class SimpleMultiFrameScreenshotTest {
 
     @get:Rule(order = 0)
     val fakeImageLoaderRule = FakeImageLoaderRule { getApplicationContext() }
