@@ -14,6 +14,7 @@ import com.droidcon.flavorshub.ui.screens.main.model.MainScreenRecipeItem
 import com.droidcon.flavorshub.ui.screens.main.ui.MainScreen
 import com.droidcon.flavorshub.ui.screens.main.ui.MainScreenRecipeContent.Recipes
 import com.droidcon.flavorshub.ui.theme.FlavorshubTheme
+import com.github.takahirom.roborazzi.DEFAULT_ROBORAZZI_OUTPUT_DIR_PATH
 import com.github.takahirom.roborazzi.Dump
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.RoborazziOptions
@@ -28,7 +29,10 @@ import org.robolectric.annotation.GraphicsMode
 
 /**
  * Execute the following command for this screenshot
+ * Record:
  * ./gradlew :roborazzi-tests:recordRoborazziDebug --tests 'AccessibilityScreenshotTest'
+ * Verify:
+ * ./gradlew :roborazzi-tests:verifyRoborazziDebug --tests 'AccessibilityScreenshotTest'
  */
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
@@ -39,6 +43,9 @@ class AccessibilityScreenshotTest {
 
     @get:Rule(order = 1)
     val composeTestRule = createComposeRule()
+
+    fun screenshotName(name: String): String =
+        "$DEFAULT_ROBORAZZI_OUTPUT_DIR_PATH/$name.png"
 
     private val recipes = listOf(
         MainScreenRecipeItem(
@@ -81,7 +88,7 @@ class AccessibilityScreenshotTest {
             }
         }
         composeTestRule.onRoot().captureRoboImage(
-            filePath = "Main Screen Accessibility.png",
+            filePath = screenshotName("Main Screen Accessibility"),
             roborazziOptions = RoborazziOptions(
                 captureType = RoborazziOptions.CaptureType.Dump(
                     explanation = Dump.Companion.AccessibilityExplanation

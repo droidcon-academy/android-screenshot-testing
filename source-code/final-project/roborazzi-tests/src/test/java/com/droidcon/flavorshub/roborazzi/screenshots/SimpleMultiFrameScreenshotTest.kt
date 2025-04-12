@@ -23,12 +23,15 @@ import org.robolectric.annotation.GraphicsMode
 
 /**
  * Execute the following command for this screenshot
+ * Record:
  * ./gradlew :roborazzi-tests:recordRoborazziDebug --tests 'SimpleMultiFrameScreenshotTest'
+ * Verify:
+ * ./gradlew :roborazzi-tests:verifyRoborazziDebug --tests 'SimpleMultiFrameScreenshotTest'
  */
 @HiltAndroidTest
+@Config(application = HiltTestApplication::class)
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
-@Config(application = HiltTestApplication::class)
 class SimpleMultiFrameScreenshotTest {
 
     @get:Rule(order = 0)
@@ -54,29 +57,26 @@ class SimpleMultiFrameScreenshotTest {
             ),
         )
 
-    fun stringRes(stringRes: Int, vararg formatArgs: Any) =
-        composeTestRule.activity.getString(stringRes, *formatArgs)
-
     @Config(qualifiers = RobolectricDeviceQualifiers.Pixel4)
     @Test
     fun multiFrameScreenshots() {
         ScreenInteractor(composeTestRule).run {
-            captureScreenshot("Show Home")
+            captureScreenshot("1. Show Home")
 
             addToFavoritesButtonInRecipeAtIndex(0).performClick()
-            captureScreenshot("Added 1st recipe to favorites")
+            captureScreenshot("2. Added 1st recipe to favorites")
 
             bottomTabFavorites().performClick()
-            captureScreenshot("Show Favorites")
+            captureScreenshot("3. Show Favorites")
 
             recipeImageAtIndex(0).performClick()
-            captureScreenshot("Show Favorite Recipe Screen")
+            captureScreenshot("4. Show Favorite Recipe Screen")
 
             pressBack()
-            captureScreenshot("Back in Favorites")
+            captureScreenshot("5. Back in Favorites")
 
             removeFromFavoritesButtonInRecipeAtIndex(0).performClick()
-            captureScreenshot("Favorite removed")
+            captureScreenshot("6. Favorite removed")
         }
     }
 }

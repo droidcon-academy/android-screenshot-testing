@@ -8,17 +8,28 @@ import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onRoot
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import com.github.takahirom.roborazzi.DEFAULT_ROBORAZZI_OUTPUT_DIR_PATH
 import com.github.takahirom.roborazzi.captureRoboImage
 
-class ScreenInteractor<A: ComponentActivity>(
-    val composeTestRule:  AndroidComposeTestRule<ActivityScenarioRule<A>, A>
+/**
+ * Class that provides a simple interface interacting with UI elements and for capturing screenshots.
+ * @param composeTestRule the test rule for the Compose UI
+ * @param parameterNames the list of parameters to be used for unique screenshot naming in parameterized tests
+ */
+class ScreenInteractor<A : ComponentActivity>(
+    val composeTestRule: AndroidComposeTestRule<ActivityScenarioRule<A>, A>,
+    val parameterNames: List<Enum<*>> = emptyList<Enum<*>>()
 ) {
-
-    fun stringRes(stringRes: Int, vararg formatArgs: Any) =
+    private fun stringRes(stringRes: Int, vararg formatArgs: Any) =
         composeTestRule.activity.getString(stringRes, *formatArgs)
 
     fun captureScreenshot(name: String) {
-        composeTestRule.onRoot().captureRoboImage(name)
+        val parametersString = when (parameterNames.isEmpty()) {
+            true -> ""
+            false -> "[${parameterNames.joinToString(",") { it.name }}]"
+        }
+        val screenshotName = "$DEFAULT_ROBORAZZI_OUTPUT_DIR_PATH/$name$parametersString.png"
+        composeTestRule.onRoot().captureRoboImage(screenshotName)
     }
 
     fun addToFavoritesButtonInRecipeAtIndex(index: Int): SemanticsNodeInteraction =
@@ -33,7 +44,7 @@ class ScreenInteractor<A: ComponentActivity>(
             useUnmergedTree = true
         )[index]
 
-    fun bottomTabFavorites() : SemanticsNodeInteraction =
+    fun bottomTabFavorites(): SemanticsNodeInteraction =
         composeTestRule.onNodeWithText(stringRes(R.string.bottom_nav_Favorites))
 
     fun recipeImageAtIndex(index: Int): SemanticsNodeInteraction =

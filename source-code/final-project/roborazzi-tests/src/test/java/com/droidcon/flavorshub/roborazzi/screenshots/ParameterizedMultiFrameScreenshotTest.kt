@@ -28,12 +28,15 @@ import org.robolectric.annotation.GraphicsMode
 
 /**
  * Execute the following command for this screenshot
+ * Record:
  * ./gradlew :roborazzi-tests:recordRoborazziDebug --tests 'ParameterizedMultiFrameScreenshotTest'
+ * Verify:
+ * ./gradlew :roborazzi-tests:verifyRoborazziDebug --tests 'ParameterizedMultiFrameScreenshotTest'
  */
 @HiltAndroidTest
+@Config(application = HiltTestApplication::class)
 @RunWith(RobolectricTestParameterInjector::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
-@Config(application = HiltTestApplication::class)
 class ParameterizedMultiFrameScreenshotTest(
     @TestParameter val device: DeviceQualifier,
     @TestParameter val nightMode: NightMode,
@@ -43,7 +46,7 @@ class ParameterizedMultiFrameScreenshotTest(
 
     enum class FontSize(val scale: Float) {
         NORMAL(1.0f),
-        // LARGE(1.3f)
+        //LARGE(1.3f)
     }
 
     enum class Locale(val cumulativeQualifier: String) {
@@ -90,29 +93,32 @@ class ParameterizedMultiFrameScreenshotTest(
             composeRule = composeTestRule,
             captureRoot = composeTestRule.onRoot(),
             options = Options(
-                captureType = RoborazziRule.CaptureType.Gif(),
-            ),
+                captureType = RoborazziRule.CaptureType.Gif()
+            )
         )
 
     @Test
     fun multiFrameScreenshots() {
-        ScreenInteractor(composeTestRule).run {
-            captureScreenshot("Show Home")
+        ScreenInteractor(
+            composeTestRule = composeTestRule,
+            parameterNames = listOf(device, nightMode, locale, fontSize)
+        ).run {
+            captureScreenshot("1. Show Home")
 
             addToFavoritesButtonInRecipeAtIndex(0).performClick()
-            captureScreenshot("Added 1st recipe to favorites")
+            captureScreenshot("2. Added 1st recipe to favorites")
 
             bottomTabFavorites().performClick()
-            captureScreenshot("Show Favorites")
+            captureScreenshot("3. Show Favorites")
 
             recipeImageAtIndex(0).performClick()
-            captureScreenshot("Show Favorite Recipe Screen")
+            captureScreenshot("4. Show Favorite Recipe Screen")
 
             pressBack()
-            captureScreenshot("Back in Favorites")
+            captureScreenshot("5. Back in Favorites")
 
             removeFromFavoritesButtonInRecipeAtIndex(0).performClick()
-            captureScreenshot("Favorite removed")
+            captureScreenshot("6. Favorite removed")
         }
     }
 }

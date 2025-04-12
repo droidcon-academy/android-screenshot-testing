@@ -25,8 +25,11 @@ import sergio.sastre.composable.preview.scanner.android.screenshotid.AndroidPrev
 import sergio.sastre.composable.preview.scanner.core.preview.ComposablePreview
 
 /**
- * Execute the following command for these screenshots
+ * Execute the following command for this screenshot
+ * Record:
  * ./gradlew :roborazzi-tests:recordRoborazziDebug --tests 'CustomComposePreviewTest'
+ * Verify:
+ * ./gradlew :roborazzi-tests:verifyRoborazziDebug --tests 'CustomComposePreviewTest'
  */
 class ComposablePreviewProvider : TestParameterValuesProvider() {
     private val cachedPreviews: List<ComposablePreview<AndroidPreviewInfo>> by lazy {

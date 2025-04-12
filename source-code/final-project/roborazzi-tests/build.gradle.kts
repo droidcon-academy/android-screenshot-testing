@@ -60,45 +60,39 @@ roborazzi {
 }
 
 dependencies {
-    implementation(project(":app"))
-    implementation(project(":ui"))
-    implementation(project(":repositories"))
+    testImplementation(project(":app"))
+    testImplementation(project(":ui"))
+    testImplementation(project(":repositories"))
 
-    implementation(platform("androidx.compose:compose-bom:2025.01.01"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    implementation(libs.coil.compose)
-    implementation(libs.coil.network)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.kotlinx.collections.immutable.jvm)
-    implementation(libs.androidx.navigation.compose)
-    implementation(libs.lifecycle.viewmodel.compose)
-    implementation(libs.lifecycle.runtime.compose)
-
+    // Dependency Injection
     testImplementation(libs.hilt.android.testing)
     kspTest(libs.dagger.hilt.compiler)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
+    // Coil (image download)
+    testImplementation(libs.coil.compose)
+    testImplementation(libs.coil.network)
+    testImplementation(libs.coil.test)
+
+    // Immutable collections (stable classes to avoid recompositions)
+    testImplementation(libs.kotlinx.collections.immutable.jvm)
+
+    // Junit
     testImplementation(libs.junit)
+    testImplementation(libs.test.parameter.injector)
+
+    // Compose Test Rules
+    testImplementation(libs.androidx.junit)
+    testImplementation(libs.androidx.compose.ui.test.junit4)
+
+    // Roborazzi
     testImplementation(libs.robolectric)
     testImplementation(libs.roborazzi.junit.rule)
     testImplementation(libs.roborazzi.compose)
     testImplementation(libs.roborazzi)
+    testImplementation(libs.androidx.compose.ui.test.manifest) {
+        because("Accessibility test requires it")
+    }
+    // Auto generate screenshots from previews
     testImplementation(libs.roborazzi.compose.preview.scanner.support)
     testImplementation(libs.composable.preview.scanner)
-    testImplementation(libs.test.parameter.injector)
-    testImplementation(libs.androidx.junit)
-    testImplementation(libs.androidx.compose.ui.test.junit4)
-    testImplementation(libs.coil.test)
-    debugImplementation(libs.androidx.compose.ui.test.manifest)
-    implementation(libs.kotlinx.serialization.core)
-    implementation(libs.kotlinx.serialization.json)
-
-    testImplementation(kotlin("test"))
 }
