@@ -92,6 +92,7 @@ dependencies {
     testImplementation(libs.androidx.compose.ui.test.manifest) {
         because("Accessibility test requires it")
     }
+
     // Auto generate screenshots from previews
     testImplementation(libs.roborazzi.compose.preview.scanner.support)
     testImplementation(libs.composable.preview.scanner)

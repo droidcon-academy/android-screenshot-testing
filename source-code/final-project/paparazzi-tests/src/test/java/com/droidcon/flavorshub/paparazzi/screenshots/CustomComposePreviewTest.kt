@@ -20,7 +20,10 @@ import sergio.sastre.composable.preview.scanner.core.preview.ComposablePreview
 
 /**
  * Execute the following command for this screenshot
+ * Record:
  * ./gradlew :paparazzi-tests:recordPaparazziDebug --tests 'CustomComposePreviewTest'
+ * Verify:
+ * ./gradlew :paparazzi-tests:verifyPaparazziDebug --tests 'CustomComposePreviewTest'
  */
 class ComposablePreviewProvider : TestParameterValuesProvider() {
     private val cachedPreviews: List<ComposablePreview<AndroidPreviewInfo>> by lazy {
