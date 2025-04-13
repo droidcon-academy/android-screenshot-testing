@@ -21,3 +21,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "Flavorshub"
 include(":app")
+include(":paparazzi-tests")
+include(":ui")
+include(":roborazzi-tests")
+include(":repositories")
+include(":compose-preview-tests")
