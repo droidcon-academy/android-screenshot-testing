@@ -64,7 +64,11 @@ class CustomComposePreviewTest(
     @Test
     fun snapshotPreview() {
         paparazzi.snapshot(
-            name = AndroidPreviewScreenshotIdBuilder(preview).build()
+            name =
+                AndroidPreviewScreenshotIdBuilder(preview)
+                    .ignoreClassName()
+                    .ignoreMethodName()
+                    .build()
         ) {
             preview()
         }
