@@ -11,19 +11,13 @@ import coil3.annotation.ExperimentalCoilApi
 import coil3.test.FakeImageLoaderEngine
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
-import java.util.concurrent.atomic.AtomicInteger
 
-class FakeImageLoaderRule(private val context: () -> Context) : TestWatcher() {
+class FakeImageLoaderRule(val context: () -> Context) : TestWatcher() {
     @OptIn(ExperimentalCoilApi::class, DelicateCoilApi::class)
     override fun starting(description: Description?) {
         super.starting(description)
-        val requestCounter = AtomicInteger(0)
         val engine = FakeImageLoaderEngine.Builder()
-            .intercept(
-                { request -> requestCounter.getAndIncrement() == 0 },
-                ColorImage(Color.Red.toArgb())
-            )
-            .intercept({ request -> true }, ColorImage(Color.Green.toArgb()))
+            .intercept({ request -> true }, ColorImage(Color.Red.toArgb()))
             .build()
         val imageLoader = ImageLoader.Builder(context())
             .components { add(engine) }
