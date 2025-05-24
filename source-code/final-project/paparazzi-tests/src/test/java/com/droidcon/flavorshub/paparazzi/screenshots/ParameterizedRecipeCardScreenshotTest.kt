@@ -26,15 +26,20 @@ import org.junit.runner.RunWith
  */
 @RunWith(TestParameterInjector::class)
 class ParameterizedRecipeCardScreenshotTest(
-    @TestParameter val nightMode: NightMode,
-    @TestParameter val fontSize: FontSize,
     @TestParameter val device: Device,
+    @TestParameter val uiMode: UiMode,
+    @TestParameter val fontSize: FontSize,
     @TestParameter val recipeInLocale: RecipeInLocale,
 ) {
 
     enum class Device(val deviceConfig: DeviceConfig){
         TABLET(DeviceConfig.PIXEL_C),
         PHONE(DeviceConfig.PIXEL_4),
+    }
+
+    enum class UiMode(val nightMode: NightMode) {
+        LIGHT(NightMode.NOTNIGHT),
+        DARK(NightMode.NIGHT)
     }
 
     enum class FontSize(val scale: Float) {
@@ -76,7 +81,7 @@ class ParameterizedRecipeCardScreenshotTest(
     val paparazzi = Paparazzi(
         deviceConfig = device.deviceConfig.copy(
             fontScale = fontSize.scale,
-            nightMode = nightMode,
+            nightMode = uiMode.nightMode,
             locale = recipeInLocale.localeAsString
         ),
         supportsRtl = true,

@@ -32,8 +32,9 @@ class ComposablePreviewProvider : TestParameterValuesProvider() {
             .getPreviews()
     }
 
-    override fun provideValues(context: Context): List<ComposablePreview<AndroidPreviewInfo>> =
-        cachedPreviews
+    override fun provideValues(
+        context: Context
+    ): List<ComposablePreview<AndroidPreviewInfo>> = cachedPreviews
 }
 
 @RunWith(TestParameterInjector::class)
@@ -53,7 +54,7 @@ class CustomComposePreviewTest(
             fontScale = preview.previewInfo.fontScale,
             locale = preview.previewInfo.locale.ifBlank { "en" }
         ),
-        supportsRtl = true,
+        supportsRtl = true, // for Arabic
         renderingMode = SessionParams.RenderingMode.SHRINK,
     )
 
