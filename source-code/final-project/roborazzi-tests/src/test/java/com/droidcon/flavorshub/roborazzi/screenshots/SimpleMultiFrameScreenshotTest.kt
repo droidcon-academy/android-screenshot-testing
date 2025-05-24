@@ -8,9 +8,14 @@ import com.droidcon.flavorshub.FlavorshubActivity
 import com.droidcon.flavorshub.roborazzi.screenshots.interactor.ScreenInteractor
 import com.droidcon.flavorshub.roborazzi.screenshots.testrules.AddActivityToRobolectricRule
 import com.droidcon.flavorshub.roborazzi.screenshots.testrules.FakeImageLoaderRule
+import com.dropbox.differ.ImageComparator
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.github.takahirom.roborazzi.RoborazziOptions
+import com.github.takahirom.roborazzi.RoborazziOptions.CompareOptions
+import com.github.takahirom.roborazzi.RoborazziOptions.CompareOptions.Companion.DefaultImageComparator
 import com.github.takahirom.roborazzi.RoborazziRule
 import com.github.takahirom.roborazzi.RoborazziRule.Options
+import com.github.takahirom.roborazzi.ThresholdValidator
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.HiltTestApplication
@@ -70,13 +75,13 @@ class SimpleMultiFrameScreenshotTest {
             captureScreenshot("3. Show Favorites")
 
             recipeImageAtIndex(0).performClick()
-            captureScreenshot("4. Show Favorite Recipe Screen")
+            captureScreenshot("4. Show Details Screen of favorited Recipe")
 
             pressBack()
             captureScreenshot("5. Back in Favorites")
 
             removeFromFavoritesButtonInRecipeAtIndex(0).performClick()
-            captureScreenshot("6. Favorite removed")
+            captureScreenshot("6. Removed favorited Recipe")
         }
     }
 }

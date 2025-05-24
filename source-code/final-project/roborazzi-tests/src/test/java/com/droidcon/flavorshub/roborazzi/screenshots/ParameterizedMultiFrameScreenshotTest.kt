@@ -38,30 +38,30 @@ import org.robolectric.annotation.GraphicsMode
 @RunWith(RobolectricTestParameterInjector::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 class ParameterizedMultiFrameScreenshotTest(
-    @TestParameter val device: DeviceQualifier,
-    @TestParameter val nightMode: NightMode,
+    @TestParameter val device: Device,
+    @TestParameter val uiMode: UiMode,
     @TestParameter val locale: Locale,
     @TestParameter val fontSize: FontSize
 ) {
 
+    enum class Device(val qualifier: String) {
+        TABLET(RobolectricDeviceQualifiers.PixelC),
+        PHONE(RobolectricDeviceQualifiers.Pixel4)
+    }
+
+    enum class UiMode(val cumulativeQualifier: String) {
+        LIGHT("+notnight"),
+        DARK("+night")
+    }
+
     enum class FontSize(val scale: Float) {
         NORMAL(1.0f),
-        //LARGE(1.3f)
+        LARGE(1.3f)
     }
 
     enum class Locale(val cumulativeQualifier: String) {
         ENGLISH("+en"),
         ARABIC("+ar")
-    }
-
-    enum class NightMode(val cumulativeQualifier: String) {
-        LIGHT("+notnight"),
-        DARK("+night")
-    }
-
-    enum class DeviceQualifier(val qualifier: String) {
-        //TABLET(RobolectricDeviceQualifiers.PixelC),
-        PIXEL(RobolectricDeviceQualifiers.Pixel4)
     }
 
     @get:Rule(order = 0)
@@ -78,7 +78,7 @@ class ParameterizedMultiFrameScreenshotTest(
     val robolectricQualifiersRule = object : TestWatcher() {
         override fun starting(description: Description) {
             setQualifiers(device.qualifier)
-            setQualifiers(nightMode.cumulativeQualifier)
+            setQualifiers(uiMode.cumulativeQualifier)
             setQualifiers(locale.cumulativeQualifier)
             setFontScale(fontSize.scale)
         }
@@ -101,7 +101,7 @@ class ParameterizedMultiFrameScreenshotTest(
     fun multiFrameScreenshots() {
         ScreenInteractor(
             composeTestRule = composeTestRule,
-            parameterNames = listOf(device, nightMode, locale, fontSize)
+            parameterNames = listOf(device, uiMode, locale, fontSize)
         ).run {
             captureScreenshot("1. Show Home")
 
@@ -112,13 +112,13 @@ class ParameterizedMultiFrameScreenshotTest(
             captureScreenshot("3. Show Favorites")
 
             recipeImageAtIndex(0).performClick()
-            captureScreenshot("4. Show Favorite Recipe Screen")
+            captureScreenshot("4. Show Details Screen of favorited Recipe")
 
             pressBack()
             captureScreenshot("5. Back in Favorites")
 
             removeFromFavoritesButtonInRecipeAtIndex(0).performClick()
-            captureScreenshot("6. Favorite removed")
+            captureScreenshot("6. Removed favorited Recipe")
         }
     }
 }

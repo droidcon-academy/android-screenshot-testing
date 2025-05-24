@@ -1,15 +1,17 @@
 package com.droidcon.flavorshub.roborazzi.screenshots
 
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.core.app.ApplicationProvider
 import com.droidcon.flavorshub.roborazzi.screenshots.testrules.FakeImageLoaderRule
 import com.github.takahirom.roborazzi.DEFAULT_ROBORAZZI_OUTPUT_DIR_PATH
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.github.takahirom.roborazzi.RoborazziActivity
 import com.github.takahirom.roborazzi.RoborazziComposeOptions
+import com.github.takahirom.roborazzi.RoborazziOptions
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.github.takahirom.roborazzi.fontScale
 import com.github.takahirom.roborazzi.locale
-import com.github.takahirom.roborazzi.previewDevice
 import com.github.takahirom.roborazzi.uiMode
 import com.google.testing.junit.testparameterinjector.TestParameter
 import com.google.testing.junit.testparameterinjector.TestParameterValuesProvider
@@ -43,30 +45,37 @@ class ComposablePreviewProvider : TestParameterValuesProvider() {
 }
 
 @RunWith(RobolectricTestParameterInjector::class)
-@GraphicsMode(GraphicsMode.Mode.NATIVE)
-@Config(qualifiers = RobolectricDeviceQualifiers.Pixel4)
 class CustomComposePreviewTest(
     @TestParameter(valuesProvider = ComposablePreviewProvider::class)
     val preview: ComposablePreview<AndroidPreviewInfo>
 ) {
 
     fun screenshotNameFor(preview: ComposablePreview<AndroidPreviewInfo>): String =
-        "$DEFAULT_ROBORAZZI_OUTPUT_DIR_PATH/${AndroidPreviewScreenshotIdBuilder(preview).build()}.png"
+        "$DEFAULT_ROBORAZZI_OUTPUT_DIR_PATH/${
+            AndroidPreviewScreenshotIdBuilder(preview).build()
+        }.png"
 
-    @get:Rule
-    val fakeImageLoaderRule = FakeImageLoaderRule { ApplicationProvider.getApplicationContext() }
+    @get:Rule(order = 0)
+    val fakeImageLoaderRule = FakeImageLoaderRule {
+        ApplicationProvider.getApplicationContext()
+    }
+
+    @get:Rule(order = 1)
+    val composeTestRule = createAndroidComposeRule<RoborazziActivity>()
 
     @OptIn(ExperimentalRoborazziApi::class)
+    @GraphicsMode(GraphicsMode.Mode.NATIVE)
+    @Config(qualifiers = RobolectricDeviceQualifiers.Pixel4)
     @Test
-    fun snapshotPreview() {
+    fun snapshotPreview(
+    ) {
         captureRoboImage(
             filePath = screenshotNameFor(preview),
             roborazziComposeOptions = RoborazziComposeOptions {
                 val previewInfo = preview.previewInfo
-                previewDevice(previewInfo.device)
                 uiMode(previewInfo.uiMode)
-                locale(previewInfo.locale)
                 fontScale(previewInfo.fontScale)
+                locale(previewInfo.locale)
             }
         ) {
             preview()
