@@ -223,7 +223,6 @@ fun FoodFilterChip(
 @Preview(fontScale = 1.3f)
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Preview(locale = "ar")
-@Preview(device = Devices.PIXEL_C)
 @Composable
 fun ContentScreenPreview() {
     val recipes = listOf(
@@ -272,7 +271,6 @@ fun ContentScreenPreview() {
 @Preview(fontScale = 1.3f)
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Preview(locale = "ar")
-@Preview(device = Devices.PIXEL_C)
 @Composable
 fun EmptyScreenPreview() {
     FlavorshubTheme {
