@@ -23,6 +23,7 @@ class SimpleRecipeCardScreenshotTest {
 
     @get:Rule(order = 0)
     val paparazzi = Paparazzi(
+        maxPercentDifference = 0.0,
         renderingMode = SessionParams.RenderingMode.SHRINK
     )
 
@@ -42,7 +43,7 @@ class SimpleRecipeCardScreenshotTest {
                         type = Type.VEGAN,
                         cookingTimeInMin = 30,
                         isFavorite = FavoriteState.FAVORITE,
-                        imageUrl = "https://example.com/recipe-image.jpg"
+                        imageUrl = "https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
                     ),
                     onFavouriteClick = { id -> },
                     onClick = { }

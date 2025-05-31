@@ -60,7 +60,7 @@ class ParameterizedRecipeCardScreenshotTest(
                 type = Type.MEAT,
                 cookingTimeInMin = 30,
                 isFavorite = FavoriteState.FAVORITE,
-                imageUrl = "https://example.com/recipe-image.jpg"
+                imageUrl = "https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
             )
         ),
         ARABIC(
@@ -72,7 +72,7 @@ class ParameterizedRecipeCardScreenshotTest(
                 type = Type.VEGAN,
                 cookingTimeInMin = 30,
                 isFavorite = FavoriteState.NOT_FAVORITE,
-                imageUrl = "https://example.com/recipe-image.jpg"
+                imageUrl = "https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
             )
         )
     }
