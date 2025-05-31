@@ -22,6 +22,7 @@
     <string name="selected_icon_filter_chip_content_description">محدد</string>
     <string name="no_recipes_illustration_content_description">رسم توضيحي لعدم وجود وصفات</string>
     <string name="cooking_time_content_description">وقت الطهي</string>
+    <string name="recipe_type_content_description">نوع الوصفة</string>
     <string name="add_to_favorites_icon">أيقونة الإضافة للمفضلة</string>
     <string name="remove_from_favorites_icon">أيقونة الإزالة من المفضلة</string>
 </resources>

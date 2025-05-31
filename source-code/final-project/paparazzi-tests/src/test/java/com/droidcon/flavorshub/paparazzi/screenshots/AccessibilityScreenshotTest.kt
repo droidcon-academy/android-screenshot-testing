@@ -43,7 +43,7 @@ class AccessibilityScreenshotTest {
             shortDescription = "Description 1",
             cookingTimeInMin = 30,
             type = MEAT,
-            imageUrl = "https://example.com/recipe1.jpg",
+            imageUrl = "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
             isFavorite = NOT_FAVORITE
         ),
         MainScreenRecipeItem(
@@ -52,7 +52,7 @@ class AccessibilityScreenshotTest {
             shortDescription = "Description 2",
             cookingTimeInMin = 30,
             type = FISH,
-            imageUrl = "https://example.com/recipe1.jpg",
+            imageUrl = "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
             isFavorite = FAVORITE
         )
     ).toImmutableList()
@@ -70,7 +70,7 @@ class AccessibilityScreenshotTest {
                     ),
                     selectedBottomNavItem = HOME,
                     onToggleFilter = {},
-                    selectedFilters = listOf(MEAT).toImmutableList(),
+                    selectedFilters = listOf(MEAT, FISH).toImmutableList(),
                     onBottomNavItemClick = {},
                 )
             }
