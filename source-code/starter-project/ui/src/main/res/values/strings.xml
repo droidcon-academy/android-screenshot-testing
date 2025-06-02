@@ -21,6 +21,7 @@
     <string name="selected_icon_filter_chip_content_description">selected</string>
     <string name="no_recipes_illustration_content_description">No recipes illustration</string>
     <string name="cooking_time_content_description">Cooking Time</string>
+    <string name="recipe_type_content_description">Recipe Type</string>
     <string name="add_to_favorites_icon">Add to favorites icon</string>
     <string name="remove_from_favorites_icon">Remove from favorites icon</string>
 </resources>
